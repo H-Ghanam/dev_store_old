@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'E-Commers Products',
+        title: 'E-Commers Products mmmmmmm',
         initialRoute: 'appPage',
         routes: routes,
       ),
