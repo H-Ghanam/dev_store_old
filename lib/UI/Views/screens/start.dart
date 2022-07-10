@@ -61,11 +61,11 @@ class _StartState extends State<Start> {
       closable: false,
     ),
     TabData(
-      text: '                          بيع',
+      text: '                                  بيع',
       content: Container(
         child: Center(
           child: Text(
-            "صفحة أخرى",
+            "فاتورة بيع",
             style: TextStyle(fontFamily: "Hind2", fontSize: 50),
           ),
         ),
@@ -180,6 +180,28 @@ class _StartState extends State<Start> {
                         width: 100,
                       ),
                     ),
+                    ElevatedButton(
+                        onPressed: () {
+                          setState(() {
+                            tabs.add(
+                              TabData(
+                                text: '                                  بيع',
+                                content: Container(
+                                  child: Center(
+                                    child: Text(
+                                      "فاتورة بيع",
+                                      style: TextStyle(
+                                          fontFamily: "Hind2", fontSize: 50),
+                                    ),
+                                  ),
+                                ),
+                                closable: true,
+                              ),
+                            );
+                          });
+                        },
+                        child: Text("فاتورة بيع")),
+                        SizedBox(width: 650,),
                     Container(
                         // color: Colors.blue.shade200,
                         width: 60,
