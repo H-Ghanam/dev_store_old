@@ -26,12 +26,12 @@ class _StartState extends State<Start> {
   @override
   void initState() {
     super.initState();
-     testWindowFunctions();
+    testWindowFunctions();
     tabs.map((e) => e);
     _controller = TabbedViewController(tabs);
   }
-  int index = 1;
 
+  int index = 1;
 
   double x = 0.0;
   double y = 0.0;
@@ -40,12 +40,36 @@ class _StartState extends State<Start> {
   List<TabData> tabs = [
     TabData(
       text: '                     إبدأ مع وينجز',
-      content: Container(child: Center(child: Text("صفحة البداية",style: TextStyle(fontFamily: "Hind2",fontSize: 50,color: Colors.amber),),),),
+      content: Container(
+        child: Center(
+          child: Stack(children: [
+            Container(
+              width: double.infinity,
+              child: Image.asset(
+                "assets/images/2.png",
+                fit: BoxFit.fill,
+              ),
+            ),
+            Text(
+              "صفحة البداية",
+              style: TextStyle(
+                  fontFamily: "Hind2", fontSize: 50, color: Colors.amber),
+            )
+          ]),
+        ),
+      ),
       closable: false,
     ),
     TabData(
       text: '                          بيع',
-      content: Container(child: Center(child: Text("صفحة أخرى",style: TextStyle(fontFamily: "Hind2",fontSize: 50),),),),
+      content: Container(
+        child: Center(
+          child: Text(
+            "صفحة أخرى",
+            style: TextStyle(fontFamily: "Hind2", fontSize: 50),
+          ),
+        ),
+      ),
       closable: true,
     ),
   ];
@@ -56,7 +80,7 @@ class _StartState extends State<Start> {
   @override
   Widget build(BuildContext context) {
     // DesktopWindow.setFullScreen(true);
-      TabbedView tabbedView = TabbedView(controller: _controller);
+    TabbedView tabbedView = TabbedView(controller: _controller);
     TabbedViewThemeData().tabsArea.border =
         Border(bottom: BorderSide(color: Colors.green[700]!));
     Size _size = MediaQuery.of(context).size;
@@ -67,13 +91,12 @@ class _StartState extends State<Start> {
         body: Stack(children: [
           SizedBox(
               width: double.infinity,
-              child:
-              Container(
-    
-            child: TabbedViewTheme(
-                child: tabbedView,
-                data: TabbedViewThemeData.minimalist(colorSet: Colors.red)),
-            padding: const EdgeInsets.only(top: 39.5))
+              child: Container(
+                  child: TabbedViewTheme(
+                      child: tabbedView,
+                      data: TabbedViewThemeData.minimalist(
+                          colorSet: Colors.blue)),
+                  padding: const EdgeInsets.only(top: 39.5))
               //  Image.asset(
               //   "assets/images/2.png",
               //   fit: BoxFit.fill,
@@ -88,14 +111,13 @@ class _StartState extends State<Start> {
                 padding: EdgeInsets.only(right: 5),
                 child: Row(
                   children: [
-                  
                     DropdownButton(
                       value: "Wings",
                       items: dropdownItems,
                       onChanged: (Object? value) {},
                       icon: Text(""),
                     ),
-                 
+
                     SizedBox(width: 10),
                     DropdownButton(
                       value: "الحسابات",
