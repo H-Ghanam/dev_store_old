@@ -1,22 +1,10 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
-
-import 'dart:io';
-
-// import 'package:breaking1/presntation/widgets/tabs.dart';
+// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, avoid_unnecessary_containers, sort_child_properties_last
 import 'package:desktop_window/desktop_window.dart';
-import 'package:dev_store/Bloc/App/app_bloc.dart';
-import 'package:dev_store/Models/app_models/start_app_model.dart';
 import 'package:flutter/material.dart';
+import 'package:tabbed_view/tabbed_view.dart';
 import 'package:window_manager/window_manager.dart';
-
-// import '../../businiss_logic/cubit/characters_cubit.dart';
-// import '../../data/models/characters.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../widgets/drop.dart';
-import '../widgets/tabs.dart';
 import 'login.dart';
-import 'package:fluent_ui/fluent_ui.dart' as p;
 
 class Start extends StatefulWidget {
   const Start({Key? key}) : super(key: key);
@@ -38,58 +26,59 @@ class _StartState extends State<Start> {
   @override
   void initState() {
     super.initState();
-    // allCharacters =
-    //     BlocProvider.of<CharactersCubit>(context).getAllCharacters();
-
-    // appData = context.read<AppBloc>().state.startAppModel?.startApp
-    // BlocProvider.of<AppBloc>(context).add(OnAppStartEvent());
-
-    testWindowFunctions();
+     testWindowFunctions();
+    tabs.map((e) => e);
+    _controller = TabbedViewController(tabs);
   }
-
-  // late StartApp appData;
   int index = 1;
 
-  int _enterCounter = 0;
-  int _exitCounter = 0;
+
   double x = 0.0;
   double y = 0.0;
-  double _x = 0.0;
 
-  void _incrementEnter(PointerEvent details) {
-    setState(() {
-      _enterCounter++;
-    });
-  }
+  //TODO ///// Start New Tabs /////
+  List<TabData> tabs = [
+    TabData(
+      text: '                     إبدأ مع وينجز',
+      content: Container(child: Center(child: Text("صفحة البداية",style: TextStyle(fontFamily: "Hind2",fontSize: 50,color: Colors.amber),),),),
+      closable: false,
+    ),
+    TabData(
+      text: '                          بيع',
+      content: Container(child: Center(child: Text("صفحة أخرى",style: TextStyle(fontFamily: "Hind2",fontSize: 50),),),),
+      closable: true,
+    ),
+  ];
+  late TabbedViewController _controller;
 
-  void _incrementExit(PointerEvent details) {
-    setState(() {
-      _exitCounter++;
-    });
-  }
-
-  void _updateLocation(PointerEvent details) {
-    setState(() {
-      x = details.position.dx;
-      // y = details.position.dy;
-    });
-  }
+  //TODO ///// End New Tabs /////
 
   @override
   Widget build(BuildContext context) {
     // DesktopWindow.setFullScreen(true);
+      TabbedView tabbedView = TabbedView(controller: _controller);
+    TabbedViewThemeData().tabsArea.border =
+        Border(bottom: BorderSide(color: Colors.green[700]!));
     Size _size = MediaQuery.of(context).size;
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
-        backgroundColor: Colors.blue,
+        backgroundColor: Colors.blue.shade100,
         body: Stack(children: [
           SizedBox(
               width: double.infinity,
-              child: Image.asset(
-                "assets/images/2.png",
-                fit: BoxFit.fill,
-              )),
+              child:
+              Container(
+    
+            child: TabbedViewTheme(
+                child: tabbedView,
+                data: TabbedViewThemeData.minimalist(colorSet: Colors.red)),
+            padding: const EdgeInsets.only(top: 39.5))
+              //  Image.asset(
+              //   "assets/images/2.png",
+              //   fit: BoxFit.fill,
+              // )
+              ),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -99,19 +88,14 @@ class _StartState extends State<Start> {
                 padding: EdgeInsets.only(right: 5),
                 child: Row(
                   children: [
-                    // IconButton(icon: Icon(Icons.exit_to_app), onPressed: (){exit(1);}),
-                    // SizedBox(width: 5,),
+                  
                     DropdownButton(
                       value: "Wings",
                       items: dropdownItems,
                       onChanged: (Object? value) {},
                       icon: Text(""),
                     ),
-                    // Text(
-                    //   "Wings",
-                    //   style: TextStyle(
-                    //       color: Colors.black, fontSize: 15, fontFamily: "En"),
-                    // ),
+                 
                     SizedBox(width: 10),
                     DropdownButton(
                       value: "الحسابات",
@@ -201,7 +185,7 @@ class _StartState extends State<Start> {
                   ],
                 ),
               ),
-              Tabs(),
+              // Tabs(),
               // Container(width: 50,height: 50,color: Colors.amber,)
               // ElevatedButton(onPressed: (){exit(1);}, child: Text("خروج"))
 

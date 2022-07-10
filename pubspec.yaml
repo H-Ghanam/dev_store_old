@@ -34,8 +34,10 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_bloc: ^8.0.1
+  flutter_offline: ^2.1.0
   google_fonts: ^3.0.1
   http: ^0.13.4
+  tabbed_view: ^1.13.0+1
   window_manager: ^0.2.5
 
 dev_dependencies:
