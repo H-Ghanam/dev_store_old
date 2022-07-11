@@ -81,6 +81,7 @@ class _StartState extends State<Start> {
   Widget build(BuildContext context) {
     // DesktopWindow.setFullScreen(true);
     TabbedView tabbedView = TabbedView(controller: _controller);
+
     TabbedViewThemeData().tabsArea.border =
         Border(bottom: BorderSide(color: Colors.green[700]!));
     Size _size = MediaQuery.of(context).size;
@@ -201,7 +202,9 @@ class _StartState extends State<Start> {
                           });
                         },
                         child: Text("فاتورة بيع")),
-                        SizedBox(width: 650,),
+                    SizedBox(
+                      width: 650,
+                    ),
                     Container(
                         // color: Colors.blue.shade200,
                         width: 60,

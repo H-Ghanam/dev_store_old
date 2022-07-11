@@ -1,6 +1,7 @@
 import 'package:dev_store/Bloc/App/app_bloc.dart';
 import 'package:dev_store/Routes/Routes.dart';
-import 'package:flutter/material.dart';
+import 'package:fluent_ui/fluent_ui.dart';
+import 'package:flutter/material.dart' as m;
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider(create: (context) => AppBloc()),
       ],
-      child: MaterialApp(
+      child: FluentApp(
         debugShowCheckedModeBanner: false,
         title: 'E-Commers Products mmmmmmm',
         initialRoute: 'appPage',
