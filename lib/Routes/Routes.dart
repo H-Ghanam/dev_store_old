@@ -5,6 +5,7 @@
 // import 'package:dev_store/UI/Views/screens/login.dart';
 // import 'package:dev_store/UI/Views/screens/tab_view.dart';
 // import 'package:dev_store/UI/Views/screens/tabs.dart';
+import 'package:dev_store/UI/Views/screens/login.dart';
 import 'package:dev_store/UI/Views/screens/tab_view.dart';
 import 'package:flutter/material.dart';
 
@@ -12,8 +13,8 @@ import '../UI/Views/screens/start.dart';
 import '../UI/Views/screens/tab_view.dart' as t;
 
 Map<String, Widget Function(BuildContext context)> routes = {
-  'appPage': (context) => const TabViewPage(),
-  'start': (context) => const Start(),
+  'appPage': (context) => Login(),
+  'start': (context) => const TabViewPage(),
   // 'loadingPage'   : ( context ) => LoadingPage(),
   // 'getStarted'    : ( context ) => StartHomePage(),
   // 'signInPage'    : ( context ) => SignInPage(),
