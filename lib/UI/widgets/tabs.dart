@@ -1,7 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:flutter/material.dart';
-import 'package:fluent_ui/fluent_ui.dart' as p;
+import 'package:fluent_ui/fluent_ui.dart';
 
 class Tabs extends StatefulWidget {
   const Tabs({Key? key}) : super(key: key);
@@ -18,7 +17,7 @@ class _TabsState extends State<Tabs> {
   Widget build(BuildContext context) {
     double _width = MediaQuery.of(context).size.width;
     return Container(
-      color: Colors.blue.shade100,
+      color: Colors.blue.dark,
       padding: const EdgeInsets.only(bottom: 0.5),
       width: _width,
       height: 27,
@@ -36,9 +35,7 @@ class _TabsState extends State<Tabs> {
                   onHover: (event) {},
                   child: Container(
                     decoration: BoxDecoration(
-                        color: index % 2 == 0
-                            ? Colors.blueAccent
-                            : Colors.blue.shade400,
+                        color: index % 2 == 0 ? Colors.blue : Colors.blue.light,
                         borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(11),
                             bottomRight: index > 0
@@ -54,14 +51,12 @@ class _TabsState extends State<Tabs> {
                         ),
                         Expanded(child: SizedBox()),
                         IconButton(
-                          padding: EdgeInsets.only(bottom: 0),
                           onPressed: () {
                             setState(() {
                               _itemCount--;
                             });
                           },
-                          icon: Icon(Icons.close),
-                          iconSize: 17,
+                          icon: Icon(FluentIcons.close_pane),
                         ),
                       ],
                     ),
@@ -90,7 +85,7 @@ class _TabsState extends State<Tabs> {
                                 cursor: SystemMouseCursors.click,
                                 onHover: (S) {
                                   setState(() {
-                                    _color = Colors.blueAccent;
+                                    _color = Colors.blue.light;
                                   });
                                 },
                                 onExit: (S) {
@@ -99,7 +94,7 @@ class _TabsState extends State<Tabs> {
                                   });
                                 },
                                 child: Icon(
-                                  Icons.add,
+                                  FluentIcons.add,
                                   size: 17,
                                 ),
                               ),

@@ -1,7 +1,7 @@
-import 'package:bloc/bloc.dart';
-import 'package:dev_store/Models/app_models/start_app_model.dart';
+import 'package:dev_store/Modules/App/responses/start_app.dart';
 import 'package:dev_store/Services/app_service.dart';
-import 'package:meta/meta.dart';
+import 'package:fluent_ui/fluent_ui.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 part 'app_event.dart';
 part 'app_state.dart';
@@ -19,7 +19,7 @@ Future<void> _startApp(OnAppStartEvent event, Emitter<AppState> emit) async {
     final data = await appServices.startApp();
 
     if (data.resp) {
-      emit(AppStartedState(startAppModel: data));
+      emit(AppStartedState(startAppRespose: data));
     } else {
       emit(AppErrorState(data.message));
     }

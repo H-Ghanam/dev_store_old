@@ -2,8 +2,8 @@ part of 'app_bloc.dart';
 
 @immutable
 abstract class AppState {
-  final StartAppModel? startAppModel;
-  const AppState({this.startAppModel});
+  final StartAppRespose? startAppRespose;
+  const AppState({this.startAppRespose});
 }
 
 class AppInitial extends AppState {}
@@ -12,9 +12,9 @@ class AppLoadingState extends AppState {}
 
 class AppStartedState extends AppState {
   // ignore: annotate_overrides, overridden_fields
-  final StartAppModel startAppModel;
-  const AppStartedState({required this.startAppModel})
-      : super(startAppModel: startAppModel);
+  final StartAppRespose startAppRespose;
+  const AppStartedState({required this.startAppRespose})
+      : super(startAppRespose: startAppRespose);
 }
 
 class AppErrorState extends AppState {

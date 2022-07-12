@@ -5,8 +5,11 @@
 list(APPEND FLUTTER_PLUGIN_LIST
   connectivity_plus_windows
   desktop_window
+  flutter_acrylic
   network_info_plus_windows
   screen_retriever
+  system_theme
+  url_launcher_windows
   window_manager
 )
 

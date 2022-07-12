@@ -1,15 +1,16 @@
 import 'dart:convert';
 
-import 'package:dev_store/Entities/options.dart';
-import 'package:dev_store/Entities/user.dart';
+import 'package:dev_store/Models/options.dart';
+import 'package:dev_store/Models/user.dart';
 
-StartAppModel startAppModelFromJson(String str) =>
-    StartAppModel.fromJson(json.decode(str));
+StartAppRespose startAppResposeFromJson(String str) =>
+    StartAppRespose.fromJson(json.decode(str));
 
-String startAppModelToJson(StartAppModel data) => json.encode(data.toJson());
+String startAppResposeToJson(StartAppRespose data) =>
+    json.encode(data.toJson());
 
-class StartAppModel {
-  StartAppModel({
+class StartAppRespose {
+  StartAppRespose({
     required this.resp,
     required this.message,
     required this.startApp,
@@ -19,7 +20,8 @@ class StartAppModel {
   String message;
   StartApp startApp;
 
-  factory StartAppModel.fromJson(Map<String, dynamic> json) => StartAppModel(
+  factory StartAppRespose.fromJson(Map<String, dynamic> json) =>
+      StartAppRespose(
         resp: json["resp"],
         message: json["message"],
         startApp: StartApp.fromJson(json["startApp"]),

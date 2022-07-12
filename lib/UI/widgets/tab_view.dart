@@ -1,8 +1,8 @@
 import 'dart:math';
 import 'package:desktop_window/desktop_window.dart';
-import 'package:dev_store/UI/Views/widgets/drop2.dart';
 import 'package:fluent_ui/fluent_ui.dart';
 import 'package:window_manager/window_manager.dart';
+
 class TabViewPage extends StatefulWidget {
   const TabViewPage({Key? key}) : super(key: key);
 
@@ -63,7 +63,6 @@ class _TabViewPageState extends State<TabViewPage> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
-          Drop2(),
           Container(
             padding: const EdgeInsets.all(0),
             width: double.infinity,
