@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:dev_store/UI/widgets/page.dart';
+import 'package:dev_store/widgets/page.dart';
 import 'package:fluent_ui/fluent_ui.dart';
 
 class TabViewPage extends ScrollablePage {

@@ -1,6 +1,6 @@
 // ignore_for_file: constant_identifier_names
 
-import 'package:dev_store/UI/widgets/page.dart';
+import 'package:dev_store/widgets/page.dart';
 import 'package:dev_store/theme.dart';
 import 'package:fluent_ui/generated/l10n.dart';
 import 'package:flutter/foundation.dart';

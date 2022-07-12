@@ -1,22 +1,22 @@
-import 'package:dev_store/UI/screens/home.dart';
-import 'package:dev_store/UI/screens/settings.dart';
-import 'package:dev_store/UI/widgets/page.dart';
 import 'package:dev_store/main.dart';
+import 'package:dev_store/screens/App/pages/home.dart';
+import 'package:dev_store/screens/App/settings.dart';
 import 'package:dev_store/theme.dart';
+import 'package:dev_store/widgets/page.dart';
 import 'package:fluent_ui/fluent_ui.dart' hide Page;
 import 'package:flutter/foundation.dart';
 import 'package:provider/provider.dart';
 import 'package:window_manager/window_manager.dart';
 
-class AppContainer extends StatefulWidget {
-  const AppContainer({Key? key}) : super(key: key);
+class App extends StatefulWidget {
+  const App({Key? key}) : super(key: key);
 
   @override
   // ignore: library_private_types_in_public_api
-  _AppContainerState createState() => _AppContainerState();
+  _AppState createState() => _AppState();
 }
 
-class _AppContainerState extends State<AppContainer> with WindowListener {
+class _AppState extends State<App> with WindowListener {
   bool value = false;
 
   int index = 0;
@@ -36,50 +36,17 @@ class _AppContainerState extends State<AppContainer> with WindowListener {
     ),
     PaneItemSeparator(),
     PaneItemHeader(header: const Text('عنوان القسم')),
-    PaneItem(
-      icon: const Icon(FluentIcons.button_control),
-      title: const Text('Button'),
-    ),
   ];
   late List<NavigationPaneItem> items = originalItems;
 
   final content = <Page>[
     HomePage(),
-    // // inputs
-    // ButtonPage(),
-    // CheckboxPage(),
-    // SliderPage(),
-    // ToggleSwitchPage(),
-    // // forms
-    // TextBoxPage(),
-    // AutoSuggestBoxPage(),
-    // ComboboxPage(),
-    // TimePickerPage(),
-    // DatePickerPage(),
-    // // navigation
-    // EmptyPage(),
-    // TabViewPage(),
-    // TreeViewPage(),
-    // // surfaces
-    // AcrylicPage(),
-    // CommandBarsPage(),
-    // ContentDialogPage(),
-    // ExpanderPage(),
-    // InfoBarPage(),
-    // ProgressIndicatorsPage(),
-    // TilePage(),
-    // TooltipPage(),
-    // const FlyoutPage().toPage(),
-    // // theming
-    // ColorsPage(),
-    // const TypographyPage().toPage(),
-    // const IconsPage().toPage(),
-    // others
     Settings(),
   ];
 
   @override
   void initState() {
+    // setFullScreen();
     windowManager.addListener(this);
     searchController.addListener(() {
       setState(() {

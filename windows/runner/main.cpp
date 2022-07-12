@@ -23,10 +23,9 @@ int APIENTRY wWinMain(_In_ HINSTANCE instance, _In_opt_ HINSTANCE prev,
       GetCommandLineArguments();
 
   project.set_dart_entrypoint_arguments(std::move(command_line_arguments));
-DWORD dwWidth = GetSystemMetrics(SM_CXSCREEN);
-DWORD dwHeight = GetSystemMetrics(SM_CYSCREEN);
+
   FlutterWindow window(project);
-  Win32Window::Point origin(dwWidth/2-305, dwHeight/2-250);
+  Win32Window::Point origin(10, 10);
   Win32Window::Size size(1280, 720);
   if (!window.CreateAndShow(L"dev_store", origin, size)) {
     return EXIT_FAILURE;
@@ -42,3 +41,4 @@ DWORD dwHeight = GetSystemMetrics(SM_CYSCREEN);
   ::CoUninitialize();
   return EXIT_SUCCESS;
 }
+

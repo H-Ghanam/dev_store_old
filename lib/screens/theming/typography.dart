@@ -1,5 +1,5 @@
+import 'package:dev_store/screens/App/settings.dart';
 import 'package:fluent_ui/fluent_ui.dart';
-import 'package:dev_store/UI/screens/settings.dart';
 
 class TypographyPage extends StatefulWidget {
   const TypographyPage({Key? key}) : super(key: key);
@@ -44,30 +44,30 @@ class _TypographyPageState extends State<TypographyPage> {
               value: color,
               items: [
                 ComboboxItem(
+                  value: Colors.white,
                   child: Row(children: [
                     buildColorBox(Colors.white),
                     const SizedBox(width: 10.0),
                     const Text('White'),
                   ]),
-                  value: Colors.white,
                 ),
                 ComboboxItem(
+                  value: const Color(0xE4000000),
                   child: Row(children: [
                     buildColorBox(const Color(0xE4000000)),
                     const SizedBox(width: 10.0),
                     const Text('Black'),
                   ]),
-                  value: const Color(0xE4000000),
                 ),
                 ...List.generate(Colors.accentColors.length, (index) {
                   final color = Colors.accentColors[index];
                   return ComboboxItem(
+                    value: color,
                     child: Row(children: [
                       buildColorBox(color),
                       const SizedBox(width: 10.0),
                       Text(accentColorNames[index + 1]),
                     ]),
-                    value: color,
                   );
                 }),
               ],

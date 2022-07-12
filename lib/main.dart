@@ -1,6 +1,7 @@
 import 'package:dev_store/Modules/App/bloc/app_bloc.dart';
-import 'package:dev_store/UI/screens/login.dart';
-import 'package:dev_store/UI/screens/app_container.dart';
+import 'package:dev_store/routes.dart';
+import 'package:dev_store/screens/App/app.dart';
+import 'package:dev_store/screens/Login/login.dart';
 import 'package:dev_store/theme.dart';
 import 'package:fluent_ui/fluent_ui.dart';
 import 'package:flutter/foundation.dart';
@@ -44,13 +45,6 @@ void main() async {
         TitleBarStyle.hidden,
         windowButtonVisibility: false,
       );
-      // await windowManager.setSize(const Size(755, 545));
-      await windowManager.setMinimumSize(const Size(350, 600));
-      await windowManager.center();
-      await windowManager.show();
-      await windowManager.setPreventClose(true);
-      await windowManager.setSkipTaskbar(false);
-      // await windowManager.setFullScreen(true);
     });
   }
 
@@ -62,22 +56,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-    //     statusBarColor: Colors.transparent,
-    //     statusBarIconBrightness: Brightness.dark));
-
-    // return MultiBlocProvider(
-    //   providers: [
-    //     BlocProvider(create: (context) => AppBloc()),
-    //   ],
-    //   child: FluentApp(
-    //     debugShowCheckedModeBanner: false,
-    //     title: 'E-Commers Products mmmmmmm',
-    //     initialRoute: 'appPage',
-    //     routes: routes,
-    //   ),
-    // );
-
     return ChangeNotifierProvider(
       create: (_) => AppTheme(),
       builder: (context, _) {
@@ -117,10 +95,7 @@ class MyApp extends StatelessWidget {
               );
             },
             initialRoute: '/login',
-            routes: {
-              '/': (context) => const AppContainer(),
-              '/login': (context) => const Login()
-            },
+            routes: routes,
           ),
         );
       },

@@ -1,9 +1,11 @@
 import 'dart:io';
+
 import 'package:desktop_window/desktop_window.dart';
 import 'package:dev_store/Models/user.dart';
 import 'package:dev_store/Modules/App/bloc/app_bloc.dart';
 import 'package:dev_store/Modules/App/responses/start_app.dart';
-import 'package:fluent_ui/fluent_ui.dart';
+import 'package:dev_store/Utls/window.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:window_manager/window_manager.dart';
@@ -17,54 +19,17 @@ class Login extends StatefulWidget {
   State<Login> createState() => _LoginState();
 }
 
-late StartAppRespose appData;
+late StartApp appData;
 
 class _LoginState extends State<Login> {
-  Color? _color = Colors.yellow["700"];
-  //  late final Character character;
-  // late List<Character> allCharacters;
-
-  Future testWindowFunctions() async {
-    // Size size = await DesktopWindow.getWindowSize();
-    // print(size);
-    await DesktopWindow.setWindowSize(const Size(610, 500));
-
-    await DesktopWindow.setMinWindowSize(const Size(610, 500));
-    await DesktopWindow.setMaxWindowSize(const Size(610, 500));
-
-    // await DesktopWindow.resetMaxWindowSize();
-    // await DesktopWindow.toggleFullScreen();
-    // bool isFullScreen = await DesktopWindow.getFullScreen();
-    // await DesktopWindow.setFullScreen(true);
-    // await DesktopWindow.setFullScreen(false);
-    WidgetsFlutterBinding.ensureInitialized();
-    // Must add this line.
-    await windowManager.ensureInitialized();
-
-    WindowOptions windowOptions = const WindowOptions(
-      // size: Size(800, 600),
-      center: true,
-      // backgroundColor: Colors.transparent,
-      skipTaskbar: false,
-      titleBarStyle: TitleBarStyle.hidden,
-    );
-    windowManager.waitUntilReadyToShow(windowOptions, () async {
-      await windowManager.show();
-      await windowManager.focus();
-    });
-  }
+  Color? _color = Colors.yellow[700];
 
   @override
   void initState() {
     super.initState();
 
+    setMiniScreen();
     BlocProvider.of<AppBloc>(context).add(OnAppStartEvent());
-
-    // appData = context.read<AppBloc>().state.startAppModel!.startApp;
-    // allCharacters =
-    //     BlocProvider.of<CharactersCubit>(context).getAllCharacters();
-
-    testWindowFunctions();
     ff = FocusNode();
   }
 
@@ -79,26 +44,27 @@ class _LoginState extends State<Login> {
   FocusNode? ff;
 
   void _f1(RawKeyEvent event) {
-    if (select < appData.startApp.activeUsers!.length - 1 &&
+    if (select < appData.activeUsers!.length - 1 &&
         event.isKeyPressed(LogicalKeyboardKey.arrowDown)) {
       setState(() {
         select++;
       });
-      print("${appData.startApp.activeUsers![select]}");
+      print("${appData.activeUsers![select]}");
     } else if (select > 0 && event.isKeyPressed(LogicalKeyboardKey.arrowUp)) {
       setState(() {
         select--;
       });
-      print("${appData.startApp.activeUsers![select]}");
+      print("${appData.activeUsers![select]}");
     } else if (event.isKeyPressed(LogicalKeyboardKey.enter)) {
       save();
       //pass is here
       // print("${allCharacters[select].acotrName}");
       //check on pass
-      if (ss == appData.startApp.activeUsers![select].pass) {
+      if (ss == appData.activeUsers![select].pass) {
         print("yes");
         // Navigator.pushNamed(context, '/start');
-        Navigator.of(context).pushNamed("/");
+        setFullScreen();
+        Navigator.of(context).pushNamed("/app");
       } else {
         print("no");
         setState(() {
@@ -115,7 +81,7 @@ class _LoginState extends State<Login> {
     return RawKeyboardListener(
       onKey: _f1,
       focusNode: ff!,
-      child: BlocBuilder<AppBloc, AppState>(
+      child: Scaffold(body: BlocBuilder<AppBloc, AppState>(
         builder: (context, state) {
           if (state is AppInitial) {
             return Center(child: Text('${state.startAppRespose}'));
@@ -127,93 +93,88 @@ class _LoginState extends State<Login> {
             List<User>? users = state.startAppRespose.startApp.activeUsers;
             return Column(
               children: [
-                Directionality(
-                  textDirection: TextDirection.ltr,
-                  child: Container(
-                    color: Colors.blue,
-                    width: double.infinity,
-                    height: 150,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            const SizedBox(
-                              height: 20,
-                            ),
-                            Row(
-                              children: const [
-                                SizedBox(
-                                  width: 194,
-                                ),
-                                SizedBox(
-                                  width: 162,
-                                  child: Text(
-                                    "أهلاً وسهلاً",
-                                    style: TextStyle(
-                                        fontSize: 50, fontFamily: "Hind1"),
-                                  ),
-                                ),
-                              ],
-                            ),
-                            const SizedBox(
-                              height: 20,
-                            ),
-                            const Text(
-                              "أسهل وأدق برنامج لإدارة المحلات والمخازن في العالم العربي",
-                              style:
-                                  TextStyle(fontSize: 20, fontFamily: "Hind1"),
-                            ),
-                          ],
-                        ),
-                        const SizedBox(
-                          width: 20,
-                        ),
-                        Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            color: const Color.fromARGB(255, 7, 28, 61),
+                Container(
+                  color: Colors.blue,
+                  width: double.infinity,
+                  height: 150,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const SizedBox(
+                            height: 20,
                           ),
-                          width: 120,
-                          height: 120,
-                          child: Column(
-                            children: [
-                              Stack(children: [
-                                Center(
-                                    child: Image.asset("assets/images/6.png",
-                                        width: 100)),
-                                Container(
-                                  alignment: Alignment.center,
-                                  margin: const EdgeInsets.only(top: 88),
-                                  child: const Text(
-                                    "Wings",
-                                    style: TextStyle(
-                                        color:
-                                            Color.fromARGB(255, 255, 255, 255),
-                                        fontSize: 23,
-                                        fontWeight: FontWeight.bold,
-                                        fontFamily: "En"),
-                                  ),
-                                )
-                              ]),
-                              // Icon(Icons.shopping_cart_outlined,
-                              //     size: 80, color: Color.fromARGB(255, 255, 255, 255)),
+                          Row(
+                            children: const [
+                              SizedBox(
+                                width: 194,
+                              ),
+                              SizedBox(
+                                width: 162,
+                                child: Text(
+                                  "أهلاً وسهلاً",
+                                  style: TextStyle(
+                                      fontSize: 50, fontFamily: "Hind1"),
+                                ),
+                              ),
                             ],
                           ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          const Text(
+                            "أسهل وأدق برنامج لإدارة المحلات والمخازن في العالم العربي",
+                            style: TextStyle(fontSize: 20, fontFamily: "Hind1"),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(
+                        width: 20,
+                      ),
+                      Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: const Color.fromARGB(255, 7, 28, 61),
                         ),
-                        const SizedBox(
-                          width: 10,
+                        width: 120,
+                        height: 120,
+                        child: Column(
+                          children: [
+                            Stack(children: [
+                              Center(
+                                  child: Image.asset("assets/images/6.png",
+                                      width: 100)),
+                              Container(
+                                alignment: Alignment.center,
+                                margin: const EdgeInsets.only(top: 88),
+                                child: const Text(
+                                  "Wings",
+                                  style: TextStyle(
+                                      color: Color.fromARGB(255, 255, 255, 255),
+                                      fontSize: 23,
+                                      fontWeight: FontWeight.bold,
+                                      fontFamily: "En"),
+                                ),
+                              )
+                            ]),
+                            // Icon(Icons.shopping_cart_outlined,
+                            //     size: 80, color: Color.fromARGB(255, 255, 255, 255)),
+                          ],
                         ),
-                      ],
-                    ),
+                      ),
+                      const SizedBox(
+                        width: 10,
+                      ),
+                    ],
                   ),
                 ),
                 const SizedBox(
                   height: 20,
                 ),
-                Container(
-                  color: Colors.white,
+                Directionality(
+                  textDirection: TextDirection.rtl,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
@@ -237,7 +198,7 @@ class _LoginState extends State<Login> {
                                 return BlocBuilder<AppBloc, AppState>(
                                   builder: (context, state) {
                                     if (state is AppStartedState) {
-                                      appData = state.startAppRespose;
+                                      appData = state.startAppRespose.startApp;
 
                                       return MouseRegion(
                                         cursor: SystemMouseCursors.click,
@@ -286,36 +247,24 @@ class _LoginState extends State<Login> {
                           const SizedBox(
                             height: 5,
                           ),
-                          SizedBox(
+                          Container(
                             width: 220,
                             height: 25,
                             child: Form(
                               key: formstate,
-                              child: TextBox(
-                                autofocus: true,
+                              child: TextFormField(
                                 obscureText: true,
-                                style: const TextStyle(
-                                    color: Colors.black,
-                                    decoration: TextDecoration.none),
-                                onSubmitted: (val) {
+                                autofocus: true,
+                                decoration: const InputDecoration(
+                                    contentPadding:
+                                        EdgeInsets.only(right: 0, bottom: -15),
+                                    border: OutlineInputBorder()),
+                                onSaved: (val) {
                                   setState(() {
                                     ss = val;
                                   });
                                 },
                               ),
-                              // TextFormField(
-                              //   obscureText: true,
-                              //   autofocus: true,
-                              //   decoration: const InputDecoration(
-                              //       contentPadding:
-                              //           EdgeInsets.only(right: 0, bottom: -15),
-                              //       border: OutlineInputBorder()),
-                              //   onSaved: (val) {
-                              //     setState(() {
-                              //       ss = val;
-                              //     });
-                              //   },
-                              // ),
                             ),
                           ),
                         ],
@@ -333,10 +282,11 @@ class _LoginState extends State<Login> {
                                 //check on pass
                                 if (ss == users[select].pass) {
                                   print("yes");
-                                  Navigator.pushNamed(context, '/start');
+                                  setFullScreen();
+                                  Navigator.pushNamed(context, '/app');
                                 } else {
                                   print("no");
-                                  Navigator.pushNamed(context, '/start');
+                                  // Navigator.pushNamed(context, '/start');
                                 }
                               },
                               // Navigator.of(context).pushNamed('start'),
@@ -344,12 +294,12 @@ class _LoginState extends State<Login> {
                                 cursor: SystemMouseCursors.click,
                                 onHover: (s) {
                                   setState(() {
-                                    _color = Colors.yellow["400"];
+                                    _color = Colors.yellow[400];
                                   });
                                 },
                                 onExit: (s) {
                                   setState(() {
-                                    _color = Colors.yellow["700"];
+                                    _color = Colors.yellow[700];
                                   });
                                 },
                                 child: Container(
@@ -384,18 +334,18 @@ class _LoginState extends State<Login> {
                     ],
                   ),
                 ),
-                const SizedBox(
+                SizedBox(
                   height: 40,
                 ),
                 Visibility(
                   visible: pass,
                   child: Container(
-                    color: Colors.yellow,
+                    color: Colors.yellow.shade200,
                     width: 200,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: const [
-                        Text(
+                      children: [
+                        const Text(
                           "! تأكد من كلمة السر",
                           style: TextStyle(
                               fontFamily: "Hind3",
@@ -418,9 +368,17 @@ class _LoginState extends State<Login> {
                           const SizedBox(
                             width: 5,
                           ),
-                          Button(
+                          ElevatedButton(
+                              style: ButtonStyle(
+                                  backgroundColor: MaterialStateProperty.all(
+                                      Colors.grey[300]),
+                                  foregroundColor:
+                                      MaterialStateProperty.all(Colors.black),
+                                  padding: MaterialStateProperty.all(
+                                      const EdgeInsets.symmetric(
+                                          horizontal: 30))),
                               onPressed: () {
-                                testWindowFunctions();
+                                // testWindowFunctions();
                               },
                               child: const Text(
                                 "خدمة العملاء",
@@ -429,7 +387,15 @@ class _LoginState extends State<Login> {
                           const SizedBox(
                             width: 5,
                           ),
-                          Button(
+                          ElevatedButton(
+                              style: ButtonStyle(
+                                  backgroundColor: MaterialStateProperty.all(
+                                      Colors.grey[300]),
+                                  foregroundColor:
+                                      MaterialStateProperty.all(Colors.black),
+                                  padding: MaterialStateProperty.all(
+                                      const EdgeInsets.symmetric(
+                                          horizontal: 30))),
                               onPressed: () {},
                               child: const Text("السيرفر",
                                   style:
@@ -437,7 +403,15 @@ class _LoginState extends State<Login> {
                           const SizedBox(
                             width: 5,
                           ),
-                          Button(
+                          ElevatedButton(
+                              style: ButtonStyle(
+                                  backgroundColor: MaterialStateProperty.all(
+                                      Colors.grey[300]),
+                                  foregroundColor:
+                                      MaterialStateProperty.all(Colors.black),
+                                  padding: MaterialStateProperty.all(
+                                      const EdgeInsets.symmetric(
+                                          horizontal: 30))),
                               onPressed: () {},
                               child: const Text("الشركات",
                                   style:
@@ -445,7 +419,15 @@ class _LoginState extends State<Login> {
                           const SizedBox(
                             width: 5,
                           ),
-                          Button(
+                          ElevatedButton(
+                              style: ButtonStyle(
+                                  backgroundColor: MaterialStateProperty.all(
+                                      Colors.grey[300]),
+                                  foregroundColor:
+                                      MaterialStateProperty.all(Colors.black),
+                                  padding: MaterialStateProperty.all(
+                                      const EdgeInsets.symmetric(
+                                          horizontal: 15))),
                               onPressed: () {},
                               child: const Text("ع",
                                   style: TextStyle(
@@ -453,7 +435,15 @@ class _LoginState extends State<Login> {
                                     fontSize: 18,
                                   ))),
                           const Expanded(child: SizedBox()),
-                          Button(
+                          ElevatedButton(
+                              style: ButtonStyle(
+                                  backgroundColor: MaterialStateProperty.all(
+                                      Colors.grey[300]),
+                                  foregroundColor:
+                                      MaterialStateProperty.all(Colors.black),
+                                  padding: MaterialStateProperty.all(
+                                      const EdgeInsets.symmetric(
+                                          horizontal: 30))),
                               onPressed: () {
                                 exit(0);
                               },
@@ -474,7 +464,7 @@ class _LoginState extends State<Login> {
           }
           return const Center(child: Text('non'));
         },
-      ),
+      )),
     );
   }
 }
