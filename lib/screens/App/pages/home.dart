@@ -1,3 +1,4 @@
+import 'package:dev_store/widgets/home_w.dart';
 import 'package:dev_store/widgets/page.dart';
 import 'package:dev_store/widgets/tab_view.dart';
 import 'package:fluent_ui/fluent_ui.dart';
@@ -31,6 +32,7 @@ class HomePage extends ScrollablePage {
     assert(debugCheckHasFluentTheme(context));
     final theme = FluentTheme.of(context);
 
-    return TabViewPage().buildScrollable(context);
+    // return TabViewPage().buildScrollable(context);
+    return [const HomeW()];
   }
 }
