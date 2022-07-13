@@ -59,7 +59,7 @@ class _HomeWState extends State<HomeW> {
                         children: const [
                           Text(
                             "  البضاعة",
-                            style: TextStyle(fontFamily: "Hind4", fontSize: 30),
+                            style: TextStyle(fontFamily: "Hind3", fontSize: 23),
                           ),
                         ],
                       ),
@@ -113,7 +113,7 @@ class _HomeWState extends State<HomeW> {
                         children: const [
                           Text(
                             "  الحسابات",
-                            style: TextStyle(fontFamily: "Hind4", fontSize: 30),
+                            style: TextStyle(fontFamily: "Hind3", fontSize: 23),
                           ),
                         ],
                       ),
@@ -167,7 +167,7 @@ class _HomeWState extends State<HomeW> {
                         children: const [
                           Text(
                             "  الخزينة",
-                            style: TextStyle(fontFamily: "Hind4", fontSize: 30),
+                            style: TextStyle(fontFamily: "Hind3", fontSize: 23),
                           ),
                         ],
                       ),
@@ -221,7 +221,7 @@ class _HomeWState extends State<HomeW> {
                         children: const [
                           Text(
                             "  الفواتير",
-                            style: TextStyle(fontFamily: "Hind4", fontSize: 30),
+                            style: TextStyle(fontFamily: "Hind3", fontSize: 23),
                           ),
                         ],
                       ),
@@ -275,7 +275,7 @@ class _HomeWState extends State<HomeW> {
                         children: const [
                           Text(
                             "  التقارير",
-                            style: TextStyle(fontFamily: "Hind4", fontSize: 30),
+                            style: TextStyle(fontFamily: "Hind3", fontSize: 23),
                           ),
                         ],
                       ),
@@ -370,7 +370,7 @@ class _HomeWState extends State<HomeW> {
                         children: const [
                           Text(
                             "  أهلاً بكم",
-                            style: TextStyle(fontFamily: "Hind4", fontSize: 30),
+                            style: TextStyle(fontFamily: "Hind3", fontSize: 23),
                           ),
                         ],
                       ),
@@ -424,7 +424,7 @@ class _HomeWState extends State<HomeW> {
                         children: const [
                           Text(
                             "  إعداد وينجز",
-                            style: TextStyle(fontFamily: "Hind4", fontSize: 30),
+                            style: TextStyle(fontFamily: "Hind3", fontSize: 23),
                           ),
                         ],
                       ),
@@ -478,7 +478,7 @@ class _HomeWState extends State<HomeW> {
                         children: const [
                           Text(
                             "  إدخال الأصناف",
-                            style: TextStyle(fontFamily: "Hind4", fontSize: 30),
+                            style: TextStyle(fontFamily: "Hind3", fontSize: 23),
                           ),
                         ],
                       ),
@@ -532,7 +532,7 @@ class _HomeWState extends State<HomeW> {
                         children: const [
                           Text(
                             "  إدخال الحسابات",
-                            style: TextStyle(fontFamily: "Hind4", fontSize: 30),
+                            style: TextStyle(fontFamily: "Hind3", fontSize: 23),
                           ),
                         ],
                       ),
@@ -586,7 +586,7 @@ class _HomeWState extends State<HomeW> {
                         children: const [
                           Text(
                             "  الحركة اليومية",
-                            style: TextStyle(fontFamily: "Hind4", fontSize: 30),
+                            style: TextStyle(fontFamily: "Hind3", fontSize: 23),
                           ),
                         ],
                       ),
@@ -640,7 +640,7 @@ class _HomeWState extends State<HomeW> {
                         children: const [
                           Text(
                             "  تحليل المبيعات",
-                            style: TextStyle(fontFamily: "Hind4", fontSize: 30),
+                            style: TextStyle(fontFamily: "Hind3", fontSize: 23),
                           ),
                         ],
                       ),
@@ -722,12 +722,12 @@ class _HomeWState extends State<HomeW> {
                         children: const [
                           Text(
                             "  بيع",
-                            style: TextStyle(fontFamily: "Hind4", fontSize: 30),
+                            style: TextStyle(fontFamily: "Hind3", fontSize: 23),
                           ),
                         ],
                       ),
                       Image.asset(
-                        "assets/images/9.png",
+                        "assets/images/sale.png",
                         width: 102,
                       )
                     ],
@@ -776,12 +776,12 @@ class _HomeWState extends State<HomeW> {
                         children: const [
                           Text(
                             "  شراء",
-                            style: TextStyle(fontFamily: "Hind4", fontSize: 30),
+                            style: TextStyle(fontFamily: "Hind3", fontSize: 23),
                           ),
                         ],
                       ),
                       Image.asset(
-                        "assets/images/9.png",
+                        "assets/images/buy.png",
                         width: 102,
                       )
                     ],
@@ -830,12 +830,12 @@ class _HomeWState extends State<HomeW> {
                         children: const [
                           Text(
                             "  صرف",
-                            style: TextStyle(fontFamily: "Hind4", fontSize: 30),
+                            style: TextStyle(fontFamily: "Hind3", fontSize: 23),
                           ),
                         ],
                       ),
                       Image.asset(
-                        "assets/images/9.png",
+                        "assets/images/coin.png",
                         width: 102,
                       )
                     ],
@@ -884,12 +884,12 @@ class _HomeWState extends State<HomeW> {
                         children: const [
                           Text(
                             "  جرد مخزن",
-                            style: TextStyle(fontFamily: "Hind4", fontSize: 30),
+                            style: TextStyle(fontFamily: "Hind3", fontSize: 23),
                           ),
                         ],
                       ),
                       Image.asset(
-                        "assets/images/9.png",
+                        "assets/images/writing.png",
                         width: 102,
                       )
                     ],
@@ -943,12 +943,12 @@ class _HomeWState extends State<HomeW> {
                         children: const [
                           Text(
                             "  مرتجع بيع",
-                            style: TextStyle(fontFamily: "Hind4", fontSize: 30),
+                            style: TextStyle(fontFamily: "Hind3", fontSize: 23),
                           ),
                         ],
                       ),
                       Image.asset(
-                        "assets/images/9.png",
+                        "assets/images/11.png",
                         width: 102,
                       )
                     ],
@@ -997,12 +997,12 @@ class _HomeWState extends State<HomeW> {
                         children: const [
                           Text(
                             "  عرض أسعار",
-                            style: TextStyle(fontFamily: "Hind4", fontSize: 30),
+                            style: TextStyle(fontFamily: "Hind3", fontSize: 23),
                           ),
                         ],
                       ),
                       Image.asset(
-                        "assets/images/9.png",
+                        "assets/images/calc.png",
                         width: 102,
                       )
                     ],
@@ -1051,13 +1051,14 @@ class _HomeWState extends State<HomeW> {
                         children: const [
                           Text(
                             "  مرتجع شراء",
-                            style: TextStyle(fontFamily: "Hind4", fontSize: 30),
+                            style: TextStyle(fontFamily: "Hind3", fontSize: 23),
                           ),
                         ],
                       ),
                       Image.asset(
-                        "assets/images/9.png",
+                        "assets/images/11.png",
                         width: 102,
+                        matchTextDirection: true,
                       )
                     ],
                   ),
@@ -1105,12 +1106,12 @@ class _HomeWState extends State<HomeW> {
                         children: const [
                           Text(
                             "  قبض",
-                            style: TextStyle(fontFamily: "Hind4", fontSize: 30),
+                            style: TextStyle(fontFamily: "Hind3", fontSize: 23),
                           ),
                         ],
                       ),
                       Image.asset(
-                        "assets/images/9.png",
+                        "assets/images/cash.png",
                         width: 102,
                       )
                     ],
@@ -1159,12 +1160,12 @@ class _HomeWState extends State<HomeW> {
                         children: const [
                           Text(
                             "  تحويل لمخزن",
-                            style: TextStyle(fontFamily: "Hind4", fontSize: 30),
+                            style: TextStyle(fontFamily: "Hind3", fontSize: 23),
                           ),
                         ],
                       ),
                       Image.asset(
-                        "assets/images/9.png",
+                        "assets/images/truck.png",
                         width: 102,
                       )
                     ],
@@ -1213,12 +1214,12 @@ class _HomeWState extends State<HomeW> {
                         children: const [
                           Text(
                             "  تسوية مخزن",
-                            style: TextStyle(fontFamily: "Hind4", fontSize: 30),
+                            style: TextStyle(fontFamily: "Hind3", fontSize: 23),
                           ),
                         ],
                       ),
                       Image.asset(
-                        "assets/images/9.png",
+                        "assets/images/scale.png",
                         width: 102,
                       )
                     ],
