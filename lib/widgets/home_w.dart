@@ -1,7 +1,9 @@
+// ignore_for_file: prefer_const_literals_to_create_immutables
+
+import 'package:dev_store/widgets/backGround.dart';
 import 'package:dev_store/widgets/page_card.dart';
+import 'package:dev_store/widgets/wings_card.dart';
 import 'package:fluent_ui/fluent_ui.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class HomeW extends StatelessWidget {
   const HomeW({Key? key}) : super(key: key);
@@ -9,21 +11,25 @@ class HomeW extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return Row(
-      children: [
-        MyCard(
-          size: size.width / 6.7,
-          image: "assets/images/boxes.png",
-          title: "البضاعة",
-          gradient: LinearGradient(colors: [Colors.green, Colors.blue]),
+    return SizedBox(
+      width: double.infinity,
+      height: size.height - 100,
+      child: Stack(children: [
+        const BackGround(),
+        Row(
+          children: [
+            const WingsCard(),
+            
+            // MyCard(
+            //   size: size.width / 12,
+            //   image: "assets/images/boxes.png",
+            //   title: "البضاعة",
+            //   gradient: LinearGradient(colors: [Colors.green, Colors.blue]),
+            // ),
+           
+          ],
         ),
-        MyCard(
-          size: size.width / 6.7,
-          image: "assets/images/boxes.png",
-          title: "البضاعة",
-          gradient: LinearGradient(colors: [Colors.green, Colors.blue]),
-        ),
-      ],
+      ]),
     );
   }
 }

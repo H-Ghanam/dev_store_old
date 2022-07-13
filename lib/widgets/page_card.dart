@@ -15,9 +15,9 @@ class MyCard extends StatefulWidget {
   State<MyCard> createState() => _MyCardState();
 }
 
-double _opacity = 0.0;
-
 class _MyCardState extends State<MyCard> {
+  double _opacity = 0.0;
+  //  Gradient? _gradient = widget.gradient;
   @override
   Widget build(BuildContext context) {
     return Stack(children: [
@@ -25,7 +25,7 @@ class _MyCardState extends State<MyCard> {
         cursor: SystemMouseCursors.click,
         child: Container(
           width: widget.size,
-          height: MediaQuery.of(context).size.height / 5.5,
+          height: 140,
           decoration: BoxDecoration(gradient: widget.gradient),
           child: Column(
             children: [
@@ -52,7 +52,7 @@ class _MyCardState extends State<MyCard> {
             _opacity = 0.0;
           });
         },
-        onHover: (e) {
+        onEnter: (s) {
           setState(() {
             _opacity = 0.5;
           });
@@ -60,7 +60,7 @@ class _MyCardState extends State<MyCard> {
         child: Container(
           width: widget.size,
           height: 140,
-          color: Colors.grey.withOpacity(_opacity),
+          color: Color.fromARGB(255, 217, 255, 0).withOpacity(_opacity),
         ),
       ),
     ]);
