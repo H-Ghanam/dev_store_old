@@ -10,27 +10,27 @@ class HomeW extends StatefulWidget {
 }
 
 class _HomeWState extends State<HomeW> {
-  bool _visible = false;
-  bool _visible1 = false;
-  bool _visible2 = false;
-  bool _visible3 = false;
-  bool _visible4 = false;
-  bool _visible5 = false;
-  bool _visible6 = false;
-  bool _visible7 = false;
-  bool _visible8 = false;
-  bool _visible9 = false;
-  bool _visible10 = false;
-  bool _visible11 = false;
-  bool _visible12 = false;
-  bool _visible13 = false;
-  bool _visible14 = false;
-  bool _visible15 = false;
-  bool _visible16 = false;
-  bool _visible17 = false;
-  bool _visible18 = false;
-  bool _visible19 = false;
-  bool _visible20 = false;
+  double _opacity = 0.0;
+  double _opacity1 = 0.0;
+  double _opacity2 = 0.0;
+  double _opacity3 = 0.0;
+  double _opacity4 = 0.0;
+  double _opacity5 = 0.0;
+  double _opacity6 = 0.0;
+  double _opacity7 = 0.0;
+  double _opacity8 = 0.0;
+  double _opacity9 = 0.0;
+  double _opacity10 = 0.0;
+  double _opacity11 = 0.0;
+  double _opacity12 = 0.0;
+  double _opacity13 = 0.0;
+  double _opacity14 = 0.0;
+  double _opacity15 = 0.0;
+  double _opacity16 = 0.0;
+  double _opacity17 = 0.0;
+  double _opacity18 = 0.0;
+  double _opacity19 = 0.0;
+  double _opacity20 = 0.0;
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -42,11 +42,6 @@ class _HomeWState extends State<HomeW> {
             Stack(children: [
               MouseRegion(
                 cursor: SystemMouseCursors.click,
-                onHover: (event) {
-                  setState(() {
-                    _visible = true;
-                  });
-                },
                 child: Container(
                   width: size.width / 6.7,
                   height: 140,
@@ -75,16 +70,19 @@ class _HomeWState extends State<HomeW> {
                 cursor: SystemMouseCursors.click,
                 onExit: (e) {
                   setState(() {
-                    _visible = false;
+                    // _visible = false;
+                    _opacity = 0.0;
                   });
                 },
-                child: Visibility(
-                  visible: _visible,
-                  child: Container(
-                    width: size.width / 6.7,
-                    height: 140,
-                    color: Colors.grey.withOpacity(0.5),
-                  ),
+                onHover: (e) {
+                  setState(() {
+                    _opacity = 0.5;
+                  });
+                },
+                child: Container(
+                  width: size.width / 6.7,
+                  height: 140,
+                  color: Colors.grey.withOpacity(_opacity),
                 ),
               ),
             ]),
@@ -94,11 +92,6 @@ class _HomeWState extends State<HomeW> {
             Stack(children: [
               MouseRegion(
                 cursor: SystemMouseCursors.click,
-                onHover: (e) {
-                  setState(() {
-                    _visible1 = true;
-                  });
-                },
                 child: Container(
                   width: size.width / 6.7,
                   height: 140,
@@ -129,16 +122,18 @@ class _HomeWState extends State<HomeW> {
                 cursor: SystemMouseCursors.click,
                 onExit: (e) {
                   setState(() {
-                    _visible1 = false;
+                    _opacity1 = 0.0;
                   });
                 },
-                child: Visibility(
-                  visible: _visible1,
-                  child: Container(
-                    width: size.width / 6.7,
-                    height: 140,
-                    color: Colors.grey.withOpacity(0.5),
-                  ),
+                onHover: (e) {
+                  setState(() {
+                    _opacity1 = 0.5;
+                  });
+                },
+                child: Container(
+                  width: size.width / 6.7,
+                  height: 140,
+                  color: Colors.grey.withOpacity(_opacity1),
                 ),
               ),
             ]),
@@ -148,11 +143,6 @@ class _HomeWState extends State<HomeW> {
             Stack(children: [
               MouseRegion(
                 cursor: SystemMouseCursors.click,
-                onHover: (event) {
-                  setState(() {
-                    _visible2 = true;
-                  });
-                },
                 child: Container(
                   width: size.width / 6.7,
                   height: 140,
@@ -183,16 +173,18 @@ class _HomeWState extends State<HomeW> {
                 cursor: SystemMouseCursors.click,
                 onExit: (e) {
                   setState(() {
-                    _visible2 = false;
+                    _opacity2 = 0.0;
                   });
                 },
-                child: Visibility(
-                  visible: _visible2,
-                  child: Container(
-                    width: size.width / 6.7,
-                    height: 140,
-                    color: Colors.grey.withOpacity(0.5),
-                  ),
+                onHover: (e) {
+                  setState(() {
+                    _opacity2 = 0.5;
+                  });
+                },
+                child: Container(
+                  width: size.width / 6.7,
+                  height: 140,
+                  color: Colors.grey.withOpacity(_opacity2),
                 ),
               ),
             ]),
@@ -202,11 +194,6 @@ class _HomeWState extends State<HomeW> {
             Stack(children: [
               MouseRegion(
                 cursor: SystemMouseCursors.click,
-                onHover: (event) {
-                  setState(() {
-                    _visible3 = true;
-                  });
-                },
                 child: Container(
                   width: size.width / 6.7,
                   height: 140,
@@ -237,16 +224,18 @@ class _HomeWState extends State<HomeW> {
                 cursor: SystemMouseCursors.click,
                 onExit: (e) {
                   setState(() {
-                    _visible3 = false;
+                    _opacity3 = 0.0;
                   });
                 },
-                child: Visibility(
-                  visible: _visible3,
-                  child: Container(
-                    width: size.width / 6.7,
-                    height: 140,
-                    color: Colors.grey.withOpacity(0.5),
-                  ),
+                onHover: (e) {
+                  setState(() {
+                    _opacity3 = 0.5;
+                  });
+                },
+                child: Container(
+                  width: size.width / 6.7,
+                  height: 140,
+                  color: Colors.grey.withOpacity(_opacity3),
                 ),
               ),
             ]),
@@ -256,11 +245,6 @@ class _HomeWState extends State<HomeW> {
             Stack(children: [
               MouseRegion(
                 cursor: SystemMouseCursors.click,
-                onHover: (event) {
-                  setState(() {
-                    _visible4 = true;
-                  });
-                },
                 child: Container(
                   width: size.width / 6.7,
                   height: 140,
@@ -291,16 +275,18 @@ class _HomeWState extends State<HomeW> {
                 cursor: SystemMouseCursors.click,
                 onExit: (e) {
                   setState(() {
-                    _visible4 = false;
+                    _opacity4 = 0.0;
                   });
                 },
-                child: Visibility(
-                  visible: _visible4,
-                  child: Container(
-                    width: size.width / 6.7,
-                    height: 140,
-                    color: Colors.grey.withOpacity(0.5),
-                  ),
+                onHover: (e) {
+                  setState(() {
+                    _opacity4 = 0.5;
+                  });
+                },
+                child: Container(
+                  width: size.width / 6.7,
+                  height: 140,
+                  color: Colors.grey.withOpacity(_opacity4),
                 ),
               ),
             ]),
@@ -351,11 +337,6 @@ class _HomeWState extends State<HomeW> {
             Stack(children: [
               MouseRegion(
                 cursor: SystemMouseCursors.click,
-                onHover: (event) {
-                  setState(() {
-                    _visible5 = true;
-                  });
-                },
                 child: Container(
                   width: size.width / 9,
                   height: 140,
@@ -386,16 +367,18 @@ class _HomeWState extends State<HomeW> {
                 cursor: SystemMouseCursors.click,
                 onExit: (e) {
                   setState(() {
-                    _visible5 = false;
+                    _opacity5 = 0.0;
                   });
                 },
-                child: Visibility(
-                  visible: _visible5,
-                  child: Container(
-                    width: size.width / 9,
-                    height: 140,
-                    color: Colors.grey.withOpacity(0.5),
-                  ),
+                onHover: (e) {
+                  setState(() {
+                    _opacity5 = 0.5;
+                  });
+                },
+                child: Container(
+                  width: size.width / 9,
+                  height: 140,
+                  color: Colors.grey.withOpacity(_opacity5),
                 ),
               ),
             ]),
@@ -405,11 +388,6 @@ class _HomeWState extends State<HomeW> {
             Stack(children: [
               MouseRegion(
                 cursor: SystemMouseCursors.click,
-                onHover: (event) {
-                  setState(() {
-                    _visible6 = true;
-                  });
-                },
                 child: Container(
                   width: size.width / 9,
                   height: 140,
@@ -440,16 +418,18 @@ class _HomeWState extends State<HomeW> {
                 cursor: SystemMouseCursors.click,
                 onExit: (e) {
                   setState(() {
-                    _visible6 = false;
+                    _opacity6 = 0.0;
                   });
                 },
-                child: Visibility(
-                  visible: _visible6,
-                  child: Container(
-                    width: size.width / 9,
-                    height: 140,
-                    color: Colors.grey.withOpacity(0.5),
-                  ),
+                onHover: (e) {
+                  setState(() {
+                    _opacity6 = 0.5;
+                  });
+                },
+                child: Container(
+                  width: size.width / 9,
+                  height: 140,
+                  color: Colors.grey.withOpacity(_opacity6),
                 ),
               ),
             ]),
@@ -459,11 +439,6 @@ class _HomeWState extends State<HomeW> {
             Stack(children: [
               MouseRegion(
                 cursor: SystemMouseCursors.click,
-                onHover: (event) {
-                  setState(() {
-                    _visible7 = true;
-                  });
-                },
                 child: Container(
                   width: size.width / 9,
                   height: 140,
@@ -494,16 +469,18 @@ class _HomeWState extends State<HomeW> {
                 cursor: SystemMouseCursors.click,
                 onExit: (e) {
                   setState(() {
-                    _visible7 = false;
+                    _opacity7 = 0.0;
                   });
                 },
-                child: Visibility(
-                  visible: _visible7,
-                  child: Container(
-                    width: size.width / 9,
-                    height: 140,
-                    color: Colors.grey.withOpacity(0.5),
-                  ),
+                onHover: (e) {
+                  setState(() {
+                    _opacity7 = 0.5;
+                  });
+                },
+                child: Container(
+                  width: size.width / 9,
+                  height: 140,
+                  color: Colors.grey.withOpacity(_opacity7),
                 ),
               ),
             ]),
@@ -513,11 +490,6 @@ class _HomeWState extends State<HomeW> {
             Stack(children: [
               MouseRegion(
                 cursor: SystemMouseCursors.click,
-                onHover: (event) {
-                  setState(() {
-                    _visible8 = true;
-                  });
-                },
                 child: Container(
                   width: size.width / 9,
                   height: 140,
@@ -548,16 +520,18 @@ class _HomeWState extends State<HomeW> {
                 cursor: SystemMouseCursors.click,
                 onExit: (e) {
                   setState(() {
-                    _visible8 = false;
+                    _opacity8 = 0.0;
                   });
                 },
-                child: Visibility(
-                  visible: _visible8,
-                  child: Container(
-                    width: size.width / 9,
-                    height: 140,
-                    color: Colors.grey.withOpacity(0.5),
-                  ),
+                onHover: (e) {
+                  setState(() {
+                    _opacity8 = 0.5;
+                  });
+                },
+                child: Container(
+                  width: size.width / 9,
+                  height: 140,
+                  color: Colors.grey.withOpacity(_opacity8),
                 ),
               ),
             ]),
@@ -567,11 +541,6 @@ class _HomeWState extends State<HomeW> {
             Stack(children: [
               MouseRegion(
                 cursor: SystemMouseCursors.click,
-                onHover: (event) {
-                  setState(() {
-                    _visible9 = true;
-                  });
-                },
                 child: Container(
                   width: size.width / 6.7,
                   height: 140,
@@ -602,16 +571,18 @@ class _HomeWState extends State<HomeW> {
                 cursor: SystemMouseCursors.click,
                 onExit: (e) {
                   setState(() {
-                    _visible9 = false;
+                    _opacity19 = 0.0;
                   });
                 },
-                child: Visibility(
-                  visible: _visible9,
-                  child: Container(
-                    width: size.width / 6.7,
-                    height: 140,
-                    color: Colors.grey.withOpacity(0.5),
-                  ),
+                onHover: (e) {
+                  setState(() {
+                    _opacity19 = 0.5;
+                  });
+                },
+                child: Container(
+                  width: size.width / 6.7,
+                  height: 140,
+                  color: Colors.grey.withOpacity(_opacity19),
                 ),
               ),
             ]),
@@ -621,11 +592,6 @@ class _HomeWState extends State<HomeW> {
             Stack(children: [
               MouseRegion(
                 cursor: SystemMouseCursors.click,
-                onHover: (event) {
-                  setState(() {
-                    _visible10 = true;
-                  });
-                },
                 child: Container(
                   width: size.width / 6.7,
                   height: 140,
@@ -656,16 +622,18 @@ class _HomeWState extends State<HomeW> {
                 cursor: SystemMouseCursors.click,
                 onExit: (e) {
                   setState(() {
-                    _visible10 = false;
+                    _opacity9 = 0.0;
                   });
                 },
-                child: Visibility(
-                  visible: _visible10,
-                  child: Container(
-                    width: size.width / 6.7,
-                    height: 140,
-                    color: Colors.grey.withOpacity(0.5),
-                  ),
+                onHover: (e) {
+                  setState(() {
+                    _opacity9 = 0.5;
+                  });
+                },
+                child: Container(
+                  width: size.width / 6.7,
+                  height: 140,
+                  color: Colors.grey.withOpacity(_opacity9),
                 ),
               ),
             ]),
@@ -703,11 +671,6 @@ class _HomeWState extends State<HomeW> {
             Stack(children: [
               MouseRegion(
                 cursor: SystemMouseCursors.click,
-                onHover: (event) {
-                  setState(() {
-                    _visible11 = true;
-                  });
-                },
                 child: Container(
                   width: size.width / 4.5,
                   height: 140,
@@ -738,16 +701,18 @@ class _HomeWState extends State<HomeW> {
                 cursor: SystemMouseCursors.click,
                 onExit: (e) {
                   setState(() {
-                    _visible11 = false;
+                    _opacity10 = 0.0;
                   });
                 },
-                child: Visibility(
-                  visible: _visible11,
-                  child: Container(
-                    width: size.width / 4.5,
-                    height: 140,
-                    color: Colors.grey.withOpacity(0.5),
-                  ),
+                onHover: (e) {
+                  setState(() {
+                    _opacity10 = 0.5;
+                  });
+                },
+                child: Container(
+                  width: size.width / 4.5,
+                  height: 140,
+                  color: Colors.grey.withOpacity(_opacity10),
                 ),
               ),
             ]),
@@ -757,11 +722,6 @@ class _HomeWState extends State<HomeW> {
             Stack(children: [
               MouseRegion(
                 cursor: SystemMouseCursors.click,
-                onHover: (event) {
-                  setState(() {
-                    _visible12 = true;
-                  });
-                },
                 child: Container(
                   width: size.width / 4.5,
                   height: 140,
@@ -792,16 +752,18 @@ class _HomeWState extends State<HomeW> {
                 cursor: SystemMouseCursors.click,
                 onExit: (e) {
                   setState(() {
-                    _visible12 = false;
+                    _opacity11 = 0.0;
                   });
                 },
-                child: Visibility(
-                  visible: _visible12,
-                  child: Container(
-                    width: size.width / 4.5,
-                    height: 140,
-                    color: Colors.grey.withOpacity(0.5),
-                  ),
+                onHover: (e) {
+                  setState(() {
+                    _opacity11 = 0.5;
+                  });
+                },
+                child: Container(
+                  width: size.width / 4.5,
+                  height: 140,
+                  color: Colors.grey.withOpacity(_opacity11),
                 ),
               ),
             ]),
@@ -811,11 +773,6 @@ class _HomeWState extends State<HomeW> {
             Stack(children: [
               MouseRegion(
                 cursor: SystemMouseCursors.click,
-                onHover: (event) {
-                  setState(() {
-                    _visible13 = true;
-                  });
-                },
                 child: Container(
                   width: size.width / 12,
                   height: 140,
@@ -846,16 +803,18 @@ class _HomeWState extends State<HomeW> {
                 cursor: SystemMouseCursors.click,
                 onExit: (e) {
                   setState(() {
-                    _visible13 = false;
+                    _opacity12 = 0.0;
                   });
                 },
-                child: Visibility(
-                  visible: _visible13,
-                  child: Container(
-                    width: size.width / 12,
-                    height: 140,
-                    color: Colors.grey.withOpacity(0.5),
-                  ),
+                onHover: (e) {
+                  setState(() {
+                    _opacity12 = 0.5;
+                  });
+                },
+                child: Container(
+                  width: size.width / 12,
+                  height: 140,
+                  color: Colors.grey.withOpacity(_opacity12),
                 ),
               ),
             ]),
@@ -865,11 +824,6 @@ class _HomeWState extends State<HomeW> {
             Stack(children: [
               MouseRegion(
                 cursor: SystemMouseCursors.click,
-                onHover: (event) {
-                  setState(() {
-                    _visible14 = true;
-                  });
-                },
                 child: Container(
                   width: size.width / 4.5,
                   height: 140,
@@ -900,16 +854,18 @@ class _HomeWState extends State<HomeW> {
                 cursor: SystemMouseCursors.click,
                 onExit: (e) {
                   setState(() {
-                    _visible14 = false;
+                    _opacity13 = 0.0;
                   });
                 },
-                child: Visibility(
-                  visible: _visible14,
-                  child: Container(
-                    width: size.width / 4.5,
-                    height: 140,
-                    color: Colors.grey.withOpacity(0.5),
-                  ),
+                onHover: (e) {
+                  setState(() {
+                    _opacity13 = 0.5;
+                  });
+                },
+                child: Container(
+                  width: size.width / 4.5,
+                  height: 140,
+                  color: Colors.grey.withOpacity(_opacity13),
                 ),
               ),
             ])
@@ -924,11 +880,6 @@ class _HomeWState extends State<HomeW> {
             Stack(children: [
               MouseRegion(
                 cursor: SystemMouseCursors.click,
-                onHover: (event) {
-                  setState(() {
-                    _visible15 = true;
-                  });
-                },
                 child: Container(
                   width: size.width / 12,
                   height: 140,
@@ -959,16 +910,18 @@ class _HomeWState extends State<HomeW> {
                 cursor: SystemMouseCursors.click,
                 onExit: (e) {
                   setState(() {
-                    _visible15 = false;
+                    _opacity14 = 0.0;
                   });
                 },
-                child: Visibility(
-                  visible: _visible15,
-                  child: Container(
-                    width: size.width / 12,
-                    height: 140,
-                    color: Colors.grey.withOpacity(0.5),
-                  ),
+                onHover: (e) {
+                  setState(() {
+                    _opacity14 = 0.5;
+                  });
+                },
+                child: Container(
+                  width: size.width / 12,
+                  height: 140,
+                  color: Colors.grey.withOpacity(_opacity14),
                 ),
               ),
             ]),
@@ -978,11 +931,6 @@ class _HomeWState extends State<HomeW> {
             Stack(children: [
               MouseRegion(
                 cursor: SystemMouseCursors.click,
-                onHover: (event) {
-                  setState(() {
-                    _visible16 = true;
-                  });
-                },
                 child: Container(
                   width: size.width / 12,
                   height: 140,
@@ -1013,16 +961,18 @@ class _HomeWState extends State<HomeW> {
                 cursor: SystemMouseCursors.click,
                 onExit: (e) {
                   setState(() {
-                    _visible16 = false;
+                    _opacity15 = 0.0;
                   });
                 },
-                child: Visibility(
-                  visible: _visible16,
-                  child: Container(
-                    width: size.width / 12,
-                    height: 140,
-                    color: Colors.grey.withOpacity(0.5),
-                  ),
+                onHover: (e) {
+                  setState(() {
+                    _opacity15 = 0.5;
+                  });
+                },
+                child: Container(
+                  width: size.width / 12,
+                  height: 140,
+                  color: Colors.grey.withOpacity(_opacity15),
                 ),
               ),
             ]),
@@ -1032,11 +982,6 @@ class _HomeWState extends State<HomeW> {
             Stack(children: [
               MouseRegion(
                 cursor: SystemMouseCursors.click,
-                onHover: (event) {
-                  setState(() {
-                    _visible17 = true;
-                  });
-                },
                 child: Container(
                   width: size.width / 12,
                   height: 140,
@@ -1068,16 +1013,18 @@ class _HomeWState extends State<HomeW> {
                 cursor: SystemMouseCursors.click,
                 onExit: (e) {
                   setState(() {
-                    _visible17 = false;
+                    _opacity16 = 0.0;
                   });
                 },
-                child: Visibility(
-                  visible: _visible17,
-                  child: Container(
-                    width: size.width / 12,
-                    height: 140,
-                    color: Colors.grey.withOpacity(0.5),
-                  ),
+                onHover: (e) {
+                  setState(() {
+                    _opacity16 = 0.5;
+                  });
+                },
+                child: Container(
+                  width: size.width / 12,
+                  height: 140,
+                  color: Colors.grey.withOpacity(_opacity16),
                 ),
               ),
             ]),
@@ -1087,11 +1034,6 @@ class _HomeWState extends State<HomeW> {
             Stack(children: [
               MouseRegion(
                 cursor: SystemMouseCursors.click,
-                onHover: (event) {
-                  setState(() {
-                    _visible18 = true;
-                  });
-                },
                 child: Container(
                   width: size.width / 12,
                   height: 140,
@@ -1122,16 +1064,18 @@ class _HomeWState extends State<HomeW> {
                 cursor: SystemMouseCursors.click,
                 onExit: (e) {
                   setState(() {
-                    _visible18 = false;
+                    _opacity17 = 0.0;
                   });
                 },
-                child: Visibility(
-                  visible: _visible18,
-                  child: Container(
-                    width: size.width / 12,
-                    height: 140,
-                    color: Colors.grey.withOpacity(0.5),
-                  ),
+                onHover: (e) {
+                  setState(() {
+                    _opacity17 = 0.5;
+                  });
+                },
+                child: Container(
+                  width: size.width / 12,
+                  height: 140,
+                  color: Colors.grey.withOpacity(_opacity17),
                 ),
               ),
             ]),
@@ -1141,11 +1085,6 @@ class _HomeWState extends State<HomeW> {
             Stack(children: [
               MouseRegion(
                 cursor: SystemMouseCursors.click,
-                onHover: (event) {
-                  setState(() {
-                    _visible19 = true;
-                  });
-                },
                 child: Container(
                   width: size.width / 12,
                   height: 140,
@@ -1176,16 +1115,18 @@ class _HomeWState extends State<HomeW> {
                 cursor: SystemMouseCursors.click,
                 onExit: (e) {
                   setState(() {
-                    _visible19 = false;
+                    _opacity18 = 0.0;
                   });
                 },
-                child: Visibility(
-                  visible: _visible19,
-                  child: Container(
-                    width: size.width / 12,
-                    height: 140,
-                    color: Colors.grey.withOpacity(0.5),
-                  ),
+                onHover: (e) {
+                  setState(() {
+                    _opacity18 = 0.5;
+                  });
+                },
+                child: Container(
+                  width: size.width / 12,
+                  height: 140,
+                  color: Colors.grey.withOpacity(_opacity18),
                 ),
               ),
             ]),
@@ -1195,11 +1136,6 @@ class _HomeWState extends State<HomeW> {
             Stack(children: [
               MouseRegion(
                 cursor: SystemMouseCursors.click,
-                onHover: (event) {
-                  setState(() {
-                    _visible20 = true;
-                  });
-                },
                 child: Container(
                   width: size.width / 12,
                   height: 140,
@@ -1230,16 +1166,18 @@ class _HomeWState extends State<HomeW> {
                 cursor: SystemMouseCursors.click,
                 onExit: (e) {
                   setState(() {
-                    _visible20 = false;
+                    _opacity20 = 0.0;
                   });
                 },
-                child: Visibility(
-                  visible: _visible20,
-                  child: Container(
-                    width: size.width / 12,
-                    height: 140,
-                    color: Colors.grey.withOpacity(0.5),
-                  ),
+                onHover: (e) {
+                  setState(() {
+                    _opacity20 = 0.5;
+                  });
+                },
+                child: Container(
+                  width: size.width / 12,
+                  height: 140,
+                  color: Colors.grey.withOpacity(_opacity20),
                 ),
               ),
             ]),
