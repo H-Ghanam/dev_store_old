@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'dart:io';
 
 import 'package:desktop_window/desktop_window.dart';
@@ -98,38 +100,8 @@ class _LoginState extends State<Login> {
                   width: double.infinity,
                   height: 150,
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
+                    // mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          Row(
-                            children: const [
-                              SizedBox(
-                                width: 194,
-                              ),
-                              SizedBox(
-                                width: 162,
-                                child: Text(
-                                  "أهلاً وسهلاً",
-                                  style: TextStyle(
-                                      fontSize: 50, fontFamily: "Hind1"),
-                                ),
-                              ),
-                            ],
-                          ),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          const Text(
-                            "أسهل وأدق برنامج لإدارة المحلات والمخازن في العالم العربي",
-                            style: TextStyle(fontSize: 20, fontFamily: "Hind1"),
-                          ),
-                        ],
-                      ),
                       const SizedBox(
                         width: 20,
                       ),
@@ -167,172 +139,199 @@ class _LoginState extends State<Login> {
                       const SizedBox(
                         width: 10,
                       ),
+                      Column(
+                        // mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          Row(
+                            children: const [
+                              SizedBox(
+                                width: 162,
+                                child: Text(
+                                  "أهلاً وسهلاً",
+                                  style: TextStyle(
+                                      fontSize: 50, fontFamily: "Hind1"),
+                                ),
+                              ),
+                              SizedBox(
+                                width: 194,
+                              ),
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          const Text(
+                            "أسهل وأدق برنامج لإدارة المحلات والمخازن في العالم العربي",
+                            style: TextStyle(fontSize: 20, fontFamily: "Hind1"),
+                          ),
+                        ],
+                      ),
                     ],
                   ),
                 ),
                 const SizedBox(
                   height: 20,
                 ),
-                Directionality(
-                  textDirection: TextDirection.rtl,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Text(
-                            "إختر المستخدم",
-                            style: TextStyle(),
-                          ),
-                          const SizedBox(
-                            height: 5,
-                          ),
-                          Container(
-                            width: 220,
-                            height: 100,
-                            decoration: BoxDecoration(border: Border.all()),
-                            child: ListView.builder(
-                              itemCount: users!.length,
-                              itemBuilder: (BuildContext context, int index) {
-                                return BlocBuilder<AppBloc, AppState>(
-                                  builder: (context, state) {
-                                    if (state is AppStartedState) {
-                                      appData = state.startAppRespose.startApp;
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text(
+                          "إختر المستخدم",
+                          style: TextStyle(),
+                        ),
+                        const SizedBox(
+                          height: 5,
+                        ),
+                        Container(
+                          width: 220,
+                          height: 100,
+                          decoration: BoxDecoration(border: Border.all()),
+                          child: ListView.builder(
+                            itemCount: users!.length,
+                            itemBuilder: (BuildContext context, int index) {
+                              return BlocBuilder<AppBloc, AppState>(
+                                builder: (context, state) {
+                                  if (state is AppStartedState) {
+                                    appData = state.startAppRespose.startApp;
 
-                                      return MouseRegion(
-                                        cursor: SystemMouseCursors.click,
-                                        child: GestureDetector(
-                                          onTap: () {
-                                            setState(() {
-                                              select = index;
-                                            });
-                                          },
-                                          child: Container(
-                                              color: index == select
-                                                  ? const Color.fromARGB(
-                                                      255, 4, 113, 236)
-                                                  : const Color.fromARGB(
-                                                      255, 255, 255, 255),
-                                              child:
-                                                  Text("${users[index].title}")
-                                              // Text("${allCharacters[index].name}")
-                                              ),
-                                        ),
-                                      );
-                                    } else {
-                                      return Container();
-                                    }
-                                  },
-                                );
-                                // GestureDetector(
-                                //     onTap: () {
-                                //       int cha = index;
-                                //     },
-                                //     child: Container(
-                                //       width: 220,
-                                //       height: 20,
-                                // color: index == index
-                                //     ? const Color.fromARGB(255, 4, 113, 236)
-                                //     : const Color.fromARGB(255, 255, 255, 255),
-                                //       child: Text("$index"),
-                                //     ));
-                              },
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 5,
-                          ),
-                          const Text("كلمة السر"),
-                          const SizedBox(
-                            height: 5,
-                          ),
-                          Container(
-                            width: 220,
-                            height: 25,
-                            child: Form(
-                              key: formstate,
-                              child: TextFormField(
-                                obscureText: true,
-                                autofocus: true,
-                                decoration: const InputDecoration(
-                                    contentPadding:
-                                        EdgeInsets.only(right: 0, bottom: -15),
-                                    border: OutlineInputBorder()),
-                                onSaved: (val) {
-                                  setState(() {
-                                    ss = val;
-                                  });
-                                },
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                      Column(
-                        children: [
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          GestureDetector(
-                              onTap: () {
-                                save();
-                                //pass is here
-                                print("${users[select].pass}");
-                                //check on pass
-                                if (ss == users[select].pass) {
-                                  print("yes");
-                                  setFullScreen();
-                                  Navigator.pushNamed(context, '/app');
-                                } else {
-                                  print("no");
-                                  // Navigator.pushNamed(context, '/start');
-                                }
-                              },
-                              // Navigator.of(context).pushNamed('start'),
-                              child: MouseRegion(
-                                cursor: SystemMouseCursors.click,
-                                onHover: (s) {
-                                  setState(() {
-                                    _color = Colors.yellow[400];
-                                  });
-                                },
-                                onExit: (s) {
-                                  setState(() {
-                                    _color = Colors.yellow[700];
-                                  });
-                                },
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                      color: _color,
-                                      borderRadius: const BorderRadius.all(
-                                          Radius.circular(10))),
-                                  width: 200,
-                                  height: 155,
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      // Icon(
-                                      //   Icons.lock_open_sharp,
-                                      //   size: 80,
-                                      // ),
-                                      Image.asset(
-                                        "assets/images/lock2.png",
-                                        width: 117,
+                                    return MouseRegion(
+                                      cursor: SystemMouseCursors.click,
+                                      child: GestureDetector(
+                                        onTap: () {
+                                          setState(() {
+                                            select = index;
+                                          });
+                                        },
+                                        child: Container(
+                                            color: index == select
+                                                ? const Color.fromARGB(
+                                                    255, 4, 113, 236)
+                                                : const Color.fromARGB(
+                                                    255, 255, 255, 255),
+                                            child: Text("${users[index].title}")
+                                            // Text("${allCharacters[index].name}")
+                                            ),
                                       ),
-                                      const Text("دخول النظام",
-                                          style: TextStyle(
-                                              // fontWeight: FontWeight.w600,
-                                              fontSize: 24,
-                                              fontFamily: "Hind1"))
-                                    ],
-                                  ),
+                                    );
+                                  } else {
+                                    return Container();
+                                  }
+                                },
+                              );
+                              // GestureDetector(
+                              //     onTap: () {
+                              //       int cha = index;
+                              //     },
+                              //     child: Container(
+                              //       width: 220,
+                              //       height: 20,
+                              // color: index == index
+                              //     ? const Color.fromARGB(255, 4, 113, 236)
+                              //     : const Color.fromARGB(255, 255, 255, 255),
+                              //       child: Text("$index"),
+                              //     ));
+                            },
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 5,
+                        ),
+                        const Text("كلمة السر"),
+                        const SizedBox(
+                          height: 5,
+                        ),
+                        Container(
+                          width: 220,
+                          height: 25,
+                          child: Form(
+                            key: formstate,
+                            child: TextFormField(
+                              obscureText: true,
+                              autofocus: true,
+                              decoration: const InputDecoration(
+                                  contentPadding:
+                                      EdgeInsets.only(right: 0, bottom: -15),
+                                  border: OutlineInputBorder()),
+                              onSaved: (val) {
+                                setState(() {
+                                  ss = val;
+                                });
+                              },
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Column(
+                      children: [
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        GestureDetector(
+                            onTap: () {
+                              save();
+                              //pass is here
+                              print("${users[select].pass}");
+                              //check on pass
+                              if (ss == users[select].pass) {
+                                print("yes");
+                                setFullScreen();
+                                Navigator.pushNamed(context, '/app');
+                              } else {
+                                print("no");
+                                pass = true;
+                                // Navigator.pushNamed(context, '/start');
+                              }
+                            },
+                            // Navigator.of(context).pushNamed('start'),
+                            child: MouseRegion(
+                              cursor: SystemMouseCursors.click,
+                              onHover: (s) {
+                                setState(() {
+                                  _color = Colors.yellow[400];
+                                });
+                              },
+                              onExit: (s) {
+                                setState(() {
+                                  _color = Colors.yellow[700];
+                                });
+                              },
+                              child: Container(
+                                decoration: BoxDecoration(
+                                    color: _color,
+                                    borderRadius: const BorderRadius.all(
+                                        Radius.circular(10))),
+                                width: 200,
+                                height: 155,
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    // Icon(
+                                    //   Icons.lock_open_sharp,
+                                    //   size: 80,
+                                    // ),
+                                    Image.asset(
+                                      "assets/images/lock2.png",
+                                      width: 117,
+                                    ),
+                                    const Text("دخول النظام",
+                                        style: TextStyle(
+                                            // fontWeight: FontWeight.w600,
+                                            fontSize: 24,
+                                            fontFamily: "Hind1"))
+                                  ],
                                 ),
-                              )),
-                        ],
-                      )
-                    ],
-                  ),
+                              ),
+                            )),
+                      ],
+                    )
+                  ],
                 ),
                 SizedBox(
                   height: 40,
