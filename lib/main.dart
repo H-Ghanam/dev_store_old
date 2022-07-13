@@ -135,7 +135,7 @@ class Main extends StatelessWidget {
                 ),
               );
             },
-            initialRoute: '/app',
+            initialRoute: '/login',
             routes: routes,
           ),
         );
