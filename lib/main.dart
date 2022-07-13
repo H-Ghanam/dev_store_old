@@ -89,7 +89,7 @@ class MyApp extends StatelessWidget {
               return Directionality(
                 textDirection: appTheme.textDirection,
                 child: NavigationPaneTheme(
-                  data: NavigationPaneThemeData(backgroundColor: Colors.blue),
+                  data: NavigationPaneThemeData(backgroundColor: Color.fromARGB(255, 60, 83, 102),tileColor: ButtonState.all(Color.fromARGB(255, 32, 49, 66))),
                   child: child!,
                 ),
               );
