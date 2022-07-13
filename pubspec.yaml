@@ -73,24 +73,9 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-    - family: Hind
+    - family: Almarai
       fonts:
-        - asset: assets/fonts/Gulzar-Regular.ttf
-    - family: Hind1
-      fonts:
-        - asset: assets/fonts/Blaka-Regular.ttf
-    - family: Hind2
-      fonts:
-        - asset: assets/fonts/ReemKufi-VariableFont_wght.ttf
-    - family: En
-      fonts:
-        - asset: assets/fonts/Orbitron-VariableFont_wght.ttf
-    - family: Hind3
-      fonts:
-        - asset: assets/fonts/ArefRuqaa-Regular.ttf
-    - family: Hind4
-      fonts:
-        - asset: assets/fonts/Katibeh-Regular.ttf
+        - asset: assets/fonts/ALMARAI-EXTRABOLD.ttf
   # fonts:
   #   - family: Schyler
   #     fonts:

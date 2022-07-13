@@ -31,15 +31,39 @@ class _AppState extends State<App> with WindowListener {
   String get searchValue => searchController.text;
   final List<NavigationPaneItem> originalItems = [
     PaneItem(
-      icon: const Icon(FluentIcons.home),
+      icon: const Icon(FluentIcons.home_solid),
       title: const Text('الرئيسية'),
     ),
     PaneItemSeparator(),
-    PaneItemHeader(header: const Text('عنوان القسم')),
+    // PaneItemHeader(header: const Text('فواتير')),
+    PaneItem(
+      tileColor: ButtonState.resolveWith((states) {
+        return Colors.green.dark;
+      }),
+      infoBadge:
+          InfoBadge(color: Colors.green.darkest, source: const Text("0")),
+      icon: const Icon(
+        FluentIcons.shopping_cart_solid,
+        color: Color.fromARGB(255, 2, 44, 13),
+      ),
+      title: const Text('بيع'),
+    ),
+    PaneItem(
+      infoBadge: InfoBadge(color: Colors.red.darkest, source: const Text("3")),
+      tileColor: ButtonState.resolveWith((states) {
+        return const Color.fromARGB(118, 240, 12, 12);
+      }),
+      icon: const Icon(FluentIcons.shop_server,
+          color: Color.fromARGB(255, 105, 5, 2)),
+      title: const Text('شراء'),
+    ),
+    PaneItemSeparator(),
   ];
   late List<NavigationPaneItem> items = originalItems;
 
   final content = <Page>[
+    HomePage(),
+    HomePage(),
     HomePage(),
     Settings(),
   ];
@@ -103,16 +127,16 @@ class _AppState extends State<App> with WindowListener {
           children: [
             if (appTitle == '')
               const Card(
-                child: Text(
-                  "شركة زرزور",
-                  style: TextStyle(fontWeight: FontWeight.bold),
-                ),
+                child: Text("شركة زرزور"),
               ),
             const Spacer(),
             const Text("اسم المستخدم : حسام"),
             const Spacer(),
+            Text(DateTime.now().toString()),
             ToggleSwitch(
-              // content: const Text('Dark Mode'),
+              // content: appTheme.mode == ThemeMode.dark
+              //     ? const Text('مظلم')
+              //     : const Text('فاتح'),
               checked: FluentTheme.of(context).brightness.isDark,
               onChanged: (v) {
                 if (v) {
@@ -127,41 +151,65 @@ class _AppState extends State<App> with WindowListener {
         ),
       ),
       pane: NavigationPane(
+        // leading: const Text(
+        //   "Wings",
+        //   style: TextStyle(fontWeight: FontWeight.bold),
+        // ),
         selected: () {
           // if not searching, return the current index
           if (searchValue.isEmpty) return index;
 
-          final indexOnScreen = items.indexOf(
-            originalItems.whereType<PaneItem>().elementAt(index),
-          );
+          final indexOnScreen = index == content.length - 1
+              ? items.indexOf(
+                  originalItems.whereType<PaneItem>().elementAt(index - 1),
+                )
+              : items.indexOf(
+                  originalItems.whereType<PaneItem>().elementAt(index));
           if (indexOnScreen.isNegative) return null;
           return indexOnScreen;
         }(),
         onChanged: (i) {
           // If searching, the values will have different indexes
           if (searchValue.isNotEmpty) {
-            final equivalentIndex = originalItems
-                .whereType<PaneItem>()
-                .toList()
-                .indexOf(items[i] as PaneItem);
+            final equivalentIndex = index == items.length
+                ? originalItems
+                    .whereType<PaneItem>()
+                    .toList()
+                    .indexOf(items[i - 1] as PaneItem)
+                : originalItems
+                    .whereType<PaneItem>()
+                    .toList()
+                    .indexOf(items[i] as PaneItem);
             i = equivalentIndex;
           }
           resetSearch();
           setState(() => index = i);
         },
         size: const NavigationPaneSize(
-          openMinWidth: 250.0,
-          openMaxWidth: 320.0,
+          openMinWidth: 170.0,
+          openMaxWidth: 200.0,
         ),
         header: Container(
           height: kOneLineTileHeight,
           padding: const EdgeInsets.symmetric(horizontal: 10.0),
-          child: FlutterLogo(
-            style: appTheme.displayMode == PaneDisplayMode.top
-                ? FlutterLogoStyle.markOnly
-                : FlutterLogoStyle.horizontal,
-            size: appTheme.displayMode == PaneDisplayMode.top ? 24 : 100.0,
-          ),
+          child: appTheme.displayMode == PaneDisplayMode.top
+              ? Image.asset("assets/images/6.png")
+              : Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    const Text("WINGS"),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    Image.asset("assets/images/6.png"),
+                  ],
+                ),
+          // FlutterLogo(
+          //   style: appTheme.displayMode == PaneDisplayMode.top
+          //       ? FlutterLogoStyle.markOnly
+          //       : FlutterLogoStyle.horizontal,
+          //   size: appTheme.displayMode == PaneDisplayMode.top ? 24 : 100.0,
+          // ),
         ),
         displayMode: appTheme.displayMode,
         indicator: () {
@@ -204,8 +252,8 @@ class _AppState extends State<App> with WindowListener {
 
   @override
   void onWindowClose() async {
-    bool _isPreventClose = await windowManager.isPreventClose();
-    if (_isPreventClose) {
+    bool isPreventClose = await windowManager.isPreventClose();
+    if (isPreventClose) {
       showDialog(
         context: context,
         builder: (_) {

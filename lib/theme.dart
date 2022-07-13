@@ -1,21 +1,18 @@
 import 'package:fluent_ui/fluent_ui.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter_acrylic/flutter_acrylic.dart';
-import 'package:fluent_ui/src/styles/color.dart';
-import 'package:system_theme/system_theme.dart';
 
 enum NavigationIndicators { sticky, end }
 
 class AppTheme extends ChangeNotifier {
   // AccentColor _color = systemAccentColor;
-  AccentColor _color = Colors.purple;
+  AccentColor _color = Colors.green;
   AccentColor get color => _color;
   set color(AccentColor color) {
     _color = color;
     notifyListeners();
   }
 
-  ThemeMode _mode = ThemeMode.system;
+  ThemeMode _mode = ThemeMode.dark;
   ThemeMode get mode => _mode;
   set mode(ThemeMode mode) {
     _mode = mode;
@@ -72,19 +69,18 @@ class AppTheme extends ChangeNotifier {
 }
 
 AccentColor get systemAccentColor {
-  if ((defaultTargetPlatform == TargetPlatform.windows ||
-          defaultTargetPlatform == TargetPlatform.android) &&
-      !kIsWeb) {
-    return Colors.blue;
-    // AccentColor.swatch({
-    //   'darkest': SystemTheme.accentColor.darkest,
-    //   'darker': SystemTheme.accentColor.darker,
-    //   'dark': SystemTheme.accentColor.dark,
-    //   'normal': SystemTheme.accentColor.accent,
-    //   'light': SystemTheme.accentColor.light,
-    //   'lighter': SystemTheme.accentColor.lighter,
-    //   'lightest': SystemTheme.accentColor.lightest,
-    // });
-  }
-  return Colors.blue;
+  // if ((defaultTargetPlatform == TargetPlatform.windows ||
+  //         defaultTargetPlatform == TargetPlatform.android) &&
+  //     !kIsWeb) {
+  //   return AccentColor.swatch({
+  //     'darkest': SystemTheme.accentColor.darkest,
+  //     'darker': SystemTheme.accentColor.darker,
+  //     'dark': SystemTheme.accentColor.dark,
+  //     'normal': SystemTheme.accentColor.accent,
+  //     'light': SystemTheme.accentColor.light,
+  //     'lighter': SystemTheme.accentColor.lighter,
+  //     'lightest': SystemTheme.accentColor.lightest,
+  //   });
+  // }
+  return Colors.red;
 }

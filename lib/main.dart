@@ -1,7 +1,5 @@
 import 'package:dev_store/Modules/App/bloc/app_bloc.dart';
 import 'package:dev_store/routes.dart';
-import 'package:dev_store/screens/App/app.dart';
-import 'package:dev_store/screens/Login/login.dart';
 import 'package:dev_store/theme.dart';
 import 'package:fluent_ui/fluent_ui.dart';
 import 'package:flutter/foundation.dart';
@@ -48,11 +46,20 @@ void main() async {
     });
   }
 
-  runApp(const MyApp());
+  runApp(const Main());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+// ButtonState<Color?> kDefaultTileColor(BuildContext context, bool isTop) {
+//   return ButtonState.resolveWith((states) {
+//     return ButtonThemeData.uncheckedInputColor(
+//       FluentTheme.of(context),
+//       states,
+//     );
+//   });
+// }
+
+class Main extends StatelessWidget {
+  const Main({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -70,6 +77,10 @@ class MyApp extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             color: appTheme.color,
             darkTheme: ThemeData(
+              dividerTheme: DividerThemeData(
+                  decoration: BoxDecoration(color: appTheme.color)),
+              fontFamily: "Almarai",
+              cardColor: appTheme.color.darkest,
               brightness: Brightness.dark,
               accentColor: appTheme.color,
               visualDensity: VisualDensity.standard,
@@ -78,6 +89,10 @@ class MyApp extends StatelessWidget {
               ),
             ),
             theme: ThemeData(
+              typography:
+                  Typography.fromBrightness(color: appTheme.color.darkest),
+              fontFamily: "Almarai",
+              cardColor: appTheme.color.lightest,
               accentColor: appTheme.color,
               visualDensity: VisualDensity.standard,
               focusTheme: FocusThemeData(
@@ -89,12 +104,37 @@ class MyApp extends StatelessWidget {
               return Directionality(
                 textDirection: appTheme.textDirection,
                 child: NavigationPaneTheme(
-                  data: NavigationPaneThemeData(backgroundColor: Colors.blue),
+                  data: NavigationPaneThemeData(
+                      unselectedTextStyle: ButtonState.resolveWith((states) =>
+                          const TextStyle(
+                              color: Colors.white, fontFamily: "almarai")),
+                      selectedTextStyle: ButtonState.resolveWith((states) =>
+                          TextStyle(
+                              color: appTheme.color.darkest,
+                              fontFamily: "almarai")),
+                      selectedIconColor: ButtonState.resolveWith(
+                          (states) => appTheme.color.darkest),
+                      tileColor: ButtonState.resolveWith(
+                          (states) => appTheme.color.lighter),
+                      backgroundColor: appTheme.color.lighter,
+                      unselectedIconColor: ButtonState.resolveWith(
+                          (states) => appTheme.color.darkest),
+                      highlightColor: Colors.red),
+
+                  //// Enable wimdows transparency
+
+                  //   data: NavigationPaneThemeData(
+                  //   backgroundColor: appTheme.windowEffect !=
+                  //           flutter_acrylic.WindowEffect.disabled
+                  //       ? Colors.transparent
+                  //       : null,
+                  // ),
+
                   child: child!,
                 ),
               );
             },
-            initialRoute: '/login',
+            initialRoute: '/app',
             routes: routes,
           ),
         );
