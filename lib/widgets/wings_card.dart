@@ -15,44 +15,55 @@ class _WingsCardState extends State<WingsCard> {
     Size size = MediaQuery.of(context).size;
     return Row(
       children: [
-        Container(
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              // color: const Color.fromARGB(255, 7, 28, 61),
-              gradient: LinearGradient(colors: [
-                Colors.blue.dark,
-                const Color.fromARGB(255, 7, 28, 61)
-              ])),
-          width: size.width / 13,
-          height: size.height / 7,
-          child: Column(
-            children: [
-              Stack(children: [
-                Center(child: Image.asset("assets/images/6.png", width: 100)),
-                Container(
-                  alignment: Alignment.center,
-                  margin: const EdgeInsets.only(top: 88),
-                  child: const Text(
-                    "Wings",
-                    style: TextStyle(
-                        color: Color.fromARGB(255, 255, 255, 255),
-                        fontSize: 23,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: "En"),
-                  ),
-                )
-              ]),
-            ],
+        MouseRegion(cursor: SystemMouseCursors.click,
+          child: Container(
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                // color: const Color.fromARGB(255, 7, 28, 61),
+                gradient: LinearGradient(colors: [
+                  Colors.blue.dark,
+                  const Color.fromARGB(255, 7, 28, 61)
+                ])),
+            width: size.width / 13,
+            height: 140,
+            child: Column(
+              children: [
+                Stack(children: [
+                  Center(child: Image.asset("assets/images/6.png", width: 100)),
+                  Container(
+                    alignment: Alignment.center,
+                    margin: const EdgeInsets.only(top: 88),
+                    child: Text(
+                      "Wings",
+                      style: TextStyle(
+                          color: const Color.fromARGB(255, 255, 255, 255),
+                          fontSize: size.width / 55,
+                          fontWeight: FontWeight.bold,
+                          fontFamily: "En"),
+                    ),
+                  )
+                ]),
+              ],
+            ),
           ),
         ),
         const SizedBox(
           width: 8,
         ),
-        Container(height: 120,
-          child: Column(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        Container(
+          height: 140,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: const [
-              Text("وينجز لإدارة الأعمال",style: TextStyle(fontFamily: "Hind4",fontSize: 45),),
-              Text("أسهل وأدق برنامج لإدارة المحلات والمخازن\nفي العالم العربي")
+              Text(
+                "وينجز لإدارة الأعمال",
+                style: TextStyle(fontFamily: "Hind4", fontSize: 45),
+              ),
+              Text(
+                "أسهل وأدق برنامج لإدارة المحلات والمخازن\nفي العالم العربي",
+                style: TextStyle(fontFamily: "Hind4", fontSize: 20),
+              ),
+              SizedBox()
             ],
           ),
         )
