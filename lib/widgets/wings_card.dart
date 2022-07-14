@@ -48,10 +48,15 @@ class _WingsCardState extends State<WingsCard> {
         const SizedBox(
           width: 8,
         ),
-        Container(height: 120,
-          child: Column(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        Container(
+          height: 120,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: const [
-              Text("وينجز لإدارة الأعمال",style: TextStyle(fontFamily: "Hind4",fontSize: 45),),
+              Text(
+                "وينجز لإدارة الأعمال",
+                style: TextStyle(fontFamily: "Hind4", fontSize: 45),
+              ),
               Text("أسهل وأدق برنامج لإدارة المحلات والمخازن\nفي العالم العربي")
             ],
           ),

@@ -8,10 +8,19 @@ class TabViewPage extends ScrollablePage {
   List<Tab>? tabs;
   List<Widget>? bodies;
 
-  // @override
-  // Widget buildHeader(BuildContext context) {
-  //   return const PageHeader(title: Text('TabView'));
-  // }
+  @override
+  Widget buildHeader(BuildContext context) {
+    return PageHeader(
+        commandBar: Row(
+          children: [
+            Button(child: Text("بيع"), onPressed: () {}),
+            Button(child: Text("شراء"), onPressed: () {}),
+            Button(child: Text("جرد"), onPressed: () {}),
+            Button(child: Text("تسوية"), onPressed: () {}),
+          ],
+        ),
+        title: const Text('TabView'));
+  }
 
   Tab generateTab(int index) {
     late Tab tab;

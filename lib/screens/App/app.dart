@@ -1,9 +1,10 @@
 import 'package:dev_store/main.dart';
-import 'package:dev_store/screens/App/pages/home.dart';
+import 'package:dev_store/screens/App/pages/home/home.dart';
 import 'package:dev_store/screens/App/settings.dart';
 import 'package:dev_store/screens/Login/login.dart';
 import 'package:dev_store/theme.dart';
 import 'package:dev_store/widgets/page.dart';
+import 'package:dev_store/widgets/tab_view.dart';
 import 'package:fluent_ui/fluent_ui.dart' hide Page;
 import 'package:flutter/foundation.dart';
 import 'package:provider/provider.dart';
@@ -24,12 +25,13 @@ class _AppState extends State<App> with WindowListener {
 
   final settingsController = ScrollController();
   final viewKey = GlobalKey();
-
   final key = GlobalKey();
+
   final searchFocusNode = FocusNode();
   final searchController = TextEditingController();
   void resetSearch() => searchController.clear();
   String get searchValue => searchController.text;
+
   final List<NavigationPaneItem> originalItems = [
     PaneItem(
       icon: const Icon(FluentIcons.home_solid),
@@ -64,7 +66,7 @@ class _AppState extends State<App> with WindowListener {
 
   final content = <Page>[
     HomePage(),
-    HomePage(),
+    TabViewPage(),
     HomePage(),
     Settings(),
   ];
@@ -132,13 +134,11 @@ class _AppState extends State<App> with WindowListener {
               Card(
                 child: Text(
                   "الشركة :  ${appData.options!.company}",
-                  style: TextStyle(fontFamily: "Hind4", fontSize: 18),
                 ),
               ),
             const Spacer(),
             Text(
               "المستخدم : ${appData.activeUsers![select].title}",
-              style: TextStyle(fontFamily: "Hind4", fontSize: 18),
             ),
             const Spacer(),
             Text(DateTime.now().toString()),
