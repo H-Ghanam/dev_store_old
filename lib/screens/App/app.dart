@@ -132,13 +132,13 @@ class _AppState extends State<App> with WindowListener {
               Card(
                 child: Text(
                   "الشركة :  ${appData.options!.company}",
-                  style: TextStyle(fontFamily: "Hind4", fontSize: 18),
+                  style: const TextStyle(fontFamily: "Hind4", fontSize: 18),
                 ),
               ),
             const Spacer(),
             Text(
               "المستخدم : ${appData.activeUsers![select].title}",
-              style: TextStyle(fontFamily: "Hind4", fontSize: 18),
+              style: const TextStyle(fontFamily: "Hind4", fontSize: 18),
             ),
             const Spacer(),
             Text(DateTime.now().toString()),

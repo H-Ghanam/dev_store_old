@@ -25,9 +25,9 @@ class _MyCardState extends State<MyCard> {
         cursor: SystemMouseCursors.click,
         child: Container(
           width: widget.size,
-          height: 115,
+          height: 125,
           decoration: BoxDecoration(gradient: widget.gradient),
-          child: Column(
+          child: Column(mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
              
               Image.asset(
@@ -56,7 +56,7 @@ class _MyCardState extends State<MyCard> {
         },
         child: Container(
           width: widget.size,
-          height: 115,
+          height: 125,
           color: Color.fromARGB(255, 217, 255, 0).withOpacity(_opacity),
         ),
       ),
