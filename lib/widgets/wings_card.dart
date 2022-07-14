@@ -22,8 +22,8 @@ class _WingsCardState extends State<WingsCard> {
                 borderRadius: BorderRadius.circular(10),
                 // color: const Color.fromARGB(255, 7, 28, 61),
                 gradient: LinearGradient(colors: [
-                  Colors.blue.dark,
-                  const Color.fromARGB(255, 7, 28, 61)
+                  Colors.green.lightest,
+                  Colors.green,
                 ])),
             width: size.width / 13,
             height: 140,

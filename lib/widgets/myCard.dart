@@ -26,17 +26,20 @@ class _MyCardState extends State<MyCard> {
         child: Container(
           width: widget.size,
           height: 125,
-          decoration: BoxDecoration(gradient: widget.gradient),
-          child: Column(mainAxisAlignment: MainAxisAlignment.spaceAround,
+          decoration: BoxDecoration(
+              gradient: widget.gradient,
+              borderRadius: BorderRadius.circular(10)),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-             
               Image.asset(
                 "${widget.image}",
                 width: 70,
               ),
-               Text(
+              Text(
                 "${widget.title}",
-                style: TextStyle(fontFamily: "Hind3", fontSize: 23),
+                style: TextStyle(
+                    fontFamily: "Hind3", fontSize: 23, color: Colors.white),
               ),
             ],
           ),
@@ -55,9 +58,12 @@ class _MyCardState extends State<MyCard> {
           });
         },
         child: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            color: Color.fromARGB(255, 217, 255, 0).withOpacity(_opacity),
+          ),
           width: widget.size,
           height: 125,
-          color: Color.fromARGB(255, 217, 255, 0).withOpacity(_opacity),
         ),
       ),
     ]);

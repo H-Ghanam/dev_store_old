@@ -12,64 +12,89 @@ class HomeW extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     Gradient firstRowColor =
-        LinearGradient(colors: [Colors.blue.light, Colors.blue.darkest]);
+        LinearGradient(begin: AlignmentDirectional.bottomStart, colors: [
+      Colors.green,
+      Colors.green.lightest,
+    ]);
     double firstRowSize = size.width / 13;
     return SizedBox(
       width: double.infinity,
       height: size.height - 100,
       child: Stack(children: [
-        const BackGround(),
-        Row(
+        // const BackGround(),
+        Column(
           children: [
-            const WingsCard(),
-            const SizedBox(
-              width: 40,
+            Row(
+              children: [
+                const WingsCard(),
+                const SizedBox(
+                  width: 40,
+                ),
+                MyCard(
+                  size: firstRowSize,
+                  image: "assets/images/boxes.png",
+                  title: "البضاعة",
+                  gradient: firstRowColor,
+                ),
+                const SizedBox(
+                  width: 5,
+                ),
+                MyCard(
+                  size: firstRowSize,
+                  image: "assets/images/man.png",
+                  title: "الحسابات",
+                  gradient: firstRowColor,
+                ),
+                const SizedBox(
+                  width: 5,
+                ),
+                MyCard(
+                  size: firstRowSize,
+                  image: "assets/images/money.png",
+                  title: "الخزينة",
+                  gradient: firstRowColor,
+                ),
+                const SizedBox(
+                  width: 5,
+                ),
+                MyCard(
+                  size: firstRowSize,
+                  image: "assets/images/bill.png",
+                  title: "الفواتير",
+                  gradient: firstRowColor,
+                ),
+                const SizedBox(
+                  width: 5,
+                ),
+                MyCard(
+                  size: firstRowSize,
+                  image: "assets/images/statistics.png",
+                  title: "تقارير",
+                  gradient: firstRowColor,
+                ),
+                const SizedBox(
+                  width: 5,
+                ),
+              ],
             ),
-            MyCard(
-              size: firstRowSize,
-              image: "assets/images/boxes.png",
-              title: "البضاعة",
-              gradient: firstRowColor,
+            SizedBox(
+              height: 20,
             ),
-            const SizedBox(
-              width: 5,
+            Row(
+              children: [
+                Text("إبدأ بمشاهدةالجولة السريعة"),
+              ],
             ),
-            MyCard(
-              size: firstRowSize,
-              image: "assets/images/man.png",
-              title: "الحسابات",
-              gradient: firstRowColor,
-            ),
-            const SizedBox(
-              width: 5,
-            ),
-            MyCard(
-              size: firstRowSize,
-              image: "assets/images/money.png",
-              title: "الخزينة",
-              gradient: firstRowColor,
-            ),
-            const SizedBox(
-              width: 5,
-            ),
-            MyCard(
-              size: firstRowSize,
-              image: "assets/images/bill.png",
-              title: "الفواتير",
-              gradient: firstRowColor,
-            ),
-            const SizedBox(
-              width: 5,
-            ),
-            MyCard(
-              size: firstRowSize,
-              image: "assets/images/statistics.png",
-              title: "تقارير",
-              gradient: firstRowColor,
-            ),
-            const SizedBox(
-              width: 5,
-            ),
+            Row(
+              children: [
+                MyCard(
+                  gradient: firstRowColor,
+                  image: "assets/images/usher.png",
+                  size: firstRowSize,
+                  title: "أهلاً بكم",
+                ),
+              ],
+            )
           ],
         ),
       ]),
