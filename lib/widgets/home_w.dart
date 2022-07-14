@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables
 
 import 'package:dev_store/widgets/backGround.dart';
-import 'package:dev_store/widgets/page_card.dart';
+import 'package:dev_store/widgets/myCard.dart';
 import 'package:dev_store/widgets/wings_card.dart';
 import 'package:fluent_ui/fluent_ui.dart';
 
@@ -11,6 +11,9 @@ class HomeW extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    Gradient firstRowColor =
+        LinearGradient(colors: [Colors.blue.light, Colors.blue.darkest]);
+    double firstRowSize = size.width / 13;
     return SizedBox(
       width: double.infinity,
       height: size.height - 100,
@@ -19,14 +22,54 @@ class HomeW extends StatelessWidget {
         Row(
           children: [
             const WingsCard(),
-            
-            // MyCard(
-            //   size: size.width / 12,
-            //   image: "assets/images/boxes.png",
-            //   title: "البضاعة",
-            //   gradient: LinearGradient(colors: [Colors.green, Colors.blue]),
-            // ),
-           
+            const SizedBox(
+              width: 40,
+            ),
+            MyCard(
+              size: firstRowSize,
+              image: "assets/images/boxes.png",
+              title: "البضاعة",
+              gradient: firstRowColor,
+            ),
+            const SizedBox(
+              width: 5,
+            ),
+            MyCard(
+              size: firstRowSize,
+              image: "assets/images/man.png",
+              title: "الحسابات",
+              gradient: firstRowColor,
+            ),
+            const SizedBox(
+              width: 5,
+            ),
+            MyCard(
+              size: firstRowSize,
+              image: "assets/images/money.png",
+              title: "الخزينة",
+              gradient: firstRowColor,
+            ),
+            const SizedBox(
+              width: 5,
+            ),
+            MyCard(
+              size: firstRowSize,
+              image: "assets/images/bill.png",
+              title: "الفواتير",
+              gradient: firstRowColor,
+            ),
+            const SizedBox(
+              width: 5,
+            ),
+            MyCard(
+              size: firstRowSize,
+              image: "assets/images/statistics.png",
+              title: "تقارير",
+              gradient: firstRowColor,
+            ),
+            const SizedBox(
+              width: 5,
+            ),
           ],
         ),
       ]),
