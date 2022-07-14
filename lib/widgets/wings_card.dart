@@ -15,34 +15,37 @@ class _WingsCardState extends State<WingsCard> {
     Size size = MediaQuery.of(context).size;
     return Row(
       children: [
-        Container(
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              // color: const Color.fromARGB(255, 7, 28, 61),
-              gradient: LinearGradient(colors: [
-                Colors.blue.dark,
-                const Color.fromARGB(255, 7, 28, 61)
-              ])),
-          width: size.width / 13,
-          height: size.height / 7,
-          child: Column(
-            children: [
-              Stack(children: [
-                Center(child: Image.asset("assets/images/6.png", width: 100)),
-                Container(
-                  alignment: Alignment.center,
-                  margin: const EdgeInsets.only(top: 88),
-                  child: const Text(
-                    "Wings",
-                    style: TextStyle(
-                        color: Color.fromARGB(255, 255, 255, 255),
-                        fontSize: 23,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: "En"),
-                  ),
-                )
-              ]),
-            ],
+        MouseRegion(
+          cursor: SystemMouseCursors.click,
+          child: Container(
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                // color: const Color.fromARGB(255, 7, 28, 61),
+                gradient: LinearGradient(colors: [
+                  Colors.blue.dark,
+                  const Color.fromARGB(255, 7, 28, 61)
+                ])),
+            width: size.width / 13,
+            height: 140,
+            child: Column(
+              children: [
+                Stack(children: [
+                  Center(child: Image.asset("assets/images/6.png", width: 100)),
+                  Container(
+                    alignment: Alignment.center,
+                    margin: const EdgeInsets.only(top: 88),
+                    child: Text(
+                      "Wings",
+                      style: TextStyle(
+                          color: const Color.fromARGB(255, 255, 255, 255),
+                          fontSize: size.width / 55,
+                          fontWeight: FontWeight.bold,
+                          fontFamily: "En"),
+                    ),
+                  )
+                ]),
+              ],
+            ),
           ),
         ),
         const SizedBox(
