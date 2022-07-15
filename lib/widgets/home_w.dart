@@ -1,20 +1,23 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables
 
+import 'package:dev_store/theme.dart';
 import 'package:dev_store/widgets/backGround.dart';
 import 'package:dev_store/widgets/myCard.dart';
 import 'package:dev_store/widgets/wings_card.dart';
 import 'package:fluent_ui/fluent_ui.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomeW extends StatelessWidget {
   const HomeW({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final appTheme = context.watch<AppTheme>();
     Size size = MediaQuery.of(context).size;
     Gradient firstRowColor =
         LinearGradient(begin: AlignmentDirectional.bottomStart, colors: [
-      Colors.green,
-      Colors.green.lightest,
+      appTheme.color,
+      appTheme.color.lightest,
     ]);
     double firstRowSize = size.width / 13;
     return SizedBox(
@@ -75,18 +78,20 @@ class HomeW extends StatelessWidget {
                 const SizedBox(
                   width: 5,
                 ),
+                const SizedBox(
+                  height: 20,
+                )
               ],
             ),
-            SizedBox(
-              height: 20,
+            const SizedBox(
+              height: 100,
             ),
             Row(
               children: [
-                Text("إبدأ بمشاهدةالجولة السريعة"),
-              ],
-            ),
-            Row(
-              children: [
+                const Text("إبدأ بمشاهدةالجولة السريعة"),
+                const SizedBox(
+                  width: 100,
+                ),
                 MyCard(
                   gradient: firstRowColor,
                   image: "assets/images/usher.png",
@@ -94,7 +99,7 @@ class HomeW extends StatelessWidget {
                   title: "أهلاً بكم",
                 ),
               ],
-            )
+            ),
           ],
         ),
       ]),

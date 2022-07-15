@@ -3,7 +3,8 @@ part of 'app_bloc.dart';
 @immutable
 abstract class AppState {
   final StartAppRespose? startAppRespose;
-  const AppState({this.startAppRespose});
+  final int? activePageIndex;
+  const AppState({this.activePageIndex, this.startAppRespose});
 }
 
 class AppInitial extends AppState {}
@@ -21,4 +22,11 @@ class AppErrorState extends AppState {
   // ignore: prefer_typing_uninitialized_variables
   final error;
   const AppErrorState(this.error);
+}
+
+class SetActivePageIndexState extends AppState {
+  // ignore: prefer_typing_uninitialized_variables
+  final int index;
+  const SetActivePageIndexState({required this.index})
+      : super(activePageIndex: index);
 }

@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:dev_store/Modules/App/responses/start_app.dart';
 import 'package:dev_store/Services/app_service.dart';
 import 'package:fluent_ui/fluent_ui.dart';
@@ -9,6 +11,12 @@ part 'app_state.dart';
 class AppBloc extends Bloc<AppEvent, AppState> {
   AppBloc() : super(AppInitial()) {
     on<OnAppStartEvent>(_startApp);
+    on<OnActivePageChange>(_setActivePageIndex);
+  }
+
+  Future<void> _setActivePageIndex(
+      OnActivePageChange event, Emitter<AppState> emit) async {
+    emit(SetActivePageIndexState(index: event.index));
   }
 }
 

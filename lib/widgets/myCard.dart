@@ -1,6 +1,10 @@
 // ignore_for_file: prefer_const_constructors, must_be_immutable
 
+import 'package:dev_store/Modules/App/bloc/app_bloc.dart';
+import 'package:dev_store/screens/App/app.dart';
+import 'package:dev_store/theme.dart';
 import 'package:fluent_ui/fluent_ui.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class MyCard extends StatefulWidget {
   MyCard({Key? key, this.title, this.image, this.gradient, this.size})
@@ -20,6 +24,7 @@ class _MyCardState extends State<MyCard> {
   //  Gradient? _gradient = widget.gradient;
   @override
   Widget build(BuildContext context) {
+    final appTheme = context.watch<AppTheme>();
     return Stack(children: [
       MouseRegion(
         cursor: SystemMouseCursors.click,
@@ -57,13 +62,20 @@ class _MyCardState extends State<MyCard> {
             _opacity = 0.5;
           });
         },
-        child: Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
-            color: Color.fromARGB(255, 217, 255, 0).withOpacity(_opacity),
+        child: GestureDetector(
+          onTap: () {
+            // context.read<AppBloc>().add(OnActivePageChange(index: 0));
+            context.read<AppBloc>().add(OnActivePageChange(index: 1));
+            appTheme.index = 1;
+          },
+          child: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              color: Color.fromARGB(255, 217, 255, 0).withOpacity(_opacity),
+            ),
+            width: widget.size,
+            height: 125,
           ),
-          width: widget.size,
-          height: 125,
         ),
       ),
     ]);

@@ -1,3 +1,4 @@
+import 'package:dev_store/Modules/App/bloc/app_bloc.dart';
 import 'package:fluent_ui/fluent_ui.dart';
 import 'package:flutter_acrylic/flutter_acrylic.dart';
 
@@ -12,10 +13,17 @@ class AppTheme extends ChangeNotifier {
     notifyListeners();
   }
 
-  ThemeMode _mode = ThemeMode.dark;
+  ThemeMode _mode = ThemeMode.light;
   ThemeMode get mode => _mode;
   set mode(ThemeMode mode) {
     _mode = mode;
+    notifyListeners();
+  }
+
+  int _index = 0;
+  int get index => _index;
+  set index(int index) {
+    _index = index;
     notifyListeners();
   }
 

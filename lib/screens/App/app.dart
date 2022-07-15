@@ -1,3 +1,4 @@
+import 'package:dev_store/Modules/App/bloc/app_bloc.dart';
 import 'package:dev_store/main.dart';
 import 'package:dev_store/screens/App/pages/home/home.dart';
 import 'package:dev_store/screens/App/settings.dart';
@@ -7,6 +8,7 @@ import 'package:dev_store/widgets/page.dart';
 import 'package:dev_store/widgets/tab_view.dart';
 import 'package:fluent_ui/fluent_ui.dart' hide Page;
 import 'package:flutter/foundation.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
 import 'package:window_manager/window_manager.dart';
 
@@ -20,6 +22,14 @@ class App extends StatefulWidget {
 
 class _AppState extends State<App> with WindowListener {
   bool value = false;
+
+  void setIndex(int i) {
+    context.read<AppBloc>().add(OnActivePageChange(index: i));
+    setState(() {
+      index = i;
+    });
+  }
+  // AppBloc().add(OnActivePageChange(index: i));
 
   int index = 0;
 
@@ -106,6 +116,8 @@ class _AppState extends State<App> with WindowListener {
 
   @override
   Widget build(BuildContext context) {
+    int? activePageIndex = context.read<AppBloc>().state.activePageIndex;
+    index = activePageIndex != null ? activePageIndex.toInt() : index;
     final appTheme = context.watch<AppTheme>();
     return NavigationView(
       key: viewKey,
@@ -147,7 +159,10 @@ class _AppState extends State<App> with WindowListener {
               //     ? const Text('مظلم')
               //     : const Text('فاتح'),
               checked: FluentTheme.of(context).brightness.isDark,
+
               onChanged: (v) {
+                // context.read<AppBloc>().add(OnActivePageChange(index: 0));
+                // appTheme.index = 0;
                 if (v) {
                   appTheme.mode = ThemeMode.dark;
                 } else {
@@ -192,7 +207,7 @@ class _AppState extends State<App> with WindowListener {
             i = equivalentIndex;
           }
           resetSearch();
-          setState(() => index = i);
+          setIndex(i);
         },
         size: const NavigationPaneSize(
           openMinWidth: 170.0,
