@@ -13,15 +13,17 @@ class ToolsRow extends StatefulWidget {
 class _ToolsRowState extends State<ToolsRow> {
   @override
   Widget build(BuildContext context) {
+    Typography typography= FluentTheme.of(context).typography;
+
     return Container(
       color: const Color.fromARGB(255, 177, 177, 177),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: const [
-          Icon(m.Icons.keyboard_double_arrow_right_outlined, size: 30,color: Colors.black,),
-          Icon(m.Icons.keyboard_double_arrow_left_outlined, size: 30,color: Colors.black,),
-          Icon(m.Icons.keyboard_arrow_left, size: 30,color: Colors.black,),
-          Icon(m.Icons.search, size: 30,color: Colors.black,)
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          Icon(size: typography.title!.fontSize! - 5,m.Icons.keyboard_double_arrow_right_outlined,color: Colors.black,),
+          Icon(size: typography.title!.fontSize!-5,m.Icons.keyboard_double_arrow_left_outlined,color: Colors.black,),
+          Icon(size: typography.title!.fontSize!-5,m.Icons.keyboard_arrow_left,color: Colors.black,),
+          Icon(size: typography.title!.fontSize!  -5,m.Icons.search,color: Colors.black,)
         ],
       ),
     );

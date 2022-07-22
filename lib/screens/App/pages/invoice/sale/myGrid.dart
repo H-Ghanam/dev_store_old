@@ -1,7 +1,8 @@
 // ignore_for_file: file_names
 
 import 'package:fluent_ui/fluent_ui.dart';
-import 'package:fluent_ui/generated/l10n.dart';
+// import 'package:fluent_ui/generated/l10n.dart';
+// import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_datagrid/datagrid.dart';
 
 import 'dataGrid.dart';
@@ -24,14 +25,16 @@ class _MyGridState extends State<MyGrid> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    Typography typography= FluentTheme.of(context).typography;
     return Container(
       //550
-      width: size.width - 552,
-      height: size.height - 401,
+      // width: size.width - 552,
+      width: size.width/1.55,
+      height: size.height /1.77,
       decoration: BoxDecoration(border: Border.all(width: 0.3)),
       child: SfDataGrid(
-        headerRowHeight: 30,
-        rowHeight: 30,
+        headerRowHeight: size.height/35,
+        rowHeight: size.height/35,
         headerGridLinesVisibility: GridLinesVisibility.both,
         columnWidthMode: ColumnWidthMode.fill,
         allowColumnsResizing: true,
@@ -40,10 +43,10 @@ class _MyGridState extends State<MyGrid> {
         source: employeeDataSource,
         allowSorting: true,
         allowSwiping: true,
-        swipeMaxOffset: 500,
+        // swipeMaxOffset: 1000,
         columns: <GridColumn>[
           GridColumn(
-              width: 90,
+              width: size.width/23,
               columnName: 'id',
               label: Container(
                   // padding: const EdgeInsets.all(16.0),

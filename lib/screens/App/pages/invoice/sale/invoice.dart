@@ -36,7 +36,7 @@ class _InvoicePageState extends State<InvoicePage> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-     final appTheme = context.watch<AppTheme>();
+    final appTheme = context.watch<AppTheme>();
     return BlocBuilder<InvoiceBloc, InvoiceState>(builder: (context, state) {
       return Container(
         width: double.infinity,
@@ -46,37 +46,51 @@ class _InvoicePageState extends State<InvoicePage> {
         child: Stack(children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
-            children: [   Container(
-              height: 130,
-              width:size.width/8,
-              decoration: const BoxDecoration(border: Border(right: BorderSide(width: 0.5),bottom: BorderSide(width: 0.5))),
-               child: Image.asset(
-                "assets/images/6.png",
-                fit: BoxFit.contain,
-              )
-             
-              ),],
+            children: [
+              Container(
+                  height: size.height/7.5,
+                  width: size.width / 8,
+                  decoration: const BoxDecoration(
+                      border: Border(
+                          right: BorderSide(width: 0.5),
+                          bottom: BorderSide(width: 0.5))),
+                  child: Image.asset(
+                    "assets/images/6.png",
+                    fit: BoxFit.contain,
+                  )),
+            ],
+          ),
+          Column(mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: const [
+                  LeftButtons(),
+                ],
+              ),
+            ],
           ),
           Column(
             children: [
               Row(
                 children: [
                   const RightCol(),
-                  Column(crossAxisAlignment: CrossAxisAlignment.start,
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: const [
                       UpRow(),
                       MyGrid(),
                     ],
                   ),
-                  const Expanded(child: SizedBox()),
-                  const LeftButtons()
+                  // const Expanded(child: SizedBox()),
+                  // const LeftButtons()
                 ],
               ),
               const Expanded(child: SizedBox()),
               const GreenRow(),
               Container(
                 width: double.infinity,
-                height: 40,
+                height: size.height/22,
                 color: const Color.fromARGB(255, 80, 80, 80),
                 padding: const EdgeInsets.all(5),
                 child: const ButtonsRow(),

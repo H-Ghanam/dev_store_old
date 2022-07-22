@@ -19,9 +19,12 @@ class _RightColState extends State<RightCol> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     final appTheme = context.watch<AppTheme>();
+        Typography typography= FluentTheme.of(context).typography;
+
+
     return Container(
-      width: 120,
-      height: size.height - 271,
+      width: size.width/13.5,
+      height: size.height /1.45,
       // color: const Color.fromARGB(255, 233, 233, 233),
       child: Column(
         children: [
@@ -43,11 +46,11 @@ class _RightColState extends State<RightCol> {
                       appTheme.color.lightest,
                     ])),
             width: size.width / 15,
-            height: 100,
+            height: size.height/9,
             child: Column(
               children: [
                 Stack(children: [
-                  Center(child: Image.asset("assets/images/6.png", width: 80)),
+                  Center(child: Image.asset("assets/images/6.png",width: size.width/20,)),
                   Container(
                     alignment: Alignment.center,
                     margin: const EdgeInsets.only(top: 75),
@@ -55,7 +58,7 @@ class _RightColState extends State<RightCol> {
                       "Wings",
                       style: TextStyle(
                           // color: const Color.fromARGB(255, 255, 255, 255),
-                          fontSize: size.width / 95,
+                          fontSize: typography.bodyLarge!.fontSize!,
                           fontWeight: FontWeight.bold,
                           fontFamily: "En"),
                     ),
@@ -69,7 +72,7 @@ class _RightColState extends State<RightCol> {
           ),
           Container(
             width: size.width / 15,
-            height: 50,
+            height: size.height/19,
             alignment: Alignment.center,
             decoration: BoxDecoration(
               boxShadow: [
@@ -86,16 +89,16 @@ class _RightColState extends State<RightCol> {
           const SizedBox(
             height: 5,
           ),
-          SizedBox(width: size.width / 13, height: 30, child: const ToolsRow()),
+          SizedBox(width: size.width / 15, height: 30, child: const ToolsRow()),
           const SizedBox(
             height: 5,
           ),
           Container(
             width: size.width / 15,
-            height: 100,
+            height: size.height/8.5,
             color: Colors.yellow.darker,
             alignment: Alignment.center,
-            child: Column(
+            child: Column(mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: const [
                 Icon(
                   FluentIcons.skype_check,
