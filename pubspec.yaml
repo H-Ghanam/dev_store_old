@@ -30,6 +30,8 @@ dependencies:
   bloc: ^8.0.3
   clipboard: ^0.1.3
   desktop_window: ^0.4.0
+  dio: ^4.0.6
+  equatable: ^2.0.3
   fluent_ui: ^3.12.0
   flutter:
     sdk: flutter
@@ -93,7 +95,7 @@ flutter:
         - asset: assets/fonts/ArefRuqaa-Regular.ttf
     - family: Hind4
       fonts:
-        - asset: assets/fonts/Katibeh-Regular.ttf      
+        - asset: assets/fonts/Katibeh-Regular.ttf
   # fonts:
   #   - family: Schyler
   #     fonts:

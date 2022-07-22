@@ -1,38 +1,40 @@
-class Item {
-  int? id;
-  String? title;
-  String? code1;
-  String? code2;
-  String? barcode;
-  String? barcodes;
-  int? price1;
-  int? price2;
-  int? price3;
-  int? price4;
-  int? priceMin;
-  String? category1;
-  String? category2;
-  String? category3;
-  String? category4;
-  String? category5;
-  String? category6;
-  String? unit;
-  int? service;
-  int? avgCost;
-  int? lastCost;
-  int? lastNetCost;
-  DateTime? lastPurchased;
-  int? qty;
-  int? reorderQty;
-  int? starred;
-  int? discountPer1;
-  String? taxType;
-  int? priceIncludeTax1;
-  int? dead;
-  String? photo;
-  String? more;
+import 'package:equatable/equatable.dart';
 
-  Item(
+class Item extends Equatable {
+  final num? id;
+  final String? title;
+  final String? code1;
+  final String? code2;
+  final String? barcode;
+  final String? barcodes;
+  final num? price1;
+  final num? price2;
+  final num? price3;
+  final num? price4;
+  final num? priceMin;
+  final String? category1;
+  final String? category2;
+  final String? category3;
+  final String? category4;
+  final String? category5;
+  final String? category6;
+  final String? unit;
+  final num? service;
+  final num? avgCost;
+  final num? lastCost;
+  final num? lastNetCost;
+  final String? lastPurchased;
+  final num? qty;
+  final num? reorderQty;
+  final num? starred;
+  final num? discountPer1;
+  final String? taxType;
+  final num? priceIncludeTax1;
+  final num? dead;
+  final String? photo;
+  final String? more;
+
+  const Item(
       {this.id,
       this.title,
       this.code1,
@@ -66,39 +68,46 @@ class Item {
       this.photo,
       this.more});
 
-  Item.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
-    title = json['title'];
-    code1 = json['code1'];
-    code2 = json['code2'];
-    barcode = json['barcode'];
-    barcodes = json['barcodes'];
-    price1 = json['price1'];
-    price2 = json['price2'];
-    price3 = json['price3'];
-    price4 = json['price4'];
-    priceMin = json['price_min'];
-    category1 = json['category1'];
-    category2 = json['category2'];
-    category3 = json['category3'];
-    category4 = json['category4'];
-    category5 = json['category5'];
-    category6 = json['category6'];
-    unit = json['unit'];
-    service = json['service'];
-    avgCost = json['avg_cost'];
-    lastCost = json['last_cost'];
-    lastNetCost = json['last_net_cost'];
-    lastPurchased = json['last_purchased'];
-    qty = json['qty'];
-    reorderQty = json['reorder_qty'];
-    starred = json['starred'];
-    discountPer1 = json['discount_per1'];
-    taxType = json['tax_type'];
-    priceIncludeTax1 = json['price_include_tax1'];
-    dead = json['dead'];
-    photo = json['photo'];
-    more = json['more'];
+  factory Item.fromJson(Map<String, dynamic> json) {
+    return Item(
+        id: json['id'],
+        title: json['title'],
+        code1: json['code1'],
+        code2: json['code2'],
+        barcode: json['barcode'],
+        barcodes: json['barcodes'],
+        price1: json['price1'],
+        price2: json['price2'],
+        price3: json['price3'],
+        price4: json['price4'],
+        priceMin: json['price_min'],
+        category1: json['category1'],
+        category2: json['category2'],
+        category3: json['category3'],
+        category4: json['category4'],
+        category5: json['category5'],
+        category6: json['category6'],
+        unit: json['unit'],
+        service: json['service'],
+        avgCost: json['avg_cost'],
+        lastCost: json['last_cost'],
+        lastNetCost: json['last_net_cost'],
+        lastPurchased: json['last_purchased'],
+        qty: json['qty'],
+        reorderQty: json['reorder_qty'],
+        starred: json['starred'],
+        discountPer1: json['discount_per1'],
+        taxType: json['tax_type'],
+        priceIncludeTax1: json['price_include_tax1'],
+        dead: json['dead'],
+        photo: json['photo'],
+        more: json['more']);
+  }
+
+  static List<Item> fromJsonArray(List jsonArray) {
+    return jsonArray.map((item) {
+      return Item.fromJson(item);
+    }).toList();
   }
 
   Map<String, dynamic> toJson() {
@@ -137,4 +146,40 @@ class Item {
     data['more'] = more;
     return data;
   }
+
+  @override
+  List<Object?> get props => [
+        id,
+        title,
+        code1,
+        code2,
+        barcode,
+        barcodes,
+        price1,
+        price2,
+        price3,
+        price4,
+        priceMin,
+        category1,
+        category2,
+        category3,
+        category4,
+        category5,
+        category6,
+        unit,
+        service,
+        avgCost,
+        lastCost,
+        lastNetCost,
+        lastPurchased,
+        qty,
+        reorderQty,
+        starred,
+        discountPer1,
+        taxType,
+        priceIncludeTax1,
+        dead,
+        photo,
+        more
+      ];
 }

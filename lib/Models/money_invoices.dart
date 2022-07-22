@@ -1,21 +1,24 @@
-class MoneyInvoices {
-  int? pk;
-  String? mKind;
-  int? mId;
-  String? iKind;
-  int? iId;
-  int? amount;
+import 'package:equatable/equatable.dart';
 
-  MoneyInvoices(
+class MoneyInvoices extends Equatable {
+  final num? pk;
+  final String? mKind;
+  final num? mId;
+  final String? iKind;
+  final num? iId;
+  final num? amount;
+
+  const MoneyInvoices(
       {this.pk, this.mKind, this.mId, this.iKind, this.iId, this.amount});
 
-  MoneyInvoices.fromJson(Map<String, dynamic> json) {
-    pk = json['pk'];
-    mKind = json['m_kind'];
-    mId = json['m_id'];
-    iKind = json['i_kind'];
-    iId = json['i_id'];
-    amount = json['amount'];
+  factory MoneyInvoices.fromJson(Map<String, dynamic> json) {
+    return MoneyInvoices(
+        pk: json['pk'],
+        mKind: json['m_kind'],
+        mId: json['m_id'],
+        iKind: json['i_kind'],
+        iId: json['i_id'],
+        amount: json['amount']);
   }
 
   Map<String, dynamic> toJson() {
@@ -28,4 +31,7 @@ class MoneyInvoices {
     data['amount'] = amount;
     return data;
   }
+
+  @override
+  List<Object?> get props => [pk, mKind, mId, iKind, iId, amount];
 }

@@ -1,46 +1,48 @@
-class Money {
-  int? pk;
-  String? kind;
-  int? id;
-  String? parentKind;
-  int? parentId;
-  String? date1;
-  String? time1;
-  int? amount;
-  int? moneyIn;
-  int? moneyOut;
-  int? accountId;
-  String? accountCategory1;
-  String? category1;
-  String? category2;
-  int? cashboxId;
-  int? cashboxFees;
-  int? amountNet;
-  int? cashboxIn;
-  int? cashboxOut;
-  DateTime? dueDate;
-  int? isClosed;
-  int? isCheque;
-  String? chequeNo;
-  String? chequeBank;
-  String? reference;
-  String? more;
-  int? tax1Per;
-  int? tax1;
-  int? amountTaxed;
-  int? isLiquid;
-  DateTime? liquidDate;
-  DateTime? liquidTime;
-  int? affectAccount;
-  String? accountDate;
-  String? accountTime;
-  int? transferId;
-  int? createdbyId;
-  DateTime? createdon;
-  int? editedbyId;
-  DateTime? editedon;
+import 'package:equatable/equatable.dart';
 
-  Money(
+class Money extends Equatable {
+  final num? pk;
+  final String? kind;
+  final num? id;
+  final String? parentKind;
+  final num? parentId;
+  final String? date1;
+  final String? time1;
+  final num? amount;
+  final num? moneyIn;
+  final num? moneyOut;
+  final num? accountId;
+  final String? accountCategory1;
+  final String? category1;
+  final String? category2;
+  final num? cashboxId;
+  final num? cashboxFees;
+  final num? amountNet;
+  final num? cashboxIn;
+  final num? cashboxOut;
+  final String? dueDate;
+  final num? isClosed;
+  final num? isCheque;
+  final String? chequeNo;
+  final String? chequeBank;
+  final String? reference;
+  final String? more;
+  final num? tax1Per;
+  final num? tax1;
+  final num? amountTaxed;
+  final num? isLiquid;
+  final String? liquidDate;
+  final String? liquidTime;
+  final num? affectAccount;
+  final String? accountDate;
+  final String? accountTime;
+  final num? transferId;
+  final num? createdbyId;
+  final String? createdon;
+  final num? editedbyId;
+  final String? editedon;
+
+  const Money(
       {this.pk,
       this.kind,
       this.id,
@@ -82,47 +84,48 @@ class Money {
       this.editedbyId,
       this.editedon});
 
-  Money.fromJson(Map<String, dynamic> json) {
-    pk = json['pk'];
-    kind = json['kind'];
-    id = json['id'];
-    parentKind = json['parent_kind'];
-    parentId = json['parent_id'];
-    date1 = json['date1'];
-    time1 = json['time1'];
-    amount = json['amount'];
-    moneyIn = json['money_in'];
-    moneyOut = json['money_out'];
-    accountId = json['account_id'];
-    accountCategory1 = json['account_category1'];
-    category1 = json['category1'];
-    category2 = json['category2'];
-    cashboxId = json['cashbox_id'];
-    cashboxFees = json['cashbox_fees'];
-    amountNet = json['amount_net'];
-    cashboxIn = json['cashbox_in'];
-    cashboxOut = json['cashbox_out'];
-    dueDate = json['due_date'];
-    isClosed = json['is_closed'];
-    isCheque = json['is_cheque'];
-    chequeNo = json['cheque_no'];
-    chequeBank = json['cheque_bank'];
-    reference = json['reference'];
-    more = json['more'];
-    tax1Per = json['tax1_per'];
-    tax1 = json['tax1'];
-    amountTaxed = json['amount_taxed'];
-    isLiquid = json['is_liquid'];
-    liquidDate = json['liquid_date'];
-    liquidTime = json['liquid_time'];
-    affectAccount = json['affect_account'];
-    accountDate = json['account_date'];
-    accountTime = json['account_time'];
-    transferId = json['transfer_id'];
-    createdbyId = json['createdby_id'];
-    createdon = json['createdon'];
-    editedbyId = json['editedby_id'];
-    editedon = json['editedon'];
+  factory Money.fromJson(Map<String, dynamic> json) {
+    return Money(
+        pk: json['pk'],
+        kind: json['kind'],
+        id: json['id'],
+        parentKind: json['parent_kind'],
+        parentId: json['parent_id'],
+        date1: json['date1'],
+        time1: json['time1'],
+        amount: json['amount'],
+        moneyIn: json['money_in'],
+        moneyOut: json['money_out'],
+        accountId: json['account_id'],
+        accountCategory1: json['account_category1'],
+        category1: json['category1'],
+        category2: json['category2'],
+        cashboxId: json['cashbox_id'],
+        cashboxFees: json['cashbox_fees'],
+        amountNet: json['amount_net'],
+        cashboxIn: json['cashbox_in'],
+        cashboxOut: json['cashbox_out'],
+        dueDate: json['due_date'],
+        isClosed: json['is_closed'],
+        isCheque: json['is_cheque'],
+        chequeNo: json['cheque_no'],
+        chequeBank: json['cheque_bank'],
+        reference: json['reference'],
+        more: json['more'],
+        tax1Per: json['tax1_per'],
+        tax1: json['tax1'],
+        amountTaxed: json['amount_taxed'],
+        isLiquid: json['is_liquid'],
+        liquidDate: json['liquid_date'],
+        liquidTime: json['liquid_time'],
+        affectAccount: json['affect_account'],
+        accountDate: json['account_date'],
+        accountTime: json['account_time'],
+        transferId: json['transfer_id'],
+        createdbyId: json['createdby_id'],
+        createdon: json['createdon'],
+        editedbyId: json['editedby_id'],
+        editedon: json['editedon']);
   }
 
   Map<String, dynamic> toJson() {
@@ -169,4 +172,48 @@ class Money {
     data['editedon'] = editedon;
     return data;
   }
+
+  @override
+  List<Object?> get props => [
+        pk,
+        kind,
+        id,
+        parentKind,
+        parentId,
+        date1,
+        time1,
+        amount,
+        moneyIn,
+        moneyOut,
+        accountId,
+        accountCategory1,
+        category1,
+        category2,
+        cashboxId,
+        cashboxFees,
+        amountNet,
+        cashboxIn,
+        cashboxOut,
+        dueDate,
+        isClosed,
+        isCheque,
+        chequeNo,
+        chequeBank,
+        reference,
+        more,
+        tax1Per,
+        tax1,
+        amountTaxed,
+        isLiquid,
+        liquidDate,
+        liquidTime,
+        affectAccount,
+        accountDate,
+        accountTime,
+        transferId,
+        createdbyId,
+        createdon,
+        editedbyId,
+        editedon
+      ];
 }

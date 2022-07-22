@@ -1,37 +1,39 @@
-class Account {
-  int? id;
-  String? title;
-  String? code;
-  int? balanceIn;
-  int? balanceOut;
-  int? instalReceipts;
-  int? instalPayments;
-  String? kind;
-  String? accCustom1;
-  String? accCustom2;
-  String? accCustom3;
-  String? accCustom4;
-  String? accCustom5;
-  String? accCustom6;
-  String? phone;
-  String? email;
-  String? address;
-  String? address2;
-  String? taxId;
-  String? more;
-  String? reminderDate;
-  int? salesPriceList;
-  int? salesDiscountPer;
-  int? maxBalanceOut;
-  int? dead;
-  String? lastSaleDate;
-  int? lastSaleTotal;
-  int? lastSaleId;
-  String? lastReceiptDate;
-  int? lastReceiptAmount;
-  int? lastReceiptId;
+import 'package:equatable/equatable.dart';
 
-  Account(
+class Account extends Equatable {
+  final num? id;
+  final String? title;
+  final String? code;
+  final num? balanceIn;
+  final num? balanceOut;
+  final num? instalReceipts;
+  final num? instalPayments;
+  final String? kind;
+  final String? accCustom1;
+  final String? accCustom2;
+  final String? accCustom3;
+  final String? accCustom4;
+  final String? accCustom5;
+  final String? accCustom6;
+  final String? phone;
+  final String? email;
+  final String? address;
+  final String? address2;
+  final String? taxId;
+  final String? more;
+  final String? reminderDate;
+  final num? salesPriceList;
+  final num? salesDiscountPer;
+  final num? maxBalanceOut;
+  final num? dead;
+  final String? lastSaleDate;
+  final num? lastSaleTotal;
+  final num? lastSaleId;
+  final String? lastReceiptDate;
+  final num? lastReceiptAmount;
+  final num? lastReceiptId;
+
+  const Account(
       {this.id,
       this.title,
       this.code,
@@ -64,38 +66,39 @@ class Account {
       this.lastReceiptAmount,
       this.lastReceiptId});
 
-  Account.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
-    title = json['title'];
-    code = json['code'];
-    balanceIn = json['balance_in'];
-    balanceOut = json['balance_out'];
-    instalReceipts = json['instal_receipts'];
-    instalPayments = json['instal_payments'];
-    kind = json['kind'];
-    accCustom1 = json['acc_custom1'];
-    accCustom2 = json['acc_custom2'];
-    accCustom3 = json['acc_custom3'];
-    accCustom4 = json['acc_custom4'];
-    accCustom5 = json['acc_custom5'];
-    accCustom6 = json['acc_custom6'];
-    phone = json['phone'];
-    email = json['email'];
-    address = json['address'];
-    address2 = json['address2'];
-    taxId = json['tax_id'];
-    more = json['more'];
-    reminderDate = json['reminder_date'];
-    salesPriceList = json['sales_price_list'];
-    salesDiscountPer = json['sales_discount_per'];
-    maxBalanceOut = json['max_balance_out'];
-    dead = json['dead'];
-    lastSaleDate = json['last_sale_date'];
-    lastSaleTotal = json['last_sale_total'];
-    lastSaleId = json['last_sale_id'];
-    lastReceiptDate = json['last_receipt_date'];
-    lastReceiptAmount = json['last_receipt_amount'];
-    lastReceiptId = json['last_receipt_id'];
+  factory Account.fromJson(Map<String, dynamic> json) {
+    return Account(
+        id: json['id'],
+        title: json['title'],
+        code: json['code'],
+        balanceIn: json['balanceIn'],
+        balanceOut: json['balanceOut'],
+        instalReceipts: json['instalReceipts'],
+        instalPayments: json['instalPayments'],
+        kind: json['kind'],
+        accCustom1: json['accCustom1'],
+        accCustom2: json['accCustom2'],
+        accCustom3: json['accCustom3'],
+        accCustom4: json['accCustom4'],
+        accCustom5: json['accCustom5'],
+        accCustom6: json['accCustom6'],
+        phone: json['phone'],
+        email: json['email'],
+        address: json['address'],
+        address2: json['address2'],
+        taxId: json['taxId'],
+        more: json['more'],
+        reminderDate: json['reminderDate'],
+        salesPriceList: json['salesPriceList'],
+        salesDiscountPer: json['salesDiscountPer'],
+        maxBalanceOut: json['maxBalanceOut'],
+        dead: json['dead'],
+        lastSaleDate: json['lastSaleDate'],
+        lastSaleTotal: json['lastSaleTotal'],
+        lastSaleId: json['lastSaleId'],
+        lastReceiptDate: json['lastReceiptDate'],
+        lastReceiptAmount: json['lastReceiptAmount'],
+        lastReceiptId: json['lastReceiptId']);
   }
 
   Map<String, dynamic> toJson() {
@@ -133,4 +136,39 @@ class Account {
     data['last_receipt_id'] = lastReceiptId;
     return data;
   }
+
+  @override
+  List<Object?> get props => [
+        id,
+        title,
+        code,
+        balanceIn,
+        balanceOut,
+        instalReceipts,
+        instalPayments,
+        kind,
+        accCustom1,
+        accCustom2,
+        accCustom3,
+        accCustom4,
+        accCustom5,
+        accCustom6,
+        phone,
+        email,
+        address,
+        address2,
+        taxId,
+        more,
+        reminderDate,
+        salesPriceList,
+        salesDiscountPer,
+        maxBalanceOut,
+        dead,
+        lastSaleDate,
+        lastSaleTotal,
+        lastSaleId,
+        lastReceiptDate,
+        lastReceiptAmount,
+        lastReceiptId,
+      ];
 }

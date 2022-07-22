@@ -1,11 +1,11 @@
-import 'package:dev_store/widgets/home_w.dart';
-import 'package:dev_store/widgets/page.dart';
-import 'package:dev_store/widgets/tab_view.dart';
-import 'package:dev_store/widgets/wings_card.dart';
+import 'package:dev_store/screens/app/pages/home/home_page.dart';
+import 'package:dev_store/screens/widgets/page.dart';
 import 'package:fluent_ui/fluent_ui.dart';
 // import 'package:url_launcher/link.dart';
 
-class HomePage extends ScrollablePage {
+class HomeScrollablePage extends ScrollablePage {
+  HomeScrollablePage() : super(scrollable: false);
+
   // @override
   // Widget buildHeader(BuildContext context) {
   //   final theme = FluentTheme.of(context);
@@ -34,16 +34,16 @@ class HomePage extends ScrollablePage {
 
   @override
   List<Widget> buildScrollable(BuildContext context) {
-    assert(debugCheckHasFluentTheme(context));
-    final theme = FluentTheme.of(context);
+    // assert(debugCheckHasFluentTheme(context));
+    // final theme = FluentTheme.of(context);
 
-    final sections = <Section>[
-      Section("تقارير", FluentIcons.repo_solid),
-      Section("تقارير", FluentIcons.repo_solid),
-      Section("تقارير", FluentIcons.repo_solid),
-    ];
+    // final sections = <Section>[
+    //   Section("تقارير", FluentIcons.repo_solid),
+    //   Section("تقارير", FluentIcons.repo_solid),
+    //   Section("تقارير", FluentIcons.repo_solid),
+    // ];
 
-    // return TabViewPage().buildScrollable(context);
+    // return InvoiceTabViewPage().buildScrollable(context);
     // return [const HomeW()];
 
     //   return [
@@ -69,8 +69,7 @@ class HomePage extends ScrollablePage {
     //       ),
     //     )
     //   ];
-
-    return [HomeW()];
+    return [const HomePage()];
   }
 }
 

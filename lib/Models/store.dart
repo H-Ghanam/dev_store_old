@@ -1,16 +1,19 @@
-class Store {
-  int? id;
-  int? sn;
-  String? title;
-  int? active;
+import 'package:equatable/equatable.dart';
 
-  Store({this.id, this.sn, this.title, this.active});
+class Store extends Equatable {
+  final num? id;
+  final num? sn;
+  final String? title;
+  final num? active;
 
-  Store.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
-    sn = json['sn'];
-    title = json['title'];
-    active = json['active'];
+  const Store({this.id, this.sn, this.title, this.active});
+
+  factory Store.fromJson(Map<String, dynamic> json) {
+    return Store(
+        id: json['id'],
+        sn: json['sn'],
+        title: json['title'],
+        active: json['active']);
   }
 
   Map<String, dynamic> toJson() {
@@ -21,4 +24,7 @@ class Store {
     data['active'] = active;
     return data;
   }
+
+  @override
+  List<Object?> get props => [id, sn, title, active];
 }

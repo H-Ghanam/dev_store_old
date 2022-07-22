@@ -1,14 +1,14 @@
-class Unit {
-  int? id;
-  int? sn;
-  String? unit;
+import 'package:equatable/equatable.dart';
 
-  Unit({this.id, this.sn, this.unit});
+class Unit extends Equatable {
+  final num? id;
+  final num? sn;
+  final String? unit;
 
-  Unit.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
-    sn = json['sn'];
-    unit = json['unit'];
+  const Unit({this.id, this.sn, this.unit});
+
+  factory Unit.fromJson(Map<String, dynamic> json) {
+    return Unit(id: json['id'], sn: json['sn'], unit: json['unit']);
   }
 
   Map<String, dynamic> toJson() {
@@ -18,4 +18,7 @@ class Unit {
     data['unit'] = unit;
     return data;
   }
+
+  @override
+  List<Object?> get props => [id, sn, unit];
 }

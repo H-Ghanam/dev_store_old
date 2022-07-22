@@ -1,6 +1,7 @@
-import 'package:dev_store/Modules/App/bloc/app_bloc.dart';
-import 'package:dev_store/Modules/Invoice/Bloc/invoice_bloc.dart';
-import 'package:dev_store/routes.dart';
+import 'package:dev_store/blocs/app_bloc/app_bloc.dart';
+import 'package:dev_store/blocs/invoice_bloc/invoice_bloc.dart';
+import 'package:dev_store/screens/app/pages/invoice/invoice_repository.dart';
+import 'package:dev_store/screens/routes.dart';
 import 'package:dev_store/theme.dart';
 import 'package:fluent_ui/fluent_ui.dart';
 import 'package:flutter/foundation.dart';
@@ -70,8 +71,12 @@ class Main extends StatelessWidget {
         final appTheme = context.watch<AppTheme>();
         return MultiBlocProvider(
           providers: [
-            BlocProvider(create: (context) => AppBloc()),
-            BlocProvider(create: (context) => InvoiceBloc()),
+            BlocProvider(
+              create: (context) => AppBloc(),
+            ),
+            BlocProvider(
+              create: (context) => InvoiceBloc(TnvoiceRepositoryImpl()),
+            ),
           ],
           child: FluentApp(
             title: appTitle,
