@@ -40,6 +40,7 @@ abstract class ScrollablePage extends Page {
       header: buildHeader(context),
       bottomBar: buildBottomBar(context),
       children: buildScrollable(context),
+      padding: EdgeInsets.all(0),
     );
   }
 

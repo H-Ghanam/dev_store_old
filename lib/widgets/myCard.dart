@@ -7,13 +7,20 @@ import 'package:fluent_ui/fluent_ui.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class MyCard extends StatefulWidget {
-  MyCard({Key? key, this.title, this.image, this.gradient, this.size})
+  MyCard(
+      {Key? key,
+      this.title,
+      this.image,
+      this.gradient,
+      this.size,
+      required this.matchTextDirection})
       : super(key: key);
 
   final String? title;
   String? image;
   Gradient? gradient;
   double? size;
+  bool matchTextDirection = false;
 
   @override
   State<MyCard> createState() => _MyCardState();
@@ -32,6 +39,7 @@ class _MyCardState extends State<MyCard> {
           width: widget.size,
           height: 125,
           decoration: BoxDecoration(
+            boxShadow:[BoxShadow(color: appTheme.color,blurRadius: 0.1,spreadRadius: 1)],
               gradient: widget.gradient,
               borderRadius: BorderRadius.circular(10)),
           child: Column(
@@ -40,6 +48,7 @@ class _MyCardState extends State<MyCard> {
               Image.asset(
                 "${widget.image}",
                 width: 70,
+                matchTextDirection: widget.matchTextDirection,
               ),
               Text(
                 "${widget.title}",

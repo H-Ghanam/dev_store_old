@@ -1,6 +1,9 @@
 // ignore_for_file: sized_box_for_whitespace
 
 import 'package:fluent_ui/fluent_ui.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../theme.dart';
 
 class WingsCard extends StatefulWidget {
   const WingsCard({Key? key}) : super(key: key);
@@ -13,20 +16,27 @@ class _WingsCardState extends State<WingsCard> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    final appTheme = context.watch<AppTheme>();
     return Row(
       children: [
         MouseRegion(
           cursor: SystemMouseCursors.click,
           child: Container(
             decoration: BoxDecoration(
+                boxShadow: [
+                  BoxShadow(
+                      color: appTheme.color, blurRadius: 0.1, spreadRadius: 1)
+                ],
                 borderRadius: BorderRadius.circular(10),
                 // color: const Color.fromARGB(255, 7, 28, 61),
-                gradient: LinearGradient(colors: [
-                  Colors.green.lightest,
-                  Colors.green,
-                ])),
+                gradient: LinearGradient(
+                    begin: AlignmentDirectional.bottomStart,
+                    colors: [
+                      appTheme.color,
+                      appTheme.color.lightest,
+                    ])),
             width: size.width / 13,
-            height: 140,
+            height: 125,
             child: Column(
               children: [
                 Stack(children: [
@@ -34,11 +44,11 @@ class _WingsCardState extends State<WingsCard> {
                   Container(
                     alignment: Alignment.center,
                     margin: const EdgeInsets.only(top: 88),
-                    child: Text(
+                    child: const Text(
                       "Wings",
                       style: TextStyle(
-                          color: const Color.fromARGB(255, 255, 255, 255),
-                          fontSize: size.width / 55,
+                          color: Color.fromARGB(255, 255, 255, 255),
+                          fontSize: 25,
                           fontWeight: FontWeight.bold,
                           fontFamily: "En"),
                     ),
@@ -58,9 +68,12 @@ class _WingsCardState extends State<WingsCard> {
             children: const [
               Text(
                 "وينجز لإدارة الأعمال",
-                style: TextStyle(fontFamily: "Hind4", fontSize: 45),
+                style: TextStyle(fontFamily: "Hind4", fontSize: 40),
               ),
-              Text("أسهل وأدق برنامج لإدارة المحلات والمخازن\nفي العالم العربي")
+              Text(
+                "أسهل وأدق برنامج لإدارة المحلات والمخازن\nفي العالم العربي",
+                style: TextStyle(fontFamily: "Hind4", fontSize: 18),
+              )
             ],
           ),
         )

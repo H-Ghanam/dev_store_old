@@ -1,11 +1,22 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables
 
+// import 'package:dev_store/screens/App/pages/invoice/chart.dart';
+
 import 'package:dev_store/theme.dart';
-import 'package:dev_store/widgets/backGround.dart';
+// import 'package:dev_store/widgets/backGround.dart';
 import 'package:dev_store/widgets/myCard.dart';
 import 'package:dev_store/widgets/wings_card.dart';
 import 'package:fluent_ui/fluent_ui.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pie_chart/pie_chart.dart';
+// import 'package:pie_chart/pie_chart.dart';
+// import 'package:charts_flutter/flutter.dart';
+// import 'package:flutter_echarts/flutter_echarts.dart';
+//import '../screens/App/pages/invoice/charts/chart1.dart';
+import '../screens/App/pages/invoice/charts/chart1.dart';
+import '../screens/App/pages/invoice/charts/chart2.dart';
+import '../screens/App/pages/invoice/charts/chart3.dart';
+import '../screens/App/pages/invoice/charts/circleChart.dart';
 
 class HomeW extends StatelessWidget {
   const HomeW({Key? key}) : super(key: key);
@@ -19,21 +30,133 @@ class HomeW extends StatelessWidget {
       appTheme.color,
       appTheme.color.lightest,
     ]);
+    Gradient secondRowColor =
+        LinearGradient(begin: AlignmentDirectional.bottomStart, colors: [
+      appTheme.color,
+      appTheme.color.lightest,
+    ]);
     double firstRowSize = size.width / 13;
-    return SizedBox(
+
+    return Container(
       width: double.infinity,
       height: size.height - 100,
+      padding: EdgeInsets.only(top: 5),
       child: Stack(children: [
         // const BackGround(),
+        Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Column(
+                  children: [
+                    Text("تقارير هامة :"),
+                    Row(
+                      children: [
+                        SizedBox(
+                            width: 200,
+                            height: 200,
+                            child: Chart1(
+                                month1: "month1",
+                                month2: "month2",
+                                month3: "mo3",
+                                monthSales3: 60,
+                                monthSales1: 5,
+                                monthSales2: 10)),
+                        SizedBox(
+                          width: 400,
+                          height: size.height / 3.6,
+                          child: CircleChart(
+                            compare1: "الأرباح",
+                            compare2: "المصروفات",
+                            // num3: 0,
+                            // num4: 0,
+                            // compare3: "ss",
+                            num1: 500,
+                            num2: 100,
+                            chartType: ChartType.ring,
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        const SizedBox(
+                            width: 200, height: 200, child: Charts2()),
+                        SizedBox(
+                          width: 400,
+                          height: size.height / 3.6,
+                          child: CircleChart(
+                            compare1: "المبيعات",
+                            compare2: "المشتريات",
+                            num1: 4000,
+                            num2: 1500,
+                            chartType: ChartType.disc,
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        SizedBox(width: 230, height: 200, child: Chart3()),
+                        SizedBox(
+                          width: 400,
+                          height: size.height / 3.6,
+                          child: CircleChart(
+                            compare1: "مبيعات شهر(2)",
+                            compare2: "مبيعات شهر(3)",
+                            compare3: "مبيعات شهر(4)",
+                            compare4: "مبيعات شهر(5)",
+                            num1: 3800,
+                            num2: 4200,
+                            num3: 5000,
+                            num4: 2000,
+                            chartType: ChartType.disc,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ],
+        ),
+        /////////////////////////////////////
+        // Row(
+        //   mainAxisAlignment: MainAxisAlignment.end,
+        //   children: [
+        //     Column(
+        //       mainAxisAlignment: MainAxisAlignment.end,
+        //       children: [
+        //         Container(
+        //             width: 200,
+        //             height: 200,
+        //             child: Chart(
+        //               month1: "مايو",
+        //               monthSales1: 12,
+        //               month2: "مارس",
+        //               monthSales2: 16,
+        //               month3: "ابريل",
+        //               monthSales3: 20,
+        //               month4: "اكتوبر",
+        //               monthSales4: 60,
+        //             )),
+        //       ],
+        //     ),
+        //   ],
+        // ),
         Column(
           children: [
             Row(
               children: [
                 const WingsCard(),
                 const SizedBox(
-                  width: 40,
+                  width: 30,
                 ),
                 MyCard(
+                  matchTextDirection: false,
                   size: firstRowSize,
                   image: "assets/images/boxes.png",
                   title: "البضاعة",
@@ -43,6 +166,7 @@ class HomeW extends StatelessWidget {
                   width: 5,
                 ),
                 MyCard(
+                  matchTextDirection: false,
                   size: firstRowSize,
                   image: "assets/images/man.png",
                   title: "الحسابات",
@@ -52,6 +176,7 @@ class HomeW extends StatelessWidget {
                   width: 5,
                 ),
                 MyCard(
+                  matchTextDirection: false,
                   size: firstRowSize,
                   image: "assets/images/money.png",
                   title: "الخزينة",
@@ -61,6 +186,7 @@ class HomeW extends StatelessWidget {
                   width: 5,
                 ),
                 MyCard(
+                  matchTextDirection: false,
                   size: firstRowSize,
                   image: "assets/images/bill.png",
                   title: "الفواتير",
@@ -70,36 +196,238 @@ class HomeW extends StatelessWidget {
                   width: 5,
                 ),
                 MyCard(
+                  matchTextDirection: false,
                   size: firstRowSize,
                   image: "assets/images/statistics.png",
                   title: "تقارير",
                   gradient: firstRowColor,
                 ),
-                const SizedBox(
-                  width: 5,
-                ),
+                // const SizedBox(
+                //   width: 5,
+                // ),
                 const SizedBox(
                   height: 20,
                 )
               ],
             ),
             const SizedBox(
-              height: 100,
+              height: 30,
+            ),
+            const SizedBox(
+              height: 10,
             ),
             Row(
               children: [
-                const Text("إبدأ بمشاهدةالجولة السريعة"),
-                const SizedBox(
-                  width: 100,
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text("إبدأ بمشاهدة الجولة السريعة"),
+                    const SizedBox(
+                      height: 8,
+                    ),
+                    Row(
+                      children: [
+                        MyCard(
+                          matchTextDirection: false,
+                          gradient: firstRowColor,
+                          image: "assets/images/usher.png",
+                          size: firstRowSize,
+                          title: "أهلاً بكم",
+                        ),
+                        const SizedBox(
+                          width: 5,
+                        ),
+                        MyCard(
+                          matchTextDirection: false,
+                          gradient: firstRowColor,
+                          image: "assets/images/note.png",
+                          size: firstRowSize,
+                          title: "إعداد وينجز",
+                        ),
+                        const SizedBox(
+                          width: 5,
+                        ),
+                        MyCard(
+                          matchTextDirection: false,
+                          gradient: firstRowColor,
+                          image: "assets/images/writing.png",
+                          size: firstRowSize,
+                          title: "إدخال الأصناف",
+                        ),
+                        const SizedBox(
+                          width: 5,
+                        ),
+                        MyCard(
+                          matchTextDirection: false,
+                          gradient: firstRowColor,
+                          image: "assets/images/manager.png",
+                          size: firstRowSize,
+                          title: "إدخال الحسابات",
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
-                MyCard(
-                  gradient: firstRowColor,
-                  image: "assets/images/usher.png",
-                  size: firstRowSize,
-                  title: "أهلاً بكم",
+
+                SizedBox(
+                  width: firstRowSize+7,
+                ),
+                //////////////////
+                const SizedBox(
+                  width: 5,
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text("تقارير"),
+                    const SizedBox(
+                      height: 8,
+                    ),
+                    Row(
+                      children: [
+                        MyCard(
+                          matchTextDirection: false,
+                          gradient: firstRowColor,
+                          image: "assets/images/8.png",
+                          size: firstRowSize,
+                          title: "الحركة اليومية",
+                        ),
+                        const SizedBox(
+                          width: 5,
+                        ),
+                        MyCard(
+                          matchTextDirection: false,
+                          gradient: firstRowColor,
+                          image: "assets/images/9.png",
+                          size: firstRowSize,
+                          title: "تحليل المبيعات",
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
               ],
             ),
+            const SizedBox(
+              height: 10,
+            ),
+            Row(
+              children: [const Text("حدد نوع المستند")],
+            ),
+            const SizedBox(
+              height: 8,
+            ),
+            Row(
+              children: [
+                MyCard(
+                  matchTextDirection: false,
+                  gradient: firstRowColor,
+                  image: "assets/images/sale.png",
+                  size: firstRowSize * 2+5,
+                  title: "بيع",
+                ),
+                const SizedBox(
+                  width: 5,
+                ),
+                MyCard(
+                  matchTextDirection: false,
+                  gradient: firstRowColor,
+                  image: "assets/images/buy.png",
+                  size: firstRowSize * 2+5,
+                  title: "شراء",
+                ),
+                const SizedBox(
+                  width: 5,
+                ),
+                MyCard(
+                  matchTextDirection: false,
+                  gradient: firstRowColor,
+                  image: "assets/images/coin.png",
+                  size: firstRowSize,
+                  title: "صرف",
+                ),
+                const SizedBox(
+                  width: 5,
+                ),
+                MyCard(
+                  matchTextDirection: false,
+                  gradient: firstRowColor,
+                  image: "assets/images/writing.png",
+                  size: firstRowSize * 2+5,
+                  title: "جرد مخزن",
+                ),
+                const SizedBox(
+                  width: 5,
+                ),
+              ],
+            ),
+            const SizedBox(
+              height: 8,
+            ),
+            Row(
+              children: [
+                MyCard(
+                  matchTextDirection: false,
+                  gradient: firstRowColor,
+                  image: "assets/images/11.png",
+                  size: firstRowSize,
+                  title: "مرتجع بيع",
+                ),
+                const SizedBox(
+                  width: 5,
+                ),
+                MyCard(
+                  matchTextDirection: false,
+                  gradient: firstRowColor,
+                  image: "assets/images/calc.png",
+                  size: firstRowSize,
+                  title: "عرض أسعار",
+                ),
+                const SizedBox(
+                  width: 5,
+                ),
+                MyCard(
+                  gradient: firstRowColor,
+                  image: "assets/images/11.png",
+                  size: firstRowSize,
+                  title: "مرتجع شراء",
+                  matchTextDirection: true,
+                ),
+                SizedBox(
+                  width: firstRowSize+10,
+                ),
+                MyCard(
+                  matchTextDirection: false,
+                  gradient: firstRowColor,
+                  image: "assets/images/cash.png",
+                  size: firstRowSize,
+                  title: "قبض",
+                ),
+                const SizedBox(
+                  width: 5,
+                ),
+                MyCard(
+                  matchTextDirection: false,
+                  gradient: firstRowColor,
+                  image: "assets/images/truck.png",
+                  size: firstRowSize,
+                  title: "تحويل لمخزن",
+                ),
+                const SizedBox(
+                  width: 5,
+                ),
+                MyCard(
+                  matchTextDirection: false,
+                  gradient: firstRowColor,
+                  image: "assets/images/scale.png",
+                  size: firstRowSize,
+                  title: "تسوية مخزن",
+                ),
+                const SizedBox(
+                  width: 5,
+                ),
+              ],
+            )
           ],
         ),
       ]),
