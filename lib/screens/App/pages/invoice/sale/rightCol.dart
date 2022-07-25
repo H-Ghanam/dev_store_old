@@ -23,13 +23,14 @@ class _RightColState extends State<RightCol> {
 
 
     return Container(
-      width: size.width/13.5,
-      height: size.height /1.45,
+      width: (6.5/100)*size.width,
+      height: (70.7/100)*size.height,
+      margin: EdgeInsets.only(left:(0.3/100)*size.width,),
       // color: const Color.fromARGB(255, 233, 233, 233),
       child: Column(
         children: [
-          const SizedBox(
-            height: 5,
+           SizedBox(
+            height: (0.4/100)*size.height,
           ),
           Container(
             decoration: BoxDecoration(
@@ -45,21 +46,22 @@ class _RightColState extends State<RightCol> {
                       appTheme.color,
                       appTheme.color.lightest,
                     ])),
-            width: size.width / 15,
-            height: size.height/9,
+            width: (6.5/100)*size.width,
+            height: (11.5/100)*size.height,
             child: Column(
               children: [
                 Stack(children: [
-                  Center(child: Image.asset("assets/images/6.png",width: size.width/20,)),
+                  Center(child: Image.asset("assets/images/6.png",width: (5/100)*size.width,)),
                   Container(
                     alignment: Alignment.center,
-                    margin: const EdgeInsets.only(top: 75),
+                    margin:  EdgeInsets.only(top: (8.3/100)*size.height),
                     child: Text(
                       "Wings",
                       style: TextStyle(
                           // color: const Color.fromARGB(255, 255, 255, 255),
-                          fontSize: typography.bodyLarge!.fontSize!,
+                          fontSize: typography.body!.fontSize!,
                           fontWeight: FontWeight.bold,
+                          color: Colors.white,
                           fontFamily: "En"),
                     ),
                   )
@@ -67,12 +69,12 @@ class _RightColState extends State<RightCol> {
               ],
             ),
           ),
-          const SizedBox(
-            height: 5,
+           SizedBox(
+            height: (0.4/100)*size.height,
           ),
           Container(
-            width: size.width / 15,
-            height: size.height/19,
+            width: (6.5/100)*size.width,
+            height: (4/100)*size.height,
             alignment: Alignment.center,
             decoration: BoxDecoration(
               boxShadow: [
@@ -81,67 +83,67 @@ class _RightColState extends State<RightCol> {
               ],
               color: appTheme.color.light,
             ),
-            child: const Text(
+            child:  Text(
               "بيع",
-              style: TextStyle(fontSize: 17, color: Colors.white),
+              style: TextStyle(fontSize: typography.body!.fontSize, color: Colors.white),
             ),
           ),
-          const SizedBox(
-            height: 5,
+           SizedBox(
+            height: (0.4/100)*size.height,
           ),
-          SizedBox(width: size.width / 15, height: 30, child: const ToolsRow()),
-          const SizedBox(
-            height: 5,
+          SizedBox(width: (6.5/100)*size.width, height: (3.5/100)*size.height, child: const ToolsRow()),
+           SizedBox(
+            height: (0.4/100)*size.height,
           ),
           Container(
-            width: size.width / 15,
-            height: size.height/8.5,
+            width: (6.5/100)*size.width,
+            height: (10.5/100)*size.height,
             color: Colors.yellow.darker,
             alignment: Alignment.center,
             child: Column(mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: const [
+              children:  [
                 Icon(
                   FluentIcons.skype_check,
-                  size: 65,
+                  size: (4/100)*size.width,
                 ),
                 Text(
                   "حفظ | جديد",
                   style: TextStyle(
                     color: Colors.black,
-                    fontSize: 12,
+                    fontSize:(0.8/100)*size.width,
                   ),
                 ),
                 Text(
                   "F12",
                   style: TextStyle(
                     color: Colors.black,
-                    fontSize: 12,
+                    fontSize:(0.8/100)*size.width,
                   ),
                 ),
               ],
             ),
           ),
-          const SizedBox(
-            height: 5,
+           SizedBox(
+            height: (0.4/100)*size.height,
           ),
           Container(
-            width: size.width / 15,
-            height: 100,
+            width: (6.5/100)*size.width,
+            height: (10.5/100)*size.height,
             color: const Color.fromARGB(255, 202, 202, 202),
             alignment: Alignment.center,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: const [
+              children:  [
                 Icon(
                   m.Icons.price_change,
-                  size: 40,
+                  size: (3/100)*size.width,
                   color: Colors.black,
                 ),
                 Text(
                   "سداد  f11",
                   style: TextStyle(
                     color: Colors.black,
-                    fontSize: 12,
+                    fontSize: (0.8/100)*size.width,
                   ),
                 ),
               ],
@@ -152,19 +154,21 @@ class _RightColState extends State<RightCol> {
           ),
           Row(
             children: [
-              const Icon(
+               Icon(
                 m.Icons.print,
-                size: 25,
+                size: (1.5/100)*size.width,
                 color: Colors.black,
               ),
               SizedBox(
-                width: 42,
-                height: 24,
+                width: (3/100)*size.width,
+                height: (3/100)*size.height,
                 child: ToggleSwitch(
                   checked: false,
+
                   onChanged: (e) {},
                   style: ToggleSwitchThemeData.standard(ThemeData(
                     borderInputColor: Colors.grey,
+                    
                   )),
                 ),
               )

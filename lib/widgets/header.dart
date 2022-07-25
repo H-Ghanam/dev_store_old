@@ -4,23 +4,24 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../theme.dart';
 
 class Header extends StatefulWidget {
-  const Header({Key? key}) : super(key: key);
+   Header({Key? key}) : super(key: key);
 
   @override
   State<Header> createState() => _HeaderState();
 }
 
-// BoxShadow _saleShadow = const BoxShadow(
+// BoxShadow _saleShadow =  BoxShadow(
 //     color: Color.fromARGB(255, 16, 148, 49), blurRadius: 5,spreadRadius: 10,);
 
 class _HeaderState extends State<Header> {
   @override
   Widget build(BuildContext context) {
-    Size size=MediaQuery.of(context).size;
+    Size size = MediaQuery.of(context).size;
     final appTheme = context.watch<AppTheme>();
-    Brightness brightness=FluentTheme.of(context).brightness;
+    Brightness brightness = FluentTheme.of(context).brightness;
+    Typography typography = FluentTheme.of(context).typography;
 
-    return Container(
+    return SizedBox(
       // padding: EdgeInsets.all(1),
       // decoration: BoxDecoration(boxShadow:[BoxShadow(color: appTheme.color,blurRadius: 0.1,spreadRadius: 1)],),
       child: Row(
@@ -33,32 +34,32 @@ class _HeaderState extends State<Header> {
               Button(
                   onPressed: () {},
                   style: ButtonStyle(
-                    padding: ButtonState.all( EdgeInsets.symmetric(
-                        horizontal: size.width/50, vertical: 5)),
+                    padding: ButtonState.all(EdgeInsets.symmetric(
+                        horizontal: (1.7/100)*size.width, vertical: (0.5/100)*size.height)),
                     backgroundColor: ButtonState.all(appTheme.color),
                   ),
-                  child: const Text("بيع")),
+                  child:   Text("بيع",style: TextStyle(fontSize: typography.caption!.fontSize),)),
               SizedBox(
-                width: 5,
+                width: (0.4/100)*size.width,
                 child: Container(
-                  width: 1,
+                  // width: (10/100)*size.width,
                   color: Colors.black,
-                  height: 3,
+                  height: (0.4/100)*size.height,
                 ),
               ),
               Button(
                   onPressed: () {},
                   style: ButtonStyle(
-                    padding: ButtonState.all(const EdgeInsets.symmetric(
-                        horizontal: 10, vertical: 5)),
+                    padding: ButtonState.all( EdgeInsets.symmetric(
+                        horizontal: (0.7/100)*size.width, vertical: (0.5/100)*size.height)),
                     backgroundColor: ButtonState.all(appTheme.color),
                   ),
-                  child: const Text("مرتجع بيع")),
+                  child:   Text("مرتجع بيع",style: TextStyle(fontSize: typography.caption!.fontSize))),
             ],
           ),
 
-          const SizedBox(
-            width: 10,
+            SizedBox(
+            width: (1/100)*size.width,
             // child: Container(height: 25,color: Colors.grey[100],),
           ),
           Row(
@@ -67,33 +68,31 @@ class _HeaderState extends State<Header> {
               Button(
                   onPressed: () {},
                   style: ButtonStyle(
-                    padding: ButtonState.all( EdgeInsets.symmetric(
-                        horizontal: size.width/60, vertical: 5)),
-                    backgroundColor:
-                        ButtonState.all(Colors.red.light),
+                    padding: ButtonState.all(EdgeInsets.symmetric(
+                        horizontal: (1.25/100)*size.width, vertical: (0.5/100)*size.height)),
+                    backgroundColor: ButtonState.all(Colors.red.light),
                   ),
-                  child: const Text("شراء")),
+                  child:   Text("شراء",style: TextStyle(fontSize: typography.caption!.fontSize))),
               SizedBox(
-                width: 5,
+                width: (0.4/100)*size.width,
                 child: Container(
-                  width: 1,
+                  // width: (10/100)*size.width,
                   color: Colors.black,
-                  height: 3,
+                  height: (0.4/100)*size.height,
                 ),
               ),
               Button(
                   onPressed: () {},
                   style: ButtonStyle(
-                    padding: ButtonState.all(const EdgeInsets.symmetric(
-                        horizontal: 10, vertical: 5)),
-                    backgroundColor:
-                        ButtonState.all(Colors.red.lighter),
+                    padding: ButtonState.all( EdgeInsets.symmetric(
+                        horizontal: (0.6/100)*size.width, vertical: (0.5/100)*size.height)),
+                    backgroundColor: ButtonState.all(Colors.red.lighter),
                   ),
-                  child: const Text("مرتجع شراء")),
+                  child:   Text("مرتجع شراء",style: TextStyle(fontSize: typography.caption!.fontSize))),
             ],
           ),
-          const SizedBox(
-            width: 10,
+            SizedBox(
+            width: (1/100)*size.width,
             // child: Container(width: 1,height: 25,color: Colors.grey[100],),
           ),
           Row(
@@ -102,32 +101,31 @@ class _HeaderState extends State<Header> {
               Button(
                   onPressed: () {},
                   style: ButtonStyle(
-                    padding: ButtonState.all( EdgeInsets.symmetric(
-                        horizontal: size.width/60, vertical: 5)),
+                    padding: ButtonState.all(EdgeInsets.symmetric(
+                        horizontal: (1.25/100)*size.width, vertical: (0.5/100)*size.height)),
                     backgroundColor: ButtonState.all(appTheme.color),
                   ),
-                  child: const Text("قبض")),
+                  child:   Text("قبض",style: TextStyle(fontSize: typography.caption!.fontSize))),
               SizedBox(
-                width: 5,
+                width: (0.4/100)*size.width,
                 child: Container(
-                  width: 1,
+                  // width: (10/100)*size.width,
                   color: Colors.black,
-                  height: 3,
+                  height: (0.4/100)*size.height,
                 ),
               ),
               Button(
                   onPressed: () {},
                   style: ButtonStyle(
-                    padding: ButtonState.all( EdgeInsets.symmetric(
-                        horizontal: size.width/60, vertical: 5)),
-                    backgroundColor:
-                        ButtonState.all(Colors.red.lightest),
+                    padding: ButtonState.all(EdgeInsets.symmetric(
+                        horizontal: (1.25/100)*size.width, vertical: (0.5/100)*size.height)),
+                    backgroundColor: ButtonState.all(Colors.red.lightest),
                   ),
-                  child: const Text("صرف")),
+                  child:   Text("صرف",style: TextStyle(fontSize: typography.caption!.fontSize))),
             ],
           ),
-          const SizedBox(
-            width: 10,
+            SizedBox(
+            width: (1/100)*size.width,
             // child: Container(width: 1,height: 25,color: Colors.grey[100],),
           ),
 
@@ -135,13 +133,13 @@ class _HeaderState extends State<Header> {
               onPressed: () {},
               style: ButtonStyle(
                 padding: ButtonState.all(
-                    const EdgeInsets.symmetric(horizontal: 10, vertical: 5)),
+                     EdgeInsets.symmetric(horizontal: (0.7/100)*size.width, vertical: (0.5/100)*size.height)),
                 backgroundColor: ButtonState.all(Colors.yellow.darkest),
               ),
-              child: const Text("عرض أسعار")),
+              child:   Text("عرض أسعار",style: TextStyle(fontSize: typography.caption!.fontSize))),
 
-          const SizedBox(
-            width: 10,
+            SizedBox(
+            width: (1/100)*size.width,
             // child: Container(width: 1,height: 25,color: Colors.grey[100],),
           ),
           Row(
@@ -150,46 +148,46 @@ class _HeaderState extends State<Header> {
               Button(
                   onPressed: () {},
                   style: ButtonStyle(
-                    padding: ButtonState.all(const EdgeInsets.symmetric(
-                        horizontal: 10, vertical: 5)),
+                    padding: ButtonState.all( EdgeInsets.symmetric(
+                        horizontal: (0.7/100)*size.width, vertical: (0.5/100)*size.height)),
                     backgroundColor:
                         ButtonState.all(appTheme.color.withBlue(200)),
                   ),
-                  child: const Text("جرد مخزن")),
+                  child:   Text("جرد مخزن",style: TextStyle(fontSize: typography.caption!.fontSize))),
               SizedBox(
-                width: 5,
+                width: (0.4/100)*size.width,
                 child: Container(
-                  width: 1,
+                  // width: (10/100)*size.width,
                   color: Colors.black,
-                  height: 3,
+                  height: (0.4/100)*size.height,
                 ),
               ),
               Button(
                   onPressed: () {},
                   style: ButtonStyle(
-                    padding: ButtonState.all(const EdgeInsets.symmetric(
-                        horizontal: 10, vertical: 5)),
+                    padding: ButtonState.all( EdgeInsets.symmetric(
+                        horizontal: (0.6/100)*size.width, vertical: (0.5/100)*size.height)),
                     backgroundColor:
                         ButtonState.all(appTheme.color.withBlue(200)),
                   ),
-                  child: const Text("تحويل لمخزن")),
+                  child:   Text("تحويل لمخزن",style: TextStyle(fontSize: typography.caption!.fontSize))),
               SizedBox(
-                width: 5,
+                width: (0.4/100)*size.width,
                 child: Container(
-                  width: 1,
+                  // width: (10/100)*size.width,
                   color: Colors.black,
-                  height: 3,
+                  height: (0.4/100)*size.height,
                 ),
               ),
               Button(
                   onPressed: () {},
                   style: ButtonStyle(
-                    padding: ButtonState.all(const EdgeInsets.symmetric(
-                        horizontal: 10, vertical: 5)),
+                    padding: ButtonState.all( EdgeInsets.symmetric(
+                        horizontal: (0.6/100)*size.width, vertical: (0.5/100)*size.height)),
                     backgroundColor:
                         ButtonState.all(appTheme.color.withBlue(200)),
                   ),
-                  child: const Text("تسوية مخزن")),
+                  child:   Text("تسوية مخزن",style: TextStyle(fontSize: typography.caption!.fontSize))),
             ],
           ),
         ],

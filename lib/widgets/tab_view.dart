@@ -49,10 +49,10 @@ class TabViewPage extends ScrollablePage {
   Widget buildHeader(BuildContext context) {
     return Directionality(
       textDirection: TextDirection.ltr,
-      child: PageHeader(
-        commandBar: Header(),
-        // title: const Text('TabView')
-      ),
+      child: Padding(
+        padding: const EdgeInsets.all(2.0),
+        child: Header(),
+      )
     );
   }
 
@@ -112,6 +112,9 @@ class TabViewPage extends ScrollablePage {
   @override
   List<Widget> buildScrollable(BuildContext context) {
     Invoice? invoice = Invoice(id: 77063, kind: "sale");
+     Size size = MediaQuery.of(context).size;
+    Brightness brightness = FluentTheme.of(context).brightness;
+    Typography typography = FluentTheme.of(context).typography;
 
     // tabs!.add(generateTab(invoice));
     // bodies!.add(generateBody(invoice));
@@ -140,7 +143,7 @@ class TabViewPage extends ScrollablePage {
 
       //-170
       SizedBox(
-        height: MediaQuery.of(context).size.height - 120,
+        height:(90/100)*size.height ,
         child: TabView(
           tabs: tabs!,
           bodies: bodies!,
@@ -148,7 +151,7 @@ class TabViewPage extends ScrollablePage {
           onChanged: (index) => setState(() => currentIndex = index),
           onNewPressed: () {
             setState(() {
-              print(invoice.id);
+              // print(invoice.id);
               final index = tabs!.length + 1;
               final tab = generateTab(invoice);
               tabs!.add(tab);
@@ -177,6 +180,7 @@ class TabViewPage extends ScrollablePage {
           },
         ),
       ),
+    
     ];
   }
 }

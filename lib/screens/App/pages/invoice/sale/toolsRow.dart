@@ -13,6 +13,8 @@ class ToolsRow extends StatefulWidget {
 class _ToolsRowState extends State<ToolsRow> {
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+
     Typography typography= FluentTheme.of(context).typography;
 
     return Container(
@@ -20,10 +22,10 @@ class _ToolsRowState extends State<ToolsRow> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          Icon(size: typography.title!.fontSize! - 5,m.Icons.keyboard_double_arrow_right_outlined,color: Colors.black,),
-          Icon(size: typography.title!.fontSize!-5,m.Icons.keyboard_double_arrow_left_outlined,color: Colors.black,),
-          Icon(size: typography.title!.fontSize!-5,m.Icons.keyboard_arrow_left,color: Colors.black,),
-          Icon(size: typography.title!.fontSize!  -5,m.Icons.search,color: Colors.black,)
+          Icon(size: (1.5/100)*size.width ,m.Icons.keyboard_double_arrow_right_outlined,color: Colors.black,),
+          Icon(size: (1.5/100)*size.width,m.Icons.keyboard_double_arrow_left_outlined,color: Colors.black,),
+          Icon(size: (1.5/100)*size.width,m.Icons.keyboard_arrow_left,color: Colors.black,),
+          Icon(size: (1.5/100)*size.width  ,m.Icons.search,color: Colors.black,)
         ],
       ),
     );

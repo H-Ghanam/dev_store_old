@@ -31,13 +31,16 @@ class _MyCardState extends State<MyCard> {
   //  Gradient? _gradient = widget.gradient;
   @override
   Widget build(BuildContext context) {
+     Size size = MediaQuery.of(context).size;
+        Typography typography= FluentTheme.of(context).typography;
+
     final appTheme = context.watch<AppTheme>();
     return Stack(children: [
       MouseRegion(
         cursor: SystemMouseCursors.click,
         child: Container(
           width: widget.size,
-          height: 125,
+          height: (12.5/100)*size.height,
           decoration: BoxDecoration(
             boxShadow:[BoxShadow(color: appTheme.color,blurRadius: 0.1,spreadRadius: 1)],
               gradient: widget.gradient,
@@ -47,13 +50,13 @@ class _MyCardState extends State<MyCard> {
             children: [
               Image.asset(
                 "${widget.image}",
-                width: 70,
+                width: (7/100)*size.height,
                 matchTextDirection: widget.matchTextDirection,
               ),
               Text(
-                "${widget.title}",
+                "${widget.title}",softWrap: true,
                 style: TextStyle(
-                    fontFamily: "Hind3", fontSize: 23, color: Colors.white),
+                    fontFamily: "Hind3", fontSize:widget.title!.length>8? typography.body!.fontSize:typography.subtitle!.fontSize, color: Colors.white),
               ),
             ],
           ),
@@ -83,7 +86,7 @@ class _MyCardState extends State<MyCard> {
               color: Color.fromARGB(255, 217, 255, 0).withOpacity(_opacity),
             ),
             width: widget.size,
-            height: 125,
+            height: (12.5/100)*size.height,
           ),
         ),
       ),

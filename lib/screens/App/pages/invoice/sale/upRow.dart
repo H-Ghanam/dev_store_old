@@ -23,85 +23,90 @@ class _UpRowState extends State<UpRow> {
 
     //-550
     return SizedBox(
-      width: size.width/1.5,
+      width: (55.5 / 100) * size.width,
       // width: size.width/13,
-      height: size.height/7.5,
+      height: (13 / 100) * size.height,
       // decoration: BoxDecoration(border: Border.all()),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          const SizedBox(
-            width: 5,
+          SizedBox(
+            width: (0.25 / 100) * size.width,
           ),
           Column(
             children: [
-              const SizedBox(
-                height: 3,
+              SizedBox(
+                height: (0.25 / 100) * size.height,
               ),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
-                    width: size.width / 80,
-                    height: size.height / 40,
+                    width: (1.25 / 100) * size.width,
+                    height: (2.2 / 100) * size.height,
                     color: Colors.yellow.darker,
                     alignment: Alignment.center,
-                    child: const Text("1"),
+                    child: Text(
+                      "1",
+                      style: TextStyle(fontSize: (0.9 / 100) * size.width),
+                    ),
                   ),
                   Text(
                     "  إبحث عن الصنف",
                     style: TextStyle(
-                        fontFamily: "Hind4",
-                        fontSize: typography.bodyStrong!.fontSize! + 2),
+                        fontFamily: "Hind4", fontSize: (1 / 100) * size.width),
                   ),
                   SizedBox(
-                    width: size.width / 11,
+                    width: (6.8 / 100) * size.width,
                   ),
                   Container(
-                    width: size.width / 26,
-                    height: size.height / 39,
-                    color: Color.fromARGB(255, 204, 204, 204),
+                    width: (4.5 / 100) * size.width,
+                    height: (2.2 / 100) * size.height,
+                    color: const Color.fromARGB(255, 204, 204, 204),
                   ),
-                  const SizedBox(
-                    width: 5,
+                  SizedBox(
+                    width: (0.2 / 100) * size.width,
                   ),
                   Container(
-                      width: size.width / 26,
-                      height: size.height / 39,
+                      width: (4.5 / 100) * size.width,
+                      height: (2.2 / 100) * size.height,
                       color: Colors.yellow.darker),
-                  const SizedBox(
-                    width: 5,
+                  SizedBox(
+                    width: (0.2 / 100) * size.width,
                   ),
                   Container(
-                    width: size.width / 26,
-                    height: size.height / 39,
+                    width: (4.5 / 100) * size.width,
+                    height: (2.2 / 100) * size.height,
                     color: Colors.yellow.darker,
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
-                        const Icon(m.Icons.help_outline,
-                            textDirection: TextDirection.ltr),
+                        Icon(
+                          m.Icons.help_outline,
+                          textDirection: TextDirection.ltr,
+                          size: (1 / 100) * size.width,
+                        ),
                         Text(
                           "إستعلام",
                           style: TextStyle(
                               fontFamily: "Hind4",
-                              fontSize: typography.bodyStrong!.fontSize! + 2),
+                              fontSize: (1 / 100) * size.width),
                         )
                       ],
                     ),
                   )
                 ],
               ),
-              const SizedBox(
-                height: 3,
+              SizedBox(
+                height: (0.25 / 100) * size.height,
               ),
               SizedBox(
-                  width: size.width / 3.6,
-                  height: size.height / 24,
-                  child: Form(child: TextBox())),
-              const SizedBox(
-                height: 3,
+                  width: (27.8 / 100) * size.width,
+                  height: (4 / 100) * size.height,
+                  child: const Form(child: TextBox())),
+              SizedBox(
+                height: (0.25 / 100) * size.height,
               ),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -109,41 +114,40 @@ class _UpRowState extends State<UpRow> {
                   Text(
                     "الحساب",
                     style: TextStyle(
-                        fontFamily: "Hind4",
-                        fontSize: typography.bodyStrong!.fontSize! + 2),
+                        fontFamily: "Hind4", fontSize: (1 / 100) * size.width),
                   ),
                   SizedBox(
-                    width: size.width / 75,
+                    width: (1.7 / 100) * size.width,
                   ),
                   SizedBox(
-                      width: size.width / 8,
-                      height: size.height / 39,
-                      child: Form(child: TextBox())),
-                  const SizedBox(
-                    width: 5,
+                      width: (11.8 / 100) * size.width,
+                      height: (2.5 / 100) * size.height,
+                      child: const Form(child: TextBox())),
+                  SizedBox(
+                    width: (0.2 / 100) * size.width,
                   ),
                   Container(
-                      width: size.width / 35,
-                      height: size.height / 39,
+                      width: (2 / 100) * size.width,
+                      height: (2.5 / 100) * size.height,
                       color: const Color.fromARGB(255, 228, 228, 228)),
-                  const SizedBox(
-                    width: 5,
+                  SizedBox(
+                    width: (0.2 / 100) * size.width,
                   ),
                   Container(
-                      width: size.width / 26,
-                      height: size.height / 39,
+                      width: (4.6 / 100) * size.width,
+                      height: (2.5 / 100) * size.height,
                       color: const Color.fromARGB(255, 228, 228, 228)),
-                  const SizedBox(
-                    width: 5,
+                  SizedBox(
+                    width: (0.2 / 100) * size.width,
                   ),
                   Container(
-                      width: size.width / 26,
-                      height: size.height / 39,
+                      width: (4.6 / 100) * size.width,
+                      height: (2.5 / 100) * size.height,
                       color: const Color.fromARGB(255, 228, 228, 228))
                 ],
               ),
-              const SizedBox(
-                height: 3,
+              SizedBox(
+                height: (0.25 / 100) * size.height,
               ),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -151,159 +155,171 @@ class _UpRowState extends State<UpRow> {
                   Text(
                     "ملاحظات",
                     style: TextStyle(
-                        fontFamily: "Hind4",
-                        fontSize: typography.bodyStrong!.fontSize! + 2),
+                        fontFamily: "Hind4", fontSize: (1 / 100) * size.width),
                   ),
                   SizedBox(
-                    width: 10,
+                    width: (1 / 100) * size.width,
                   ),
                   SizedBox(
-                      width: size.width / 4.2,
-                      height: size.height / 39,
-                      child: Form(child: TextBox())),
+                      width: (23.8 / 100) * size.width,
+                      height: (2.5 / 100) * size.height,
+                      child: const Form(child: TextBox())),
                 ],
               )
             ],
           ),
-          const SizedBox(
-            width: 5,
+          SizedBox(
+            width: (0.2 / 100) * size.width,
           ),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(
-                height: 3,
+              SizedBox(
+                height: (0.25 / 100) * size.height,
               ),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
-                    width: size.width / 80,
-                    height: size.height / 39,
+                    width: (1.25 / 100) * size.width,
+                    height: (2.2 / 100) * size.height,
                     color: Colors.yellow.darker,
                     alignment: Alignment.center,
-                    child: const Text("2"),
+                    child: Text("2",
+                        style: TextStyle(fontSize: (0.9 / 100) * size.width)),
                   ),
                   Text(
                     "  الكمية       ",
                     style: TextStyle(
-                        fontFamily: "Hind4",
-                        fontSize: typography.bodyStrong!.fontSize! + 2),
+                        fontFamily: "Hind4", fontSize: (1 / 100) * size.width),
                   ),
                   //  SizedBox(
                   //   width: size.width/95,
                   // ),
                   Container(
-                    width:size.width / 80,
-                    height: size.height / 39,
+                    width: (1.25 / 100) * size.width,
+                    height: (2.2 / 100) * size.height,
                     color: Colors.yellow.darker,
                     alignment: Alignment.center,
-                    child: const Text("3"),
+                    child: Text("3",
+                        style: TextStyle(fontSize: (0.9 / 100) * size.width)),
                   ),
                   Text(
                     "  سعر البيع",
                     style: TextStyle(
-                        fontFamily: "Hind4",
-                        fontSize: typography.bodyStrong!.fontSize! + 2),
+                        fontFamily: "Hind4", fontSize: (1 / 100) * size.width),
                   ),
                 ],
               ),
-              const SizedBox(
-                height: 3,
+              SizedBox(
+                height: (0.25 / 100) * size.height,
               ),
               Row(
-                children:  [
+                children: [
                   SizedBox(
-                      width: size.width/25, height: size.height / 24, child: Form(child: TextBox())),
+                      width: (4.5 / 100) * size.width,
+                      height: (4 / 100) * size.height,
+                      child: const Form(child: TextBox())),
                   SizedBox(
-                    width: 5,
+                    width: (0.25 / 100) * size.width,
                   ),
                   SizedBox(
-                      width: size.width/18, height: size.height / 24, child: Form(child: TextBox())),
+                      width: (6 / 100) * size.width,
+                      height: (4 / 100) * size.height,
+                      child: const Form(child: TextBox())),
                 ],
               ),
-              const SizedBox(
-                height: 3,
+              SizedBox(
+                height: (0.25 / 100) * size.height,
               ),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Button(
                       style: ButtonStyle(
-                          padding: ButtonState.all( EdgeInsets.symmetric(
-                              horizontal: 3, vertical: size.height/65))),
-                      child:  Text(
+                          padding: ButtonState.all(EdgeInsets.symmetric(
+                              horizontal: (0.5 / 100) * size.width,
+                              vertical: (1.3 / 100) * size.height))),
+                      child: Text(
                         "درج النقدية",
-                        style: TextStyle(fontFamily: "Hind4", fontSize: typography.bodyStrong!.fontSize!+1),
+                        style: TextStyle(
+                            fontFamily: "Hind4",
+                            fontSize: (1 / 100) * size.width),
                       ),
                       onPressed: () {}),
-                  const SizedBox(
-                    width: 1,
+                  SizedBox(
+                    width: (0.05 / 100) * size.width,
                   ),
                   Button(
                       style: ButtonStyle(
                           padding: ButtonState.all(EdgeInsets.symmetric(
-                              horizontal: 22, vertical: size.height/65))),
+                              horizontal: (1.2 / 100) * size.width,
+                              vertical: (1.3 / 100) * size.height))),
                       child: Text(
                         "اّجل",
-                        style: TextStyle(fontFamily: "Hind4", fontSize: typography.bodyStrong!.fontSize!+1),
+                        style: TextStyle(
+                            fontFamily: "Hind4",
+                            fontSize: (1 / 100) * size.width),
                       ),
                       onPressed: () {}),
-                  const SizedBox(
-                    width: 1,
+                  SizedBox(
+                    width: (0.05 / 100) * size.width,
                   ),
                   Button(
                       style: ButtonStyle(
-                          padding: ButtonState.all(const EdgeInsets.symmetric(
-                              horizontal: 2, vertical: 2))),
-                      child: const Icon(
+                          padding: ButtonState.all(EdgeInsets.symmetric(
+                              horizontal: (0.25 / 100) * size.width,
+                              vertical: (0.25 / 100) * size.height))),
+                      child: Icon(
                         FluentIcons.pinned_solid,
+                        size: (0.8 / 100) * size.width,
                       ),
                       onPressed: () {}),
                 ],
               )
             ],
           ),
-          const SizedBox(
-            width: 5,
+          SizedBox(
+            width: (0.25 / 100) * size.width,
           ),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(
-                height: 3,
+              SizedBox(
+                height: (0.25 / 100) * size.height,
               ),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
-                     width:size.width / 80,
-                    height: size.height / 39,
+                    width: (1.25 / 100) * size.width,
+                    height: (2.2 / 100) * size.height,
                     color: Colors.yellow.darker,
                     alignment: Alignment.center,
-                    child: const Text("4"),
+                    child: Text("4",
+                        style: TextStyle(fontSize: (0.9 / 100) * size.width)),
                   ),
                   Text(
                     "  أضف",
                     style: TextStyle(
-                        fontFamily: "Hind4",
-                        fontSize: typography.bodyStrong!.fontSize! + 2),
+                        fontFamily: "Hind4", fontSize: (1 / 100) * size.width),
                   ),
-                  const SizedBox(
-                    width: 16,
+                  SizedBox(
+                    width: (1 / 100) * size.width,
                   ),
                 ],
               ),
-              const SizedBox(
-                height: 3,
+              SizedBox(
+                height: (0.25 / 100) * size.height,
               ),
               Button(
                   style: ButtonStyle(
-                      padding: ButtonState.all( EdgeInsets.symmetric(
-                          horizontal: size.width/100, vertical: size.height/200))),
+                      padding: ButtonState.all(EdgeInsets.symmetric(
+                          horizontal: (1 / 100) * size.width,
+                          vertical: (0.3 / 100) * size.height))),
                   child: Icon(
                     FluentIcons.skype_check,
-                    size: typography.title!.fontSize!,
+                    size: (1.8 / 100) * size.width,
                   ),
                   onPressed: () {}),
             ],
@@ -312,13 +328,13 @@ class _UpRowState extends State<UpRow> {
           //   width: 300,
           // ),
           Container(
-            height: size.height/7,
-            width: size.width/8,
+            height: (12 / 100) * size.height,
+            width: (11.5 / 100) * size.width,
             color: appTheme.color,
             child: Column(
               children: [
-                const SizedBox(
-                  height: 2,
+                SizedBox(
+                  height: (0.25 / 100) * size.height,
                 ),
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -329,28 +345,29 @@ class _UpRowState extends State<UpRow> {
                       style: TextStyle(
                           // fontFamily: "Hind4",
                           fontWeight: FontWeight.bold,
-                          fontSize: typography.bodyStrong!.fontSize!,
+                          fontSize: (0.8 / 100) * size.width,
                           color:
                               brightness.isDark ? Colors.white : Colors.black),
                     ),
                     Container(
-                      height: size.height/50,
-                      width: size.width/15,
+                      height: (1.8 / 100) * size.height,
+                      width: (6.8 / 100) * size.width,
                       alignment: Alignment.center,
                       color: appTheme.color.lightest,
-                      child: const Text("7706"),
+                      child: Text("7706",
+                          style: TextStyle(fontSize: (0.9 / 100) * size.width)),
                     )
                   ],
                 ),
-                const SizedBox(
-                  height: 2,
+                SizedBox(
+                  height: (0.25 / 100) * size.height,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     SizedBox(
-                      width: size.width/17,
-                      height: size.height/30,
+                      width: (5 / 100) * size.width,
+                      height: (3 / 100) * size.height,
                       child: Directionality(
                         textDirection: TextDirection.ltr,
                         child: DatePicker(
@@ -358,12 +375,12 @@ class _UpRowState extends State<UpRow> {
                             selected: DateTime.now()),
                       ),
                     ),
-                    // const SizedBox(
-                    //   width: 5,
+                    //  SizedBox(
+                    //   width: (0.2/100)*size.width,
                     // ),
                     SizedBox(
-                        width: size.width/18,
-                        height: size.height/30,
+                        width: (6 / 100) * size.width,
+                        height: (3 / 100) * size.height,
                         child: Directionality(
                           textDirection: TextDirection.ltr,
                           child: TimePicker(
@@ -382,7 +399,7 @@ class _UpRowState extends State<UpRow> {
                     child: Text(
                       "0",
                       style: TextStyle(
-                        fontSize: typography.title!.fontSize!+2,
+                        fontSize: (2 / 100) * size.width,
                         color: brightness.isDark ? Colors.white : Colors.black,
                       ),
                     ),

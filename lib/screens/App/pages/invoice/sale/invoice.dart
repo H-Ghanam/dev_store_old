@@ -42,29 +42,32 @@ class _InvoicePageState extends State<InvoicePage> {
         width: double.infinity,
         // height: 500,
         // color: const Color.fromARGB(255, 143, 143, 143),
-        decoration: BoxDecoration(border: Border.all(width: 0.5)),
+        decoration:
+            BoxDecoration(border: Border.all(width: (0.01 / 100) * size.width)),
         child: Stack(children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Container(
-                  height: size.height/7.5,
-                  width: size.width / 8,
-                  decoration: const BoxDecoration(
+                  height: (13.2 / 100) * size.height,
+                  width: (13.5 / 100) * size.width,
+                  decoration: BoxDecoration(
                       border: Border(
-                          right: BorderSide(width: 0.5),
-                          bottom: BorderSide(width: 0.5))),
+                          right: BorderSide(width: (0.01 / 100) * size.width),
+                          bottom:
+                              BorderSide(width: (0.01 / 100) * size.width))),
                   child: Image.asset(
                     "assets/images/6.png",
                     fit: BoxFit.contain,
                   )),
             ],
           ),
-          Column(mainAxisAlignment: MainAxisAlignment.center,
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
-                children: const [
+                children: [
                   LeftButtons(),
                 ],
               ),
@@ -90,9 +93,9 @@ class _InvoicePageState extends State<InvoicePage> {
               const GreenRow(),
               Container(
                 width: double.infinity,
-                height: size.height/22,
+                height: (4.95 / 100) * size.height,
                 color: const Color.fromARGB(255, 80, 80, 80),
-                padding: const EdgeInsets.all(5),
+                // padding:  EdgeInsets.all((.1/100)*size.width),
                 child: const ButtonsRow(),
               )
             ],
