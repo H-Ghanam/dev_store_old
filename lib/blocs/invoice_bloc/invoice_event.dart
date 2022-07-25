@@ -33,3 +33,19 @@ class OnReorderTabsEvent extends InvoiceEvent {
 
   OnReorderTabsEvent({required this.oldIndex, required this.newIndex});
 }
+
+class OnEditEvent extends InvoiceEvent {
+  final InvoiceData invoiceData;
+  final Invoice? invoice;
+  final List<InvoiceItemsResponse>? invoiceItemsResponses;
+  final Money? moneyCash;
+  final Money? moneyPayment;
+
+  OnEditEvent({
+    required this.invoiceData,
+    this.invoice,
+    this.invoiceItemsResponses,
+    this.moneyCash,
+    this.moneyPayment,
+  });
+}

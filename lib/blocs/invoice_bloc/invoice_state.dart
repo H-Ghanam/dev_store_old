@@ -8,7 +8,7 @@ class InvoiceState extends Equatable {
     this.invoices = const <InvoiceData>[],
     this.tabs = const <Tab>[],
     this.currentIndex = 0,
-    this.options,
+    this.invoiceOptions,
     this.getOptions = true,
     this.error = '',
   });
@@ -17,7 +17,7 @@ class InvoiceState extends Equatable {
   final List<InvoiceData> invoices;
   final List<Tab> tabs;
   final int currentIndex;
-  final Options? options;
+  final InvoiceOptions? invoiceOptions;
   final bool getOptions;
   final dynamic error;
 
@@ -26,7 +26,7 @@ class InvoiceState extends Equatable {
       List<InvoiceData>? invoices,
       List<Tab>? tabs,
       int? currentIndex,
-      Options? options,
+      InvoiceOptions? invoiceOptions,
       bool? getOptions,
       dynamic error}) {
     return InvoiceState(
@@ -35,7 +35,7 @@ class InvoiceState extends Equatable {
       tabs: tabs ?? this.tabs,
       currentIndex: currentIndex ?? this.currentIndex,
       getOptions: getOptions ?? this.getOptions,
-      options: options ?? this.options,
+      invoiceOptions: invoiceOptions ?? this.invoiceOptions,
       error: error ?? this.error,
     );
   }

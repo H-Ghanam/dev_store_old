@@ -90,7 +90,7 @@ class _LoginState extends State<Login> {
             return const Center(child: CircleAvatar());
           }
           if (state is AppStartedState) {
-            List<User>? users = state.startAppRespose.startApp.activeUsers;
+            List<User>? users = state.startAppRespose.startApp!.activeUsers;
             return Column(
               children: [
                 Container(
@@ -196,7 +196,7 @@ class _LoginState extends State<Login> {
                               return BlocBuilder<AppBloc, AppState>(
                                 builder: (context, state) {
                                   if (state is AppStartedState) {
-                                    appData = state.startAppRespose.startApp;
+                                    appData = state.startAppRespose.startApp!;
 
                                     return MouseRegion(
                                       cursor: SystemMouseCursors.click,

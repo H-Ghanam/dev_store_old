@@ -1,19 +1,33 @@
 import 'package:equatable/equatable.dart';
 
 class StoreItems extends Equatable {
-  final num? id;
-  final num? storeId;
-  final num? itemId;
-  final num? qty;
+  final int? id;
+  final int? storeId;
+  final int? itemId;
+  final double? qty;
 
   const StoreItems({this.id, this.storeId, this.itemId, this.qty});
+
+  StoreItems copyWith({
+    int? id,
+    int? storeId,
+    int? itemId,
+    double? qty,
+  }) {
+    return StoreItems(
+      id: id ?? this.id,
+      storeId: storeId ?? this.storeId,
+      itemId: itemId ?? this.itemId,
+      qty: qty ?? this.qty,
+    );
+  }
 
   factory StoreItems.fromJson(Map<String, dynamic> json) {
     return StoreItems(
         id: json['id'],
         storeId: json['store_id'],
         itemId: json['item_id'],
-        qty: json['qty']);
+        qty: double.parse(json['qty'].toString()));
   }
 
   Map<String, dynamic> toJson() {

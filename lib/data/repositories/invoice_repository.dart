@@ -1,23 +1,29 @@
-// import 'package:dev_store/data/api/invoice_response.dart';
-// import 'package:dev_store/data/services/invoice_service.dart';
-// import 'package:dev_store/screens/app/pages/invoice/incoice_tab_model.dart';
+import 'package:dev_store/data/api/invoice_response.dart';
+import 'package:dev_store/data/services/invoice_service.dart';
 
-// class InvoiceRepository {
-//   Future<InvoiceTab> getInvoiceTab(
-//     num invoiceId, String kind, num storeId, bool getOptions) async {
-//     final InvoiceTab invoiceTab;
-//     final maxIndex;
-//     try {
-//       final InvoiceRespose = await invoiceServices.getInvoice(
-//         invoiceId: invoiceId,
-//         kind: kind,
-//         storeId: storeId,
-//         getOptions: getOptions);
+class TnvoiceRepositoryImpl implements InvoiceRepository {
+  TnvoiceRepositoryImpl();
 
+  InvoiceService invoiceService = InvoiceService();
 
-//         return InvoiceTab(tabIndex: tabIndex, tab: tab, invoice: invoice)
-//     } catch (e) {
-//       rethrow;
-//     }
-//   }
-// }
+  @override
+  Future<InvoiceRespose> getInvoiceResponse(
+    num invoiceId,
+    String kind,
+    num storeId,
+    bool getOptions,
+  ) async {
+    final invoiceRespose = await invoiceService.getInvoice(
+        invoiceId: invoiceId,
+        kind: kind,
+        storeId: storeId,
+        getOptions: getOptions);
+
+    return invoiceRespose;
+  }
+}
+
+abstract class InvoiceRepository {
+  Future<InvoiceRespose> getInvoiceResponse(
+      num invoiceId, String kind, num storeId, bool getOptions);
+}

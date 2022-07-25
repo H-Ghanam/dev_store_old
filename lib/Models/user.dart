@@ -1,109 +1,109 @@
 import 'package:equatable/equatable.dart';
 
 class User extends Equatable {
-  final num? id;
-  final num? sn;
+  final int? id;
+  final int? sn;
   final String? title;
   final String? pass;
-  final num? active;
-  final num? options;
+  final int? active;
+  final int? options;
   final String? stores;
   final String? cashboxes;
-  final num? cashboxTransferTo;
-  final num? seeCost;
-  final num? editIds;
-  final num? editDate;
-  final num? todayOnlyUpdate;
-  final num? todayOnlyList;
-  final num? removeBank;
-  final num? changeQtyMinusZero;
-  final num? backupCreate;
-  final num? backupRestore;
-  final num? itemList;
-  final num? itemAdd;
-  final num? itemEdit;
-  final num? itemDel;
-  final num? itemStatement;
-  final num? itemEvaluation;
-  final num? itemInOut;
-  final num? itemBarcode;
-  final num? itemCargo;
-  final num? accountList;
-  final num? accountAdd;
-  final num? accountEdit;
-  final num? accountDel;
-  final num? accountCustomer;
-  final num? accountSupplier;
-  final num? accountSalesman;
-  final num? accountOther;
-  final num? accountBalance;
-  final num? accountStatement;
-  final num? accountCloseInvoices;
-  final num? purchaseList;
-  final num? purchaseAdd;
-  final num? purchaseEdit;
-  final num? purchaseDel;
-  final num? purchaseReturn;
-  final num? purchaseTax1Edit;
-  final num? purchaseCreditPayment;
-  final num? saleList;
-  final num? saleAdd;
-  final num? saleEdit;
-  final num? saleDel;
-  final num? saleModifyPrices;
-  final num? salePriceBelowMinPrice;
-  final num? salePriceBelowCost;
-  final num? saleDiscount;
-  final num? saleSeeProfit;
-  final num? saleSeeInvoiceProfit;
-  final num? saleReturn;
-  final num? delivery;
-  final num? saleMaxDiscountPer;
-  final num? saleMaxDiscountAmount;
-  final num? saleTax1Edit;
-  final num? saleCreditPayment;
-  final num? salequoteList;
-  final num? salequoteAdd;
-  final num? salequoteEdit;
-  final num? salequoteDel;
-  final num? inventList;
-  final num? inventAdd;
-  final num? inventEdit;
-  final num? inventDel;
-  final num? adjustList;
-  final num? adjustAdd;
-  final num? adjustEdit;
-  final num? adjustDel;
-  final num? transferList;
-  final num? transferAdd;
-  final num? transferEdit;
-  final num? transferDel;
-  final num? paymentList;
-  final num? paymentAdd;
-  final num? paymentEdit;
-  final num? paymentDel;
-  final num? receiptList;
-  final num? receiptAdd;
-  final num? receiptEdit;
-  final num? receiptDel;
-  final num? moneyTransferAdd;
-  final num? moneyTransferEdit;
-  final num? moneyTransferDel;
-  final num? instalList;
-  final num? instalAdd;
-  final num? installmentList;
-  final num? installmentAdd;
-  final num? installmentEdit;
-  final num? installmentDel;
-  final num? installmentDueParts;
-  final num? installmentReceipt;
-  final num? moneyList;
-  final num? paymentAnalysis;
-  final num? receiptAnalysis;
-  final num? reports;
-  final num? reportDaily;
-  final num? reportSalesAnalysis;
-  final num? reportPurchasesAnalysis;
+  final int? cashboxTransferTo;
+  final int? seeCost;
+  final int? editIds;
+  final int? editDate;
+  final int? todayOnlyUpdate;
+  final int? todayOnlyList;
+  final int? removeBank;
+  final int? changeQtyMinusZero;
+  final int? backupCreate;
+  final int? backupRestore;
+  final int? itemList;
+  final int? itemAdd;
+  final int? itemEdit;
+  final int? itemDel;
+  final int? itemStatement;
+  final int? itemEvaluation;
+  final int? itemInOut;
+  final int? itemBarcode;
+  final int? itemCargo;
+  final int? accountList;
+  final int? accountAdd;
+  final int? accountEdit;
+  final int? accountDel;
+  final int? accountCustomer;
+  final int? accountSupplier;
+  final int? accountSalesman;
+  final int? accountOther;
+  final int? accountBalance;
+  final int? accountStatement;
+  final int? accountCloseInvoices;
+  final int? purchaseList;
+  final int? purchaseAdd;
+  final int? purchaseEdit;
+  final int? purchaseDel;
+  final int? purchaseReturn;
+  final int? purchaseTax1Edit;
+  final int? purchaseCreditPayment;
+  final int? saleList;
+  final int? saleAdd;
+  final int? saleEdit;
+  final int? saleDel;
+  final int? saleModifyPrices;
+  final int? salePriceBelowMinPrice;
+  final int? salePriceBelowCost;
+  final int? saleDiscount;
+  final int? saleSeeProfit;
+  final int? saleSeeInvoiceProfit;
+  final int? saleReturn;
+  final int? delivery;
+  final double? saleMaxDiscountPer;
+  final double? saleMaxDiscountAmount;
+  final int? saleTax1Edit;
+  final int? saleCreditPayment;
+  final int? salequoteList;
+  final int? salequoteAdd;
+  final int? salequoteEdit;
+  final int? salequoteDel;
+  final int? inventList;
+  final int? inventAdd;
+  final int? inventEdit;
+  final int? inventDel;
+  final int? adjustList;
+  final int? adjustAdd;
+  final int? adjustEdit;
+  final int? adjustDel;
+  final int? transferList;
+  final int? transferAdd;
+  final int? transferEdit;
+  final int? transferDel;
+  final int? paymentList;
+  final int? paymentAdd;
+  final int? paymentEdit;
+  final int? paymentDel;
+  final int? receiptList;
+  final int? receiptAdd;
+  final int? receiptEdit;
+  final int? receiptDel;
+  final int? moneyTransferAdd;
+  final int? moneyTransferEdit;
+  final int? moneyTransferDel;
+  final int? instalList;
+  final int? instalAdd;
+  final int? installmentList;
+  final int? installmentAdd;
+  final int? installmentEdit;
+  final int? installmentDel;
+  final int? installmentDueParts;
+  final int? installmentReceipt;
+  final int? moneyList;
+  final int? paymentAnalysis;
+  final int? receiptAnalysis;
+  final int? reports;
+  final int? reportDaily;
+  final int? reportSalesAnalysis;
+  final int? reportPurchasesAnalysis;
 
   const User(
       {this.id,
@@ -210,6 +210,222 @@ class User extends Equatable {
       this.reportSalesAnalysis,
       this.reportPurchasesAnalysis});
 
+  User copyWith({
+    int? id,
+    int? sn,
+    String? title,
+    String? pass,
+    int? active,
+    int? options,
+    String? stores,
+    String? cashboxes,
+    int? cashboxTransferTo,
+    int? seeCost,
+    int? editIds,
+    int? editDate,
+    int? todayOnlyUpdate,
+    int? todayOnlyList,
+    int? removeBank,
+    int? changeQtyMinusZero,
+    int? backupCreate,
+    int? backupRestore,
+    int? itemList,
+    int? itemAdd,
+    int? itemEdit,
+    int? itemDel,
+    int? itemStatement,
+    int? itemEvaluation,
+    int? itemInOut,
+    int? itemBarcode,
+    int? itemCargo,
+    int? accountList,
+    int? accountAdd,
+    int? accountEdit,
+    int? accountDel,
+    int? accountCustomer,
+    int? accountSupplier,
+    int? accountSalesman,
+    int? accountOther,
+    int? accountBalance,
+    int? accountStatement,
+    int? accountCloseInvoices,
+    int? purchaseList,
+    int? purchaseAdd,
+    int? purchaseEdit,
+    int? purchaseDel,
+    int? purchaseReturn,
+    int? purchaseTax1Edit,
+    int? purchaseCreditPayment,
+    int? saleList,
+    int? saleAdd,
+    int? saleEdit,
+    int? saleDel,
+    int? saleModifyPrices,
+    int? salePriceBelowMinPrice,
+    int? salePriceBelowCost,
+    int? saleDiscount,
+    int? saleSeeProfit,
+    int? saleSeeInvoiceProfit,
+    int? saleReturn,
+    int? delivery,
+    double? saleMaxDiscountPer,
+    double? saleMaxDiscountAmount,
+    int? saleTax1Edit,
+    int? saleCreditPayment,
+    int? salequoteList,
+    int? salequoteAdd,
+    int? salequoteEdit,
+    int? salequoteDel,
+    int? inventList,
+    int? inventAdd,
+    int? inventEdit,
+    int? inventDel,
+    int? adjustList,
+    int? adjustAdd,
+    int? adjustEdit,
+    int? adjustDel,
+    int? transferList,
+    int? transferAdd,
+    int? transferEdit,
+    int? transferDel,
+    int? paymentList,
+    int? paymentAdd,
+    int? paymentEdit,
+    int? paymentDel,
+    int? receiptList,
+    int? receiptAdd,
+    int? receiptEdit,
+    int? receiptDel,
+    int? moneyTransferAdd,
+    int? moneyTransferEdit,
+    int? moneyTransferDel,
+    int? instalList,
+    int? instalAdd,
+    int? installmentList,
+    int? installmentAdd,
+    int? installmentEdit,
+    int? installmentDel,
+    int? installmentDueParts,
+    int? installmentReceipt,
+    int? moneyList,
+    int? paymentAnalysis,
+    int? receiptAnalysis,
+    int? reports,
+    int? reportDaily,
+    int? reportSalesAnalysis,
+    int? reportPurchasesAnalysis,
+  }) {
+    return User(
+      id: id ?? this.id,
+      sn: sn ?? this.sn,
+      title: title ?? this.title,
+      pass: pass ?? this.pass,
+      active: active ?? this.active,
+      options: options ?? this.options,
+      stores: stores ?? this.stores,
+      cashboxes: cashboxes ?? this.cashboxes,
+      cashboxTransferTo: cashboxTransferTo ?? this.cashboxTransferTo,
+      seeCost: seeCost ?? this.seeCost,
+      editIds: editIds ?? this.editIds,
+      editDate: editDate ?? this.editDate,
+      todayOnlyUpdate: todayOnlyUpdate ?? this.todayOnlyUpdate,
+      todayOnlyList: todayOnlyList ?? this.todayOnlyList,
+      removeBank: removeBank ?? this.removeBank,
+      changeQtyMinusZero: changeQtyMinusZero ?? this.changeQtyMinusZero,
+      backupCreate: backupCreate ?? this.backupCreate,
+      backupRestore: backupRestore ?? this.backupRestore,
+      itemList: itemList ?? this.itemList,
+      itemAdd: itemAdd ?? this.itemAdd,
+      itemEdit: itemEdit ?? this.itemEdit,
+      itemDel: itemDel ?? this.itemDel,
+      itemStatement: itemStatement ?? this.itemStatement,
+      itemEvaluation: itemEvaluation ?? this.itemEvaluation,
+      itemInOut: itemInOut ?? this.itemInOut,
+      itemBarcode: itemBarcode ?? this.itemBarcode,
+      itemCargo: itemCargo ?? this.itemCargo,
+      accountList: accountList ?? this.accountList,
+      accountAdd: accountAdd ?? this.accountAdd,
+      accountEdit: accountEdit ?? this.accountEdit,
+      accountDel: accountDel ?? this.accountDel,
+      accountCustomer: accountCustomer ?? this.accountCustomer,
+      accountSupplier: accountSupplier ?? this.accountSupplier,
+      accountSalesman: accountSalesman ?? this.accountSalesman,
+      accountOther: accountOther ?? this.accountOther,
+      accountBalance: accountBalance ?? this.accountBalance,
+      accountStatement: accountStatement ?? this.accountStatement,
+      accountCloseInvoices: accountCloseInvoices ?? this.accountCloseInvoices,
+      purchaseList: purchaseList ?? this.purchaseList,
+      purchaseAdd: purchaseAdd ?? this.purchaseAdd,
+      purchaseEdit: purchaseEdit ?? this.purchaseEdit,
+      purchaseDel: purchaseDel ?? this.purchaseDel,
+      purchaseReturn: purchaseReturn ?? this.purchaseReturn,
+      purchaseTax1Edit: purchaseTax1Edit ?? this.purchaseTax1Edit,
+      purchaseCreditPayment:
+          purchaseCreditPayment ?? this.purchaseCreditPayment,
+      saleList: saleList ?? this.saleList,
+      saleAdd: saleAdd ?? this.saleAdd,
+      saleEdit: saleEdit ?? this.saleEdit,
+      saleDel: saleDel ?? this.saleDel,
+      saleModifyPrices: saleModifyPrices ?? this.saleModifyPrices,
+      salePriceBelowMinPrice:
+          salePriceBelowMinPrice ?? this.salePriceBelowMinPrice,
+      salePriceBelowCost: salePriceBelowCost ?? this.salePriceBelowCost,
+      saleDiscount: saleDiscount ?? this.saleDiscount,
+      saleSeeProfit: saleSeeProfit ?? this.saleSeeProfit,
+      saleSeeInvoiceProfit: saleSeeInvoiceProfit ?? this.saleSeeInvoiceProfit,
+      saleReturn: saleReturn ?? this.saleReturn,
+      delivery: delivery ?? this.delivery,
+      saleMaxDiscountPer: saleMaxDiscountPer ?? this.saleMaxDiscountPer,
+      saleMaxDiscountAmount:
+          saleMaxDiscountAmount ?? this.saleMaxDiscountAmount,
+      saleTax1Edit: saleTax1Edit ?? this.saleTax1Edit,
+      saleCreditPayment: saleCreditPayment ?? this.saleCreditPayment,
+      salequoteList: salequoteList ?? this.salequoteList,
+      salequoteAdd: salequoteAdd ?? this.salequoteAdd,
+      salequoteEdit: salequoteEdit ?? this.salequoteEdit,
+      salequoteDel: salequoteDel ?? this.salequoteDel,
+      inventList: inventList ?? this.inventList,
+      inventAdd: inventAdd ?? this.inventAdd,
+      inventEdit: inventEdit ?? this.inventEdit,
+      inventDel: inventDel ?? this.inventDel,
+      adjustList: adjustList ?? this.adjustList,
+      adjustAdd: adjustAdd ?? this.adjustAdd,
+      adjustEdit: adjustEdit ?? this.adjustEdit,
+      adjustDel: adjustDel ?? this.adjustDel,
+      transferList: transferList ?? this.transferList,
+      transferAdd: transferAdd ?? this.transferAdd,
+      transferEdit: transferEdit ?? this.transferEdit,
+      transferDel: transferDel ?? this.transferDel,
+      paymentList: paymentList ?? this.paymentList,
+      paymentAdd: paymentAdd ?? this.paymentAdd,
+      paymentEdit: paymentEdit ?? this.paymentEdit,
+      paymentDel: paymentDel ?? this.paymentDel,
+      receiptList: receiptList ?? this.receiptList,
+      receiptAdd: receiptAdd ?? this.receiptAdd,
+      receiptEdit: receiptEdit ?? this.receiptEdit,
+      receiptDel: receiptDel ?? this.receiptDel,
+      moneyTransferAdd: moneyTransferAdd ?? this.moneyTransferAdd,
+      moneyTransferEdit: moneyTransferEdit ?? this.moneyTransferEdit,
+      moneyTransferDel: moneyTransferDel ?? this.moneyTransferDel,
+      instalList: instalList ?? this.instalList,
+      instalAdd: instalAdd ?? this.instalAdd,
+      installmentList: installmentList ?? this.installmentList,
+      installmentAdd: installmentAdd ?? this.installmentAdd,
+      installmentEdit: installmentEdit ?? this.installmentEdit,
+      installmentDel: installmentDel ?? this.installmentDel,
+      installmentDueParts: installmentDueParts ?? this.installmentDueParts,
+      installmentReceipt: installmentReceipt ?? this.installmentReceipt,
+      moneyList: moneyList ?? this.moneyList,
+      paymentAnalysis: paymentAnalysis ?? this.paymentAnalysis,
+      receiptAnalysis: receiptAnalysis ?? this.receiptAnalysis,
+      reports: reports ?? this.reports,
+      reportDaily: reportDaily ?? this.reportDaily,
+      reportSalesAnalysis: reportSalesAnalysis ?? this.reportSalesAnalysis,
+      reportPurchasesAnalysis:
+          reportPurchasesAnalysis ?? this.reportPurchasesAnalysis,
+    );
+  }
+
   factory User.fromJson(Map<String, dynamic> json) {
     return User(
         id: json['id'],
@@ -269,8 +485,12 @@ class User extends Equatable {
         saleSeeInvoiceProfit: json['sale_see_invoice_profit'],
         saleReturn: json['sale_return'],
         delivery: json['delivery'],
-        saleMaxDiscountPer: json['sale_max_discount_per'],
-        saleMaxDiscountAmount: json['sale_max_discount_amount'],
+        saleMaxDiscountPer: json['sale_max_discount_per'] != null
+            ? double.parse(json['sale_max_discount_per'].toString())
+            : 0.0,
+        saleMaxDiscountAmount: json['sale_max_discount_amount'] != null
+            ? double.parse(json['sale_max_discount_amount'].toString())
+            : 0.0,
         saleTax1Edit: json['sale_tax1_edit'],
         saleCreditPayment: json['sale_credit_payment'],
         salequoteList: json['salequote_list'],

@@ -1,9 +1,11 @@
-import 'dart:async';
 import 'dart:core';
 
+import 'package:dev_store/data/api/invoice_items_response.dart';
 import 'package:dev_store/data/api/invoice_response.dart';
-import 'package:dev_store/models/options.dart';
-import 'package:dev_store/screens/app/pages/invoice/invoice_repository.dart';
+import 'package:dev_store/models/invoice.dart';
+import 'package:dev_store/models/invoice_options.dart';
+import 'package:dev_store/models/money.dart';
+import 'package:dev_store/data/repositories/invoice_repository.dart';
 import 'package:equatable/equatable.dart';
 import 'package:fluent_ui/fluent_ui.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -19,6 +21,7 @@ class InvoiceBloc extends Bloc<InvoiceEvent, InvoiceState> {
     on<OnChangeTabEvent>(_setCurrenIindex);
     on<OnRemoveTabEvent>(_removeInvoice);
     on<OnReorderTabsEvent>(_reorderTab);
+    on<OnEditEvent>(_editInvoiceData);
   }
 
   Future<void> _getInvoices(
@@ -29,12 +32,41 @@ class InvoiceBloc extends Bloc<InvoiceEvent, InvoiceState> {
 
       if (invoiceResponse.resp) {
         final invoiceData = invoiceResponse.invoiceData;
-        final options = invoiceResponse.invoiceData.options;
+        final options = invoiceResponse.invoiceData.invoiceOptions;
         final invoice = invoiceData.invoice;
+        var kind = '';
+        switch (invoice.kind) {
+          case 'ADJUST':
+            kind = 'تسوية';
+            break;
+          case 'INVENT':
+            kind = '';
+            break;
+          case 'OPEN':
+            kind = '';
+            break;
+          case 'PURCHASE':
+            kind = 'شراء';
+            break;
+          case 'RETURNPUR':
+            kind = 'مرتجع شراء';
+            break;
+          case 'RETURNSALE':
+            kind = 'مرتجع بيع';
+            break;
+          case 'SALE':
+            kind = 'بيع';
+            break;
+          case 'SALEQUOTE':
+            kind = 'عرض أسعار';
+            break;
+        }
         late Tab tab;
         tab = Tab(
-            text: Text(
-                '${invoice.accountId ?? invoice.accountId} | ${invoice.id} | ${invoice.kind}'),
+            closeIcon: !invoiceData.isSaved
+                ? FluentIcons.status_circle_sync
+                : FluentIcons.clear,
+            text: Text('$kind | ${invoice.id} | اسم العميل'),
             onClosed: () {
               add(OnRemoveTabEvent(tab: tab));
             });
@@ -43,8 +75,8 @@ class InvoiceBloc extends Bloc<InvoiceEvent, InvoiceState> {
           invoices: List.of(state.invoices)..add(invoiceData),
           tabs: List.of(state.tabs)..add(tab),
           currentIndex: state.tabs.isNotEmpty ? state.tabs.length : 0,
-          options: state.options ?? options,
-          getOptions: state.options == null,
+          invoiceOptions: state.invoiceOptions ?? options,
+          // getOptions: false,
         ));
       } else {
         return emit(state.copyWith(
@@ -103,5 +135,40 @@ class InvoiceBloc extends Bloc<InvoiceEvent, InvoiceState> {
     } else if (state.currentIndex == oldIndex) {
       emit(state.copyWith(currentIndex: newIndex));
     }
+  }
+
+  Future<void> _editInvoiceData(
+      OnEditEvent event, Emitter<InvoiceState> emit) async {
+    event.invoiceData;
+    event.invoice;
+    event.invoiceItemsResponses;
+    event.moneyCash;
+    event.moneyPayment;
+
+    List<InvoiceData> editedInvoices = List.of(state.invoices);
+    InvoiceData invoiceData = state.invoices.firstWhere((invoiceData) =>
+        invoiceData.invoice.id == event.invoiceData.invoice.id);
+
+    int invoiceDataIndex =
+        editedInvoices.indexWhere((element) => element == invoiceData);
+    InvoiceData editedInvoiceData = editedInvoices.removeAt(invoiceDataIndex);
+
+    if (event.invoice != null) {
+      editedInvoiceData = editedInvoiceData.copyWith(invoice: event.invoice);
+    } else if (event.invoiceItemsResponses != null) {
+      editedInvoiceData = editedInvoiceData.copyWith(
+          invoiceItemsResponses: event.invoiceItemsResponses);
+    } else if (event.moneyCash != null) {
+      editedInvoiceData =
+          editedInvoiceData.copyWith(moneyCash: event.moneyCash);
+    } else if (event.moneyPayment != null) {
+      editedInvoiceData =
+          editedInvoiceData.copyWith(moneyPayment: event.moneyPayment);
+    }
+    editedInvoiceData = editedInvoiceData.copyWith(isSaved: false);
+
+    editedInvoices = editedInvoices
+      ..insert(invoiceDataIndex, editedInvoiceData);
+    emit(state.copyWith(invoices: editedInvoices));
   }
 }

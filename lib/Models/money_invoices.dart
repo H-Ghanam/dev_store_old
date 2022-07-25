@@ -1,15 +1,33 @@
 import 'package:equatable/equatable.dart';
 
 class MoneyInvoices extends Equatable {
-  final num? pk;
+  final int? pk;
   final String? mKind;
-  final num? mId;
+  final int? mId;
   final String? iKind;
-  final num? iId;
-  final num? amount;
+  final int? iId;
+  final double? amount;
 
   const MoneyInvoices(
       {this.pk, this.mKind, this.mId, this.iKind, this.iId, this.amount});
+
+  MoneyInvoices copyWith({
+    int? pk,
+    String? mKind,
+    int? mId,
+    String? iKind,
+    int? iId,
+    double? amount,
+  }) {
+    return MoneyInvoices(
+      pk: pk ?? this.pk,
+      mKind: mKind ?? this.mKind,
+      mId: mId ?? this.mId,
+      iKind: iKind ?? this.iKind,
+      iId: iId ?? this.iId,
+      amount: amount ?? this.amount,
+    );
+  }
 
   factory MoneyInvoices.fromJson(Map<String, dynamic> json) {
     return MoneyInvoices(
@@ -18,7 +36,7 @@ class MoneyInvoices extends Equatable {
         mId: json['m_id'],
         iKind: json['i_kind'],
         iId: json['i_id'],
-        amount: json['amount']);
+        amount: double.parse(json['amount'].toString()));
   }
 
   Map<String, dynamic> toJson() {

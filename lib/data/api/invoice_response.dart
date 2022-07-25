@@ -1,8 +1,10 @@
 import 'dart:convert';
+import 'dart:math';
 
+import 'package:dev_store/data/api/invoice_items_response.dart';
 import 'package:dev_store/models/category.dart';
 import 'package:dev_store/models/invoice.dart';
-import 'package:dev_store/models/invoice_items.dart';
+import 'package:dev_store/models/invoice_options.dart';
 import 'package:dev_store/models/item.dart';
 import 'package:dev_store/models/money.dart';
 import 'package:dev_store/models/options.dart';
@@ -41,27 +43,56 @@ class InvoiceRespose extends Equatable {
 }
 
 class InvoiceData extends Equatable {
+  final bool isSaved;
   final List<Category>? categories;
   final List<Category>? starredCats;
   final List<Item>? starredItems;
   final Invoice invoice;
-  final List<InvoiceItems>? invoiceItems;
+  final List<InvoiceItemsResponse>? invoiceItemsResponses;
   final Money? moneyCash;
   final Money? moneyPayment;
   final int? maxId;
-  final Options? options;
+  final InvoiceOptions? invoiceOptions;
 
   const InvoiceData({
+    this.isSaved = true,
     this.categories,
     this.starredCats,
     this.starredItems,
     required this.invoice,
-    this.invoiceItems,
+    this.invoiceItemsResponses,
     this.moneyCash,
     this.moneyPayment,
     this.maxId,
-    this.options,
+    this.invoiceOptions,
   });
+
+  InvoiceData copyWith({
+    bool? isSaved,
+    List<Category>? categories,
+    List<Category>? starredCats,
+    List<Item>? starredItems,
+    Invoice? invoice,
+    List<InvoiceItemsResponse>? invoiceItemsResponses,
+    Money? moneyCash,
+    Money? moneyPayment,
+    int? maxId,
+    InvoiceOptions? invoiceOptions,
+  }) {
+    return InvoiceData(
+      isSaved: isSaved ?? this.isSaved,
+      categories: categories ?? this.categories,
+      starredCats: starredCats ?? this.starredCats,
+      starredItems: starredItems ?? this.starredItems,
+      invoice: invoice ?? this.invoice,
+      invoiceItemsResponses:
+          invoiceItemsResponses ?? this.invoiceItemsResponses,
+      moneyCash: moneyCash ?? this.moneyCash,
+      moneyPayment: moneyPayment ?? this.moneyPayment,
+      maxId: maxId ?? this.maxId,
+      invoiceOptions: invoiceOptions ?? this.invoiceOptions,
+    );
+  }
 
   factory InvoiceData.fromJson(Map<String, dynamic> json) => InvoiceData(
         categories: Category.fromJsonArray(json["categories"]),
@@ -69,42 +100,49 @@ class InvoiceData extends Equatable {
         starredItems: Item.fromJsonArray(json["starredItems"]),
         invoice: json["invoice"] != null
             ? Invoice.fromJson(json["invoice"])
-            : const Invoice(id: 0, kind: "SALE", storeId: 1),
-        invoiceItems: InvoiceItems.fromJsonArray(json["invoiceItems"]),
+            : Invoice.fromJson({
+                "id": 900000 + Random().nextInt(90000),
+                "kind": "SALE",
+                "store_id": 1
+              }),
+        invoiceItemsResponses:
+            InvoiceItemsResponse.fromJsonArray(json["invoiceItems"]),
         moneyCash: json["moneyCash"] != null
             ? Money.fromJson(json["moneyCash"])
             : null,
         moneyPayment: json["moneyPayment"] != null
             ? Money.fromJson(json["moneyPayment"])
-            : const Money(),
+            : null,
         maxId: json["maxId"],
-        options: json["options"] != null
-            ? Options.fromJson(json["options"])
-            : const Options(),
+        invoiceOptions: json["options"] != null
+            ? InvoiceOptions.fromJson(json["options"])
+            : null,
       );
 
   Map<String, dynamic> toJson() => {
+        "isSaved": isSaved,
         "categories": categories,
         "starredCats": starredCats,
         "starredItems": starredItems,
         "invoice": invoice,
-        "invoiceItems": invoiceItems,
+        "invoiceItems": invoiceItemsResponses,
         "moneyCash": moneyCash,
         "moneyPayment": moneyPayment,
         "maxId": maxId,
-        "options": options,
+        "options": invoiceOptions,
       };
 
   @override
   List<Object?> get props => [
+        isSaved,
         categories,
         starredCats,
         starredItems,
         invoice,
-        invoiceItems,
+        invoiceItemsResponses,
         moneyCash,
         moneyPayment,
         maxId,
-        options
+        invoiceOptions
       ];
 }

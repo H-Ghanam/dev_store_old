@@ -1,17 +1,17 @@
 import 'package:equatable/equatable.dart';
 
 class Item extends Equatable {
-  final num? id;
+  final int? id;
   final String? title;
   final String? code1;
   final String? code2;
   final String? barcode;
   final String? barcodes;
-  final num? price1;
-  final num? price2;
-  final num? price3;
-  final num? price4;
-  final num? priceMin;
+  final double? price1;
+  final double? price2;
+  final double? price3;
+  final double? price4;
+  final double? priceMin;
   final String? category1;
   final String? category2;
   final String? category3;
@@ -19,18 +19,18 @@ class Item extends Equatable {
   final String? category5;
   final String? category6;
   final String? unit;
-  final num? service;
-  final num? avgCost;
-  final num? lastCost;
-  final num? lastNetCost;
-  final String? lastPurchased;
-  final num? qty;
-  final num? reorderQty;
-  final num? starred;
-  final num? discountPer1;
+  final int? service;
+  final double? avgCost;
+  final double? lastCost;
+  final double? lastNetCost;
+  final DateTime? lastPurchased;
+  final double? qty;
+  final double? reorderQty;
+  final int? starred;
+  final double? discountPer1;
   final String? taxType;
-  final num? priceIncludeTax1;
-  final num? dead;
+  final int? priceIncludeTax1;
+  final int? dead;
   final String? photo;
   final String? more;
 
@@ -68,6 +68,74 @@ class Item extends Equatable {
       this.photo,
       this.more});
 
+  Item copywith({
+    String? title,
+    String? code1,
+    String? code2,
+    String? barcode,
+    String? barcodes,
+    double? price1,
+    double? price2,
+    double? price3,
+    double? price4,
+    double? priceMin,
+    String? category1,
+    String? category2,
+    String? category3,
+    String? category4,
+    String? category5,
+    String? category6,
+    String? unit,
+    int? service,
+    double? avgCost,
+    double? lastCost,
+    double? lastNetCost,
+    DateTime? lastPurchased,
+    double? qty,
+    double? reorderQty,
+    int? starred,
+    double? discountPer1,
+    String? taxType,
+    int? priceIncludeTax1,
+    int? dead,
+    String? photo,
+    String? more,
+  }) {
+    return Item(
+      title: title ?? this.title,
+      code1: code1 ?? this.code1,
+      code2: code2 ?? this.code2,
+      barcode: barcode ?? this.barcode,
+      barcodes: barcodes ?? this.barcodes,
+      price1: price1 ?? this.price1,
+      price2: price2 ?? this.price2,
+      price3: price3 ?? this.price3,
+      price4: price4 ?? this.price4,
+      priceMin: priceMin ?? this.priceMin,
+      category1: category1 ?? this.category1,
+      category2: category2 ?? this.category2,
+      category3: category3 ?? this.category3,
+      category4: category4 ?? this.category4,
+      category5: category5 ?? this.category5,
+      category6: category6 ?? this.category6,
+      unit: unit ?? this.unit,
+      service: service ?? this.service,
+      avgCost: avgCost ?? this.avgCost,
+      lastCost: lastCost ?? this.lastCost,
+      lastNetCost: lastNetCost ?? this.lastNetCost,
+      lastPurchased: lastPurchased ?? this.lastPurchased,
+      qty: qty ?? this.qty,
+      reorderQty: reorderQty ?? this.reorderQty,
+      starred: starred ?? this.starred,
+      discountPer1: discountPer1 ?? this.discountPer1,
+      taxType: taxType ?? this.taxType,
+      priceIncludeTax1: priceIncludeTax1 ?? this.priceIncludeTax1,
+      dead: dead ?? this.dead,
+      photo: photo ?? this.photo,
+      more: more ?? this.more,
+    );
+  }
+
   factory Item.fromJson(Map<String, dynamic> json) {
     return Item(
         id: json['id'],
@@ -76,11 +144,11 @@ class Item extends Equatable {
         code2: json['code2'],
         barcode: json['barcode'],
         barcodes: json['barcodes'],
-        price1: json['price1'],
-        price2: json['price2'],
-        price3: json['price3'],
-        price4: json['price4'],
-        priceMin: json['price_min'],
+        price1: double.parse(json['price1'].toString()),
+        price2: double.parse(json['price2'].toString()),
+        price3: double.parse(json['price3'].toString()),
+        price4: double.parse(json['price4'].toString()),
+        priceMin: double.parse(json['price_min'].toString()),
         category1: json['category1'],
         category2: json['category2'],
         category3: json['category3'],
@@ -89,14 +157,14 @@ class Item extends Equatable {
         category6: json['category6'],
         unit: json['unit'],
         service: json['service'],
-        avgCost: json['avg_cost'],
-        lastCost: json['last_cost'],
-        lastNetCost: json['last_net_cost'],
-        lastPurchased: json['last_purchased'],
-        qty: json['qty'],
-        reorderQty: json['reorder_qty'],
+        avgCost: double.parse(json['avg_cost'].toString()),
+        lastCost: double.parse(json['last_cost'].toString()),
+        lastNetCost: double.parse(json['last_net_cost'].toString()),
+        lastPurchased: DateTime.parse(json['last_purchased']),
+        qty: double.parse(json['qty'].toString()),
+        reorderQty: double.parse(json['reorder_qty'].toString()),
         starred: json['starred'],
-        discountPer1: json['discount_per1'],
+        discountPer1: double.parse(json['discount_per1'].toString()),
         taxType: json['tax_type'],
         priceIncludeTax1: json['price_include_tax1'],
         dead: json['dead'],

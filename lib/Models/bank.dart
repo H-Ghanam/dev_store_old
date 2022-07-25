@@ -1,14 +1,14 @@
 import 'package:equatable/equatable.dart';
 
 class Bank extends Equatable {
-  final num? id;
-  final num? sn;
+  final int? id;
+  final int? sn;
   final String? cashboxTitle;
   final String? paymentMethod;
-  final num? active;
-  final num? feesPer;
-  final num? feesMin;
-  final num? feesFixed;
+  final int? active;
+  final double? feesPer;
+  final double? feesMin;
+  final double? feesFixed;
   final String? gateway;
 
   const Bank(
@@ -22,6 +22,30 @@ class Bank extends Equatable {
       this.feesFixed,
       this.gateway});
 
+  Bank copyWith({
+    int? id,
+    int? sn,
+    String? cashboxTitle,
+    String? paymentMethod,
+    int? active,
+    double? feesPer,
+    double? feesMin,
+    double? feesFixed,
+    String? gateway,
+  }) {
+    return Bank(
+      id: id ?? this.id,
+      sn: sn ?? this.sn,
+      cashboxTitle: cashboxTitle ?? this.cashboxTitle,
+      paymentMethod: paymentMethod ?? this.paymentMethod,
+      active: active ?? this.active,
+      feesPer: feesPer ?? this.feesPer,
+      feesMin: feesMin ?? this.feesMin,
+      feesFixed: feesFixed ?? this.feesFixed,
+      gateway: gateway ?? this.gateway,
+    );
+  }
+
   factory Bank.fromJson(Map<String, dynamic> json) {
     return Bank(
       id: json['id'],
@@ -29,9 +53,9 @@ class Bank extends Equatable {
       cashboxTitle: json['cashbox_title'],
       paymentMethod: json['payment_method'],
       active: json['active'],
-      feesPer: json['fees_per'],
-      feesMin: json['fees_min'],
-      feesFixed: json['fees_fixed'],
+      feesPer: double.parse(json['fees_per'].toString()),
+      feesMin: double.parse(json['fees_min'].toString()),
+      feesFixed: double.parse(json['fees_fixed'].toString()),
       gateway: json['gateway'],
     );
   }

@@ -1,152 +1,219 @@
 import 'package:equatable/equatable.dart';
 
 class InvoiceItems extends Equatable {
-  final num? pk;
-  final num id;
-  final String kind;
-  final num storeId;
-  final num? sn;
-  final num? itemId;
-  final num? qty;
-  final num? amount;
-  final num? total;
-  final num? amountIncTax;
-  final num? totalIncTax;
+  final int? pk;
+  final String? kind;
+  final int? id;
+  final int? storeId;
+  final int? sn;
+  final int? itemId;
+  final double? qty;
+  final double? amount;
+  final double? total;
+  final double? amountIncTax;
+  final double? totalIncTax;
   final String? unit;
-  final num? uqty1;
-  final num? uqty2;
-  final num? unitQtyIn;
-  final num? unitQtyOut;
-  final num? unitCost;
-  final num? unitPrice;
-  final num? totalCost;
-  final num? totalPrice;
-  final num? discount1Per;
-  final num? discount1;
-  final num? totalIncDiscount1;
-  final num? additions;
-  final num? discount2;
-  final num? discounts;
-  final num? netCost;
-  final num? netPrice;
-  final num? netTotal;
-  final num? qtyIn;
-  final num? qtyOut;
-  final num? cost;
-  final num? price;
-  final num? tax1Per;
-  final num? tax1;
-  final num? tax2Per;
-  final num? tax2;
-  final num? grandTotal;
-  final num? expenses;
-  final num? realNetCost;
-  final num? realCost;
-  final num? profit;
-  final num? costErrors;
+  final double? uqty1;
+  final double? uqty2;
+  final double? unitQtyIn;
+  final double? unitQtyOut;
+  final double? unitCost;
+  final double? unitPrice;
+  final double? totalCost;
+  final double? totalPrice;
+  final double? discount1Per;
+  final double? discount1;
+  final double? totalIncDiscount1;
+  final double? additions;
+  final double? discount2;
+  final double? discounts;
+  final double? netCost;
+  final double? netPrice;
+  final double? netTotal;
+  final double? qtyIn;
+  final double? qtyOut;
+  final double? cost;
+  final double? price;
+  final double? tax1Per;
+  final double? tax1;
+  final double? tax2Per;
+  final double? tax2;
+  final double? grandTotal;
+  final double? expenses;
+  final double? realNetCost;
+  final double? realCost;
+  final double? profit;
+  final double? costErrors;
   final String? custom1;
   final String? custom2;
   final String? custom3;
   final String? serials;
   final String? cargo;
-  final num? qtyDelivered;
-  final num? unitContents;
-  final num? returnPk;
-  final String? title;
-  final String? code1;
-  final String? code2;
-  final String? barcode;
-  final String? taxType;
-  final num? priceIncludeTax1;
-  final String? category1;
-  final String? category2;
-  final String? category3;
-  final String? category4;
-  final String? category5;
-  final String? category6;
-  final num? price1;
-  final num? price2;
-  final num? price3;
-  final num? price4;
-  final num? priceMin;
-  final String? photo;
-  final String? more;
-  final num? service;
-  final num? qtyAvailable;
+  final double? qtyDelivered;
+  final double? unitContents;
+  final int? returnPk;
 
-  const InvoiceItems(
-      {this.pk,
-      required this.id,
-      required this.kind,
-      required this.storeId,
-      this.sn,
-      this.itemId,
-      this.qty,
-      this.amount,
-      this.total,
-      this.amountIncTax,
-      this.totalIncTax,
-      this.unit,
-      this.uqty1,
-      this.uqty2,
-      this.unitQtyIn,
-      this.unitQtyOut,
-      this.unitCost,
-      this.unitPrice,
-      this.totalCost,
-      this.totalPrice,
-      this.discount1Per,
-      this.discount1,
-      this.totalIncDiscount1,
-      this.additions,
-      this.discount2,
-      this.discounts,
-      this.netCost,
-      this.netPrice,
-      this.netTotal,
-      this.qtyIn,
-      this.qtyOut,
-      this.cost,
-      this.price,
-      this.tax1Per,
-      this.tax1,
-      this.tax2Per,
-      this.tax2,
-      this.grandTotal,
-      this.expenses,
-      this.realNetCost,
-      this.realCost,
-      this.profit,
-      this.costErrors,
-      this.custom1,
-      this.custom2,
-      this.custom3,
-      this.serials,
-      this.cargo,
-      this.qtyDelivered,
-      this.unitContents,
-      this.returnPk,
-      this.title,
-      this.code1,
-      this.code2,
-      this.barcode,
-      this.taxType,
-      this.priceIncludeTax1,
-      this.category1,
-      this.category2,
-      this.category3,
-      this.category4,
-      this.category5,
-      this.category6,
-      this.price1,
-      this.price2,
-      this.price3,
-      this.price4,
-      this.priceMin,
-      this.photo,
-      this.more,
-      this.service,
-      this.qtyAvailable});
+  const InvoiceItems({
+    this.pk,
+    this.kind,
+    this.id,
+    this.storeId,
+    this.sn,
+    this.itemId,
+    this.qty,
+    this.amount,
+    this.total,
+    this.amountIncTax,
+    this.totalIncTax,
+    this.unit,
+    this.uqty1,
+    this.uqty2,
+    this.unitQtyIn,
+    this.unitQtyOut,
+    this.unitCost,
+    this.unitPrice,
+    this.totalCost,
+    this.totalPrice,
+    this.discount1Per,
+    this.discount1,
+    this.totalIncDiscount1,
+    this.additions,
+    this.discount2,
+    this.discounts,
+    this.netCost,
+    this.netPrice,
+    this.netTotal,
+    this.qtyIn,
+    this.qtyOut,
+    this.cost,
+    this.price,
+    this.tax1Per,
+    this.tax1,
+    this.tax2Per,
+    this.tax2,
+    this.grandTotal,
+    this.expenses,
+    this.realNetCost,
+    this.realCost,
+    this.profit,
+    this.costErrors,
+    this.custom1,
+    this.custom2,
+    this.custom3,
+    this.serials,
+    this.cargo,
+    this.qtyDelivered,
+    this.unitContents,
+    this.returnPk,
+  });
+
+  InvoiceItems copyWith({
+    int? pk,
+    String? kind,
+    int? id,
+    int? storeId,
+    int? sn,
+    int? itemId,
+    double? qty,
+    double? amount,
+    double? total,
+    double? amountIncTax,
+    double? totalIncTax,
+    String? unit,
+    double? uqty1,
+    double? uqty2,
+    double? unitQtyIn,
+    double? unitQtyOut,
+    double? unitCost,
+    double? unitPrice,
+    double? totalCost,
+    double? totalPrice,
+    double? discount1Per,
+    double? discount1,
+    double? totalIncDiscount1,
+    double? additions,
+    double? discount2,
+    double? discounts,
+    double? netCost,
+    double? netPrice,
+    double? netTotal,
+    double? qtyIn,
+    double? qtyOut,
+    double? cost,
+    double? price,
+    double? tax1Per,
+    double? tax1,
+    double? tax2Per,
+    double? tax2,
+    double? grandTotal,
+    double? expenses,
+    double? realNetCost,
+    double? realCost,
+    double? profit,
+    double? costErrors,
+    String? custom1,
+    String? custom2,
+    String? custom3,
+    String? serials,
+    String? cargo,
+    double? qtyDelivered,
+    double? unitContents,
+    int? returnPk,
+  }) {
+    return InvoiceItems(
+      pk: pk ?? this.pk,
+      kind: kind ?? this.kind,
+      id: id ?? this.id,
+      storeId: storeId ?? this.storeId,
+      sn: sn ?? this.sn,
+      itemId: itemId ?? this.itemId,
+      qty: qty ?? this.qty,
+      amount: amount ?? this.amount,
+      total: total ?? this.total,
+      amountIncTax: amountIncTax ?? this.amountIncTax,
+      totalIncTax: totalIncTax ?? this.totalIncTax,
+      unit: unit ?? this.unit,
+      uqty1: uqty1 ?? this.uqty1,
+      uqty2: uqty2 ?? this.uqty2,
+      unitQtyIn: unitQtyIn ?? this.unitQtyIn,
+      unitQtyOut: unitQtyOut ?? this.unitQtyOut,
+      unitCost: unitCost ?? this.unitCost,
+      unitPrice: unitPrice ?? this.unitPrice,
+      totalCost: totalCost ?? this.totalCost,
+      totalPrice: totalPrice ?? this.totalPrice,
+      discount1Per: discount1Per ?? this.discount1Per,
+      discount1: discount1 ?? this.discount1,
+      totalIncDiscount1: totalIncDiscount1 ?? this.totalIncDiscount1,
+      additions: additions ?? this.additions,
+      discount2: discount2 ?? this.discount2,
+      discounts: discounts ?? this.discounts,
+      netCost: netCost ?? this.netCost,
+      netPrice: netPrice ?? this.netPrice,
+      netTotal: netTotal ?? this.netTotal,
+      qtyIn: qtyIn ?? this.qtyIn,
+      qtyOut: qtyOut ?? this.qtyOut,
+      cost: cost ?? this.cost,
+      price: price ?? this.price,
+      tax1Per: tax1Per ?? this.tax1Per,
+      tax1: tax1 ?? this.tax1,
+      tax2Per: tax2Per ?? this.tax2Per,
+      tax2: tax2 ?? this.tax2,
+      grandTotal: grandTotal ?? this.grandTotal,
+      expenses: expenses ?? this.expenses,
+      realNetCost: realNetCost ?? this.realNetCost,
+      realCost: realCost ?? this.realCost,
+      profit: profit ?? this.profit,
+      costErrors: costErrors ?? this.costErrors,
+      custom1: custom1 ?? this.custom1,
+      custom2: custom2 ?? this.custom2,
+      custom3: custom3 ?? this.custom3,
+      serials: serials ?? this.serials,
+      cargo: cargo ?? this.cargo,
+      qtyDelivered: qtyDelivered ?? this.qtyDelivered,
+      unitContents: unitContents ?? this.unitContents,
+      returnPk: returnPk ?? this.returnPk,
+    );
+  }
 
   factory InvoiceItems.fromJson(Map<String, dynamic> json) {
     return InvoiceItems(
@@ -156,72 +223,51 @@ class InvoiceItems extends Equatable {
         storeId: json['store_id'],
         sn: json['sn'],
         itemId: json['item_id'],
-        qty: json['qty'],
-        amount: json['amount'],
-        total: json['total'],
-        amountIncTax: json['amount_inc_tax'],
-        totalIncTax: json['total_inc_tax'],
+        qty: double.parse(json['qty'].toString()),
+        amount: double.parse(json['amount'].toString()),
+        total: double.parse(json['total'].toString()),
+        amountIncTax: double.parse(json['amount_inc_tax'].toString()),
+        totalIncTax: double.parse(json['total_inc_tax'].toString()),
         unit: json['unit'],
-        uqty1: json['uqty1'],
-        uqty2: json['uqty2'],
-        unitQtyIn: json['unit_qty_in'],
-        unitQtyOut: json['unit_qty_out'],
-        unitCost: json['unit_cost'],
-        unitPrice: json['unit_price'],
-        totalCost: json['total_cost'],
-        totalPrice: json['total_price'],
-        discount1Per: json['discount1_per'],
-        discount1: json['discount1'],
-        totalIncDiscount1: json['total_inc_discount1'],
-        additions: json['additions'],
-        discount2: json['discount2'],
-        discounts: json['discounts'],
-        netCost: json['net_cost'],
-        netPrice: json['net_price'],
-        netTotal: json['net_total'],
-        qtyIn: json['qty_in'],
-        qtyOut: json['qty_out'],
-        cost: json['cost'],
-        price: json['price'],
-        tax1Per: json['tax1_per'],
-        tax1: json['tax1'],
-        tax2Per: json['tax2_per'],
-        tax2: json['tax2'],
-        grandTotal: json['grand_total'],
-        expenses: json['expenses'],
-        realNetCost: json['real_net_cost'],
-        realCost: json['real_cost'],
-        profit: json['profit'],
-        costErrors: json['cost_errors'],
+        uqty1: double.parse(json['uqty1'].toString()),
+        uqty2: double.parse(json['uqty2'].toString()),
+        unitQtyIn: double.parse(json['unit_qty_in'].toString()),
+        unitQtyOut: double.parse(json['unit_qty_out'].toString()),
+        unitCost: double.parse(json['unit_cost'].toString()),
+        unitPrice: double.parse(json['unit_price'].toString()),
+        totalCost: double.parse(json['total_cost'].toString()),
+        totalPrice: double.parse(json['total_price'].toString()),
+        discount1Per: double.parse(json['discount1_per'].toString()),
+        discount1: double.parse(json['discount1'].toString()),
+        totalIncDiscount1: double.parse(json['total_inc_discount1'].toString()),
+        additions: double.parse(json['additions'].toString()),
+        discount2: double.parse(json['discount2'].toString()),
+        discounts: double.parse(json['discounts'].toString()),
+        netCost: double.parse(json['net_cost'].toString()),
+        netPrice: double.parse(json['net_price'].toString()),
+        netTotal: double.parse(json['net_total'].toString()),
+        qtyIn: double.parse(json['qty_in'].toString()),
+        qtyOut: double.parse(json['qty_out'].toString()),
+        cost: double.parse(json['cost'].toString()),
+        price: double.parse(json['price'].toString()),
+        tax1Per: double.parse(json['tax1_per'].toString()),
+        tax1: double.parse(json['tax1'].toString()),
+        tax2Per: double.parse(json['tax2_per'].toString()),
+        tax2: double.parse(json['tax2'].toString()),
+        grandTotal: double.parse(json['grand_total'].toString()),
+        expenses: double.parse(json['expenses'].toString()),
+        realNetCost: double.parse(json['real_net_cost'].toString()),
+        realCost: double.parse(json['real_cost'].toString()),
+        profit: double.parse(json['profit'].toString()),
+        costErrors: double.parse(json['cost_errors'].toString()),
         custom1: json['custom1'],
         custom2: json['custom2'],
         custom3: json['custom3'],
         serials: json['serials'],
         cargo: json['cargo'],
-        qtyDelivered: json['qty_delivered'],
-        unitContents: json['unit_contents'],
-        returnPk: json['returnPk'],
-        title: json['title'],
-        code1: json['code1'],
-        code2: json['code2'],
-        barcode: json['barcode'],
-        taxType: json['taxType'],
-        priceIncludeTax1: json['priceIncludeTax1'],
-        category1: json['category1'],
-        category2: json['category2'],
-        category3: json['category3'],
-        category4: json['category4'],
-        category5: json['category5'],
-        category6: json['category6'],
-        price1: json['price1'],
-        price2: json['price2'],
-        price3: json['price3'],
-        price4: json['price4'],
-        priceMin: json['priceMin'],
-        photo: json['photo'],
-        more: json['more'],
-        service: json['service'],
-        qtyAvailable: json['qtyAvailable']);
+        qtyDelivered: double.parse(json['qty_delivered'].toString()),
+        unitContents: double.parse(json['unit_contents'].toString()),
+        returnPk: json['return_pk']);
   }
 
   static List<InvoiceItems> fromJsonArray(List jsonArray) {
@@ -282,28 +328,7 @@ class InvoiceItems extends Equatable {
     data['cargo'] = cargo;
     data['qty_delivered'] = qtyDelivered;
     data['unit_contents'] = unitContents;
-    data['returnPk'] = returnPk;
-    data['title'] = title;
-    data['code1'] = code1;
-    data['code2'] = code2;
-    data['barcode'] = barcode;
-    data['taxType'] = taxType;
-    data['priceIncludeTax1'] = priceIncludeTax1;
-    data['category1'] = category1;
-    data['category2'] = category2;
-    data['category3'] = category3;
-    data['category4'] = category4;
-    data['category5'] = category5;
-    data['category6'] = category6;
-    data['price1'] = price1;
-    data['price2'] = price2;
-    data['price3'] = price3;
-    data['price4'] = price4;
-    data['priceMin'] = priceMin;
-    data['photo'] = photo;
-    data['more'] = more;
-    data['service'] = service;
-    data['qtyAvailable'] = qtyAvailable;
+    data['return_pk'] = returnPk;
     return data;
   }
 
@@ -360,26 +385,5 @@ class InvoiceItems extends Equatable {
         qtyDelivered,
         unitContents,
         returnPk,
-        title,
-        code1,
-        code2,
-        barcode,
-        taxType,
-        priceIncludeTax1,
-        category1,
-        category2,
-        category3,
-        category4,
-        category5,
-        category6,
-        price1,
-        price2,
-        price3,
-        price4,
-        priceMin,
-        photo,
-        more,
-        service,
-        qtyAvailable,
       ];
 }

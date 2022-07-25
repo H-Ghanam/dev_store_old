@@ -1,12 +1,11 @@
 import 'package:dev_store/blocs/app_bloc/app_bloc.dart';
 import 'package:dev_store/main.dart';
-import 'package:dev_store/screens/app/app_settings.dart';
-import 'package:dev_store/screens/app/pages/home/home.dart';
-import 'package:dev_store/screens/app/app_tabview.dart';
+import 'package:dev_store/screens/app/app_settings_page.dart';
+import 'package:dev_store/screens/app/pages/home/home_page.dart';
+import 'package:dev_store/screens/app/pages/invoice/invoice_tabview_page.dart';
 import 'package:dev_store/screens/login/login_page.dart';
 import 'package:dev_store/screens/widgets/page.dart';
 import 'package:dev_store/theme.dart';
-import 'package:dev_store/screens/app/pages/invoice/invoice_tabview_page.dart';
 import 'package:fluent_ui/fluent_ui.dart' hide Page;
 import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -47,18 +46,18 @@ class _AppState extends State<App> with WindowListener {
     ),
     PaneItemSeparator(),
     // PaneItemHeader(header: const Text('فواتير')),
-    // PaneItem(
-    //   tileColor: ButtonState.resolveWith((states) {
-    //     return Colors.green.dark;
-    //   }),
-    //   infoBadge:
-    //       InfoBadge(color: Colors.green.darkest, source: const Text("0")),
-    //   icon: const Icon(
-    //     FluentIcons.shopping_cart_solid,
-    //     color: Color.fromARGB(255, 2, 44, 13),
-    //   ),
-    //   title: const Text('بيع'),
-    // ),
+    PaneItem(
+      tileColor: ButtonState.resolveWith((states) {
+        return Colors.green.dark;
+      }),
+      infoBadge:
+          InfoBadge(color: Colors.green.darkest, source: const Text("0")),
+      icon: const Icon(
+        FluentIcons.shopping_cart_solid,
+        color: Color.fromARGB(255, 2, 44, 13),
+      ),
+      title: const Text('فواتير'),
+    ),
     // PaneItem(
     //   infoBadge: InfoBadge(color: Colors.red.darkest, source: const Text("3")),
     //   tileColor: ButtonState.resolveWith((states) {
@@ -72,12 +71,10 @@ class _AppState extends State<App> with WindowListener {
   ];
   late List<NavigationPaneItem> items = originalItems;
 
-  final content = <Widget>[
-    const AppTabView(),
-    // HomePage(),
-    // InvoiceTabviewPage(),
-    // HomePage(),
-    // SettingsPage(),
+  final content = <Page>[
+    HomePage(),
+    InvoiceTabviewPage(),
+    SettingsPage(),
   ];
 
   @override
@@ -114,8 +111,6 @@ class _AppState extends State<App> with WindowListener {
 
   @override
   Widget build(BuildContext context) {
-    // int? activePageIndex = context.read<AppBloc>().state.activePageIndex;
-    // index = activePageIndex != null ? activePageIndex.toInt() : index;
     final appTheme = context.watch<AppTheme>();
     return NavigationView(
       key: viewKey,
@@ -173,10 +168,9 @@ class _AppState extends State<App> with WindowListener {
         ),
       ),
       pane: NavigationPane(
-        // leading: const Text(
-        //   "Wings",
-        //   style: TextStyle(fontWeight: FontWeight.bold),
-        // ),
+        // ignore: todo
+        /// TODO selected, onChange
+
         selected: () {
           // if not searching, return the current index
           if (searchValue.isEmpty) return index;
@@ -190,6 +184,7 @@ class _AppState extends State<App> with WindowListener {
           if (indexOnScreen.isNegative) return null;
           return indexOnScreen;
         }(),
+
         onChanged: (i) {
           // If searching, the values will have different indexes
           if (searchValue.isNotEmpty) {
@@ -226,12 +221,6 @@ class _AppState extends State<App> with WindowListener {
                     Image.asset("assets/images/6.png"),
                   ],
                 ),
-          // FlutterLogo(
-          //   style: appTheme.displayMode == PaneDisplayMode.top
-          //       ? FlutterLogoStyle.markOnly
-          //       : FlutterLogoStyle.horizontal,
-          //   size: appTheme.displayMode == PaneDisplayMode.top ? 24 : 100.0,
-          // ),
         ),
         displayMode: appTheme.displayMode,
         indicator: () {
@@ -257,17 +246,11 @@ class _AppState extends State<App> with WindowListener {
             icon: const Icon(FluentIcons.settings),
             title: const Text('إعدادات'),
           ),
-
-          // _LinkPaneItemAction(
-          //   icon: const Icon(FluentIcons.open_source),
-          //   title: const Text('Source code'),
-          //   link: 'https://github.com/bdlukaa/fluent_ui',
-          // ),
         ],
       ),
       content: NavigationBody(
         index: index,
-        children: content,
+        children: content.transform(context),
       ),
     );
   }

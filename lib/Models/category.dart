@@ -7,6 +7,12 @@ class Category extends Equatable {
     this.title,
   });
 
+  Category copyWith({String? title}) {
+    return Category(
+      title: title ?? this.title,
+    );
+  }
+
   factory Category.fromJson(Map<String, dynamic> json) {
     return Category(title: json['title']);
   }

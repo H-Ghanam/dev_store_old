@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 
 class Options extends Equatable {
-  final num? version;
+  final int? version;
   final String? company;
   final String? backupPass;
   final String? superPass;
@@ -12,8 +12,8 @@ class Options extends Equatable {
   final String? price2Title;
   final String? price3Title;
   final String? price4Title;
-  final num? forceLastAccountSalesPrice;
-  final num? forceLastAccountSalesPriceMonths;
+  final int? forceLastAccountSalesPrice;
+  final int? forceLastAccountSalesPriceMonths;
   final String? category2title;
   final String? category3title;
   final String? category4title;
@@ -30,41 +30,41 @@ class Options extends Equatable {
   final String? invoiceCustom4;
   final String? invoiceCustom5;
   final String? invoiceAddition2Sale;
-  final num? invoiceAddition2SalePer;
-  final num? invoiceAddition2SaleAmount;
+  final double? invoiceAddition2SalePer;
+  final double? invoiceAddition2SaleAmount;
   final String? invoiceAddition3Sale;
-  final num? invoiceAddition3SalePer;
-  final num? invoiceAddition3SaleAmount;
+  final double? invoiceAddition3SalePer;
+  final double? invoiceAddition3SaleAmount;
   final String? invoiceAddition2Pur;
   final String? invoiceAddition3Pur;
   final String? invoiceItemsCustom1;
   final String? invoiceItemsCustom2;
   final String? invoiceItemsCustom3;
-  final num? salesPrintCopies;
+  final int? salesPrintCopies;
   final String? orderStatus;
   final String? orderShippedby;
   final String? currencyTitle;
-  final num? currencyUnits;
+  final int? currencyUnits;
   final String? currencyUnitTitle;
   final String? currencySymbol;
-  final num? wbarcodeEnabled;
-  final num? wbarcodeSize;
+  final int? wbarcodeEnabled;
+  final int? wbarcodeSize;
   final String? wbarcodePrefix;
-  final num? wbarcodeCodeSize;
-  final num? wbarcodeValueSize;
+  final int? wbarcodeCodeSize;
+  final int? wbarcodeValueSize;
   final String? taxId;
   final String? tax1Title;
-  final num? tax1Per;
-  final num? tax1AutoSale;
-  final num? tax1AutoPurchase;
+  final double? tax1Per;
+  final int? tax1AutoSale;
+  final int? tax1AutoPurchase;
   final String? tax2Title;
-  final num? tax2Per;
-  final num? tax2AutoSale;
-  final num? tax2AutoPurchase;
-  final String? blockUpdateBeforeDate;
-  final String? blockListBeforeDate;
-  final num? deliverySalesAuto;
-  final num? deliveryTransfersAuto;
+  final double? tax2Per;
+  final int? tax2AutoSale;
+  final int? tax2AutoPurchase;
+  final DateTime? blockUpdateBeforeDate;
+  final DateTime? blockListBeforeDate;
+  final int? deliverySalesAuto;
+  final int? deliveryTransfersAuto;
 
   const Options(
       {this.version,
@@ -132,6 +132,148 @@ class Options extends Equatable {
       this.deliverySalesAuto,
       this.deliveryTransfersAuto});
 
+  Options copyWith({
+    int? version,
+    String? company,
+    String? backupPass,
+    String? superPass,
+    String? contactDetails,
+    String? contactDetails2,
+    String? contactDetails3,
+    String? price1Title,
+    String? price2Title,
+    String? price3Title,
+    String? price4Title,
+    int? forceLastAccountSalesPrice,
+    int? forceLastAccountSalesPriceMonths,
+    String? category2title,
+    String? category3title,
+    String? category4title,
+    String? category5title,
+    String? category6title,
+    String? accCustom2,
+    String? accCustom3,
+    String? accCustom4,
+    String? accCustom5,
+    String? accCustom6,
+    String? invoiceCustom1,
+    String? invoiceCustom2,
+    String? invoiceCustom3,
+    String? invoiceCustom4,
+    String? invoiceCustom5,
+    String? invoiceAddition2Sale,
+    double? invoiceAddition2SalePer,
+    double? invoiceAddition2SaleAmount,
+    String? invoiceAddition3Sale,
+    double? invoiceAddition3SalePer,
+    double? invoiceAddition3SaleAmount,
+    String? invoiceAddition2Pur,
+    String? invoiceAddition3Pur,
+    String? invoiceItemsCustom1,
+    String? invoiceItemsCustom2,
+    String? invoiceItemsCustom3,
+    int? salesPrintCopies,
+    String? orderStatus,
+    String? orderShippedby,
+    String? currencyTitle,
+    int? currencyUnits,
+    String? currencyUnitTitle,
+    String? currencySymbol,
+    int? wbarcodeEnabled,
+    int? wbarcodeSize,
+    String? wbarcodePrefix,
+    int? wbarcodeCodeSize,
+    int? wbarcodeValueSize,
+    String? taxId,
+    String? tax1Title,
+    double? tax1Per,
+    int? tax1AutoSale,
+    int? tax1AutoPurchase,
+    String? tax2Title,
+    double? tax2Per,
+    int? tax2AutoSale,
+    int? tax2AutoPurchase,
+    DateTime? blockUpdateBeforeDate,
+    DateTime? blockListBeforeDate,
+    int? deliverySalesAuto,
+    int? deliveryTransfersAuto,
+  }) {
+    return Options(
+      version: version ?? this.version,
+      company: company ?? this.company,
+      backupPass: backupPass ?? this.backupPass,
+      superPass: superPass ?? this.superPass,
+      contactDetails: contactDetails ?? this.contactDetails,
+      contactDetails2: contactDetails2 ?? this.contactDetails2,
+      contactDetails3: contactDetails3 ?? this.contactDetails3,
+      price1Title: price1Title ?? this.price1Title,
+      price2Title: price2Title ?? this.price2Title,
+      price3Title: price3Title ?? this.price3Title,
+      price4Title: price4Title ?? this.price4Title,
+      forceLastAccountSalesPrice:
+          forceLastAccountSalesPrice ?? this.forceLastAccountSalesPrice,
+      forceLastAccountSalesPriceMonths: forceLastAccountSalesPriceMonths ??
+          this.forceLastAccountSalesPriceMonths,
+      category2title: category2title ?? this.category2title,
+      category3title: category3title ?? this.category3title,
+      category4title: category4title ?? this.category4title,
+      category5title: category5title ?? this.category5title,
+      category6title: category6title ?? this.category6title,
+      accCustom2: accCustom2 ?? this.accCustom2,
+      accCustom3: accCustom3 ?? this.accCustom3,
+      accCustom4: accCustom4 ?? this.accCustom4,
+      accCustom5: accCustom5 ?? this.accCustom5,
+      accCustom6: accCustom6 ?? this.accCustom6,
+      invoiceCustom1: invoiceCustom1 ?? this.invoiceCustom1,
+      invoiceCustom2: invoiceCustom2 ?? this.invoiceCustom2,
+      invoiceCustom3: invoiceCustom3 ?? this.invoiceCustom3,
+      invoiceCustom4: invoiceCustom4 ?? this.invoiceCustom4,
+      invoiceCustom5: invoiceCustom5 ?? this.invoiceCustom5,
+      invoiceAddition2Sale: invoiceAddition2Sale ?? this.invoiceAddition2Sale,
+      invoiceAddition2SalePer:
+          invoiceAddition2SalePer ?? this.invoiceAddition2SalePer,
+      invoiceAddition2SaleAmount:
+          invoiceAddition2SaleAmount ?? this.invoiceAddition2SaleAmount,
+      invoiceAddition3Sale: invoiceAddition3Sale ?? this.invoiceAddition3Sale,
+      invoiceAddition3SalePer:
+          invoiceAddition3SalePer ?? this.invoiceAddition3SalePer,
+      invoiceAddition3SaleAmount:
+          invoiceAddition3SaleAmount ?? this.invoiceAddition3SaleAmount,
+      invoiceAddition2Pur: invoiceAddition2Pur ?? this.invoiceAddition2Pur,
+      invoiceAddition3Pur: invoiceAddition3Pur ?? this.invoiceAddition3Pur,
+      invoiceItemsCustom1: invoiceItemsCustom1 ?? this.invoiceItemsCustom1,
+      invoiceItemsCustom2: invoiceItemsCustom2 ?? this.invoiceItemsCustom2,
+      invoiceItemsCustom3: invoiceItemsCustom3 ?? this.invoiceItemsCustom3,
+      salesPrintCopies: salesPrintCopies ?? this.salesPrintCopies,
+      orderStatus: orderStatus ?? this.orderStatus,
+      orderShippedby: orderShippedby ?? this.orderShippedby,
+      currencyTitle: currencyTitle ?? this.currencyTitle,
+      currencyUnits: currencyUnits ?? this.currencyUnits,
+      currencyUnitTitle: currencyUnitTitle ?? this.currencyUnitTitle,
+      currencySymbol: currencySymbol ?? this.currencySymbol,
+      wbarcodeEnabled: wbarcodeEnabled ?? this.wbarcodeEnabled,
+      wbarcodeSize: wbarcodeSize ?? this.wbarcodeSize,
+      wbarcodePrefix: wbarcodePrefix ?? this.wbarcodePrefix,
+      wbarcodeCodeSize: wbarcodeCodeSize ?? this.wbarcodeCodeSize,
+      wbarcodeValueSize: wbarcodeValueSize ?? this.wbarcodeValueSize,
+      taxId: taxId ?? this.taxId,
+      tax1Title: tax1Title ?? this.tax1Title,
+      tax1Per: tax1Per ?? this.tax1Per,
+      tax1AutoSale: tax1AutoSale ?? this.tax1AutoSale,
+      tax1AutoPurchase: tax1AutoPurchase ?? this.tax1AutoPurchase,
+      tax2Title: tax2Title ?? this.tax2Title,
+      tax2Per: tax2Per ?? this.tax2Per,
+      tax2AutoSale: tax2AutoSale ?? this.tax2AutoSale,
+      tax2AutoPurchase: tax2AutoPurchase ?? this.tax2AutoPurchase,
+      blockUpdateBeforeDate:
+          blockUpdateBeforeDate ?? this.blockUpdateBeforeDate,
+      blockListBeforeDate: blockListBeforeDate ?? this.blockListBeforeDate,
+      deliverySalesAuto: deliverySalesAuto ?? this.deliverySalesAuto,
+      deliveryTransfersAuto:
+          deliveryTransfersAuto ?? this.deliveryTransfersAuto,
+    );
+  }
+
   factory Options.fromJson(Map<String, dynamic> json) {
     return Options(
         version: json['version'],
@@ -164,11 +306,21 @@ class Options extends Equatable {
         invoiceCustom4: json['invoice_custom4'],
         invoiceCustom5: json['invoice_custom5'],
         invoiceAddition2Sale: json['invoice_addition2_sale'],
-        invoiceAddition2SalePer: json['invoice_addition2_sale_per'],
-        invoiceAddition2SaleAmount: json['invoice_addition2_sale_amount'],
+        invoiceAddition2SalePer: json['invoice_addition2_sale_per'] != null
+            ? double.parse(json['invoice_addition2_sale_per'].toString())
+            : null,
+        invoiceAddition2SaleAmount:
+            json['invoice_addition2_sale_amount'] != null
+                ? double.parse(json['invoice_addition2_sale_amount'].toString())
+                : null,
         invoiceAddition3Sale: json['invoice_addition3_sale'],
-        invoiceAddition3SalePer: json['invoice_addition3_sale_per'],
-        invoiceAddition3SaleAmount: json['invoice_addition3_sale_amount'],
+        invoiceAddition3SalePer: json['invoice_addition3_sale_per'] != null
+            ? double.parse(json['invoice_addition3_sale_per'].toString())
+            : null,
+        invoiceAddition3SaleAmount:
+            json['invoice_addition3_sale_amount'] != null
+                ? double.parse(json['invoice_addition3_sale_amount'].toString())
+                : null,
         invoiceAddition2Pur: json['invoice_addition2_pur'],
         invoiceAddition3Pur: json['invoice_addition3_pur'],
         invoiceItemsCustom1: json['invoice_items_custom1'],
@@ -188,21 +340,26 @@ class Options extends Equatable {
         wbarcodeValueSize: json['wbarcode_value_size'],
         taxId: json['tax_id'],
         tax1Title: json['tax1_title'],
-        tax1Per: json['tax1_per'],
+        tax1Per: json['tax1_per'] != null
+            ? double.parse(json['tax1_per'].toString())
+            : null,
         tax1AutoSale: json['tax1_auto_sale'],
         tax1AutoPurchase: json['tax1_auto_purchase'],
         tax2Title: json['tax2_title'],
-        tax2Per: json['tax2_per'],
+        tax2Per: json['tax2_per'] != null
+            ? double.parse(json['tax2_per'].toString())
+            : null,
         tax2AutoSale: json['tax2_auto_sale'],
         tax2AutoPurchase: json['tax2_auto_purchase'],
-        blockUpdateBeforeDate: json['block_update_before_date'],
-        blockListBeforeDate: json['block_list_before_date'],
+        blockUpdateBeforeDate: DateTime.parse(json['block_update_before_date']),
+        blockListBeforeDate: DateTime.parse(json['block_list_before_date']),
         deliverySalesAuto: json['delivery_sales_auto'],
         deliveryTransfersAuto: json['delivery_transfers_auto']);
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
+
     data['version'] = version;
     data['company'] = company;
     data['backup_pass'] = backupPass;
