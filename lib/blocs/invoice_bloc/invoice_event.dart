@@ -10,9 +10,15 @@ class OnGetInvoiceEvent extends InvoiceEvent {
   final int invoiceId;
   final String kind;
   final int storeId;
+  final Size size;
+  final AppTheme appTheme;
 
   OnGetInvoiceEvent(
-      {required this.invoiceId, required this.kind, required this.storeId});
+      {required this.size,
+      required this.appTheme,
+      required this.invoiceId,
+      required this.kind,
+      required this.storeId});
 }
 
 class OnRemoveTabEvent extends InvoiceEvent {

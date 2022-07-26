@@ -6,6 +6,14 @@ import 'package:dev_store/models/invoice.dart';
 import 'package:dev_store/models/invoice_options.dart';
 import 'package:dev_store/models/item.dart';
 import 'package:dev_store/models/money.dart';
+import 'package:dev_store/screens/app/pages/invoice/invoice_datagrid.dart';
+import 'package:dev_store/screens/app/pages/invoice/sale/buttonsRow.dart';
+import 'package:dev_store/screens/app/pages/invoice/sale/greenRow.dart';
+import 'package:dev_store/screens/app/pages/invoice/sale/leftButtons.dart';
+import 'package:dev_store/screens/app/pages/invoice/sale/myGrid.dart';
+import 'package:dev_store/screens/app/pages/invoice/sale/rightCol.dart';
+import 'package:dev_store/screens/app/pages/invoice/sale/upRow.dart';
+import 'package:dev_store/theme.dart';
 import 'package:fluent_ui/fluent_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -21,17 +29,6 @@ class InvoiceContent extends StatelessWidget {
 
     // صفحة الفاتورة
     return BlocBuilder<InvoiceBloc, InvoiceState>(
-      // buildWhen: (previous, current) {
-      //   InvoiceData oldInvoiceData = previous.invoices
-      //       .firstWhere((invoiceData) => invoiceData.invoice.id == invoiceId);
-      //   InvoiceData newInvoiceData = current.invoices
-      //       .firstWhere((invoiceData) => invoiceData.invoice.id == invoiceId);
-
-      //   if (oldInvoiceData != newInvoiceData ||
-      //       previous.invoices.length != current.invoices.length) return true;
-
-      //   return false;
-      // },
       builder: (context, state) {
         InvoiceData invoiceData = state.invoices
             .firstWhere((invoiceData) => invoiceData.invoice.id == invoiceId);
@@ -49,96 +46,80 @@ class InvoiceContent extends StatelessWidget {
         // ignore: unused_local_variable
         List<Category>? starredCats = invoiceData.starredCats;
 
-        return Scaffold(
-          body: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
+        Size size = MediaQuery.of(context).size;
+        final appTheme = context.watch<AppTheme>();
+        return BlocBuilder<InvoiceBloc, InvoiceState>(
+            builder: (context, state) {
+          return Container(
+            width: double.infinity,
+            // height: 500,
+            // color: const Color.fromARGB(255, 143, 143, 143),
+            decoration: BoxDecoration(
+                border: Border.all(width: (0.01 / 100) * size.width)),
+            child: Stack(children: [
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text(" رقم الفاتورة : ${invoice.id}"),
-                  Text(" إجمالي الفاتورة : ${invoice.total}"),
-                  Text(" رقم العميل : ${invoice.accountId}"),
-                  Text(" رقم الفاتورة الاخير  : $maxId"),
-                  if (moneyCash != null)
-                    Text(" المدفوع : ${moneyCash.moneyIn}"),
-                  if (moneyPayment != null)
-                    Text("المدفوع بشيك : ${moneyPayment.moneyIn}"),
+                  Container(
+                      height: (13.2 / 100) * size.height,
+                      width: (13.5 / 100) * size.width,
+                      decoration: BoxDecoration(
+                          border: Border(
+                              right:
+                                  BorderSide(width: (0.01 / 100) * size.width),
+                              bottom: BorderSide(
+                                  width: (0.01 / 100) * size.width))),
+                      child: Image.asset(
+                        "assets/images/6.png",
+                        fit: BoxFit.contain,
+                      )),
                 ],
-              ),
-              Row(
-                children: () {
-                  return invoiceItemsResponses
-                      .map((e) => Column(
-                            children: [
-                              Text(" - ${e.title}"),
-                              Text(" - ${e.amount}"),
-                              Text(" - ${e.unit}"),
-                              Text(" - ${e.unitPrice}"),
-                              Text(" - ${e.total}"),
-                            ],
-                          ))
-                      .toList();
-                }(),
-              ),
-              Row(
-                children: () {
-                  return categories
-                      .map((e) => Column(
-                            children: [
-                              Text(' - ${e.title}'),
-                            ],
-                          ))
-                      .toList();
-                }(),
-              ),
-              Row(
-                children: () {
-                  List<Widget> widgets = <Widget>[];
-                  invoiceOptions.additionType != null
-                      ? widgets.addAll(invoiceOptions.additionType!
-                          .map((e) => Column(
-                                children: [
-                                  Text(' - $e'),
-                                ],
-                              ))
-                          .toList())
-                      : widgets.add(const Text(""));
-
-                  return widgets;
-                }(),
               ),
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  // Text(_test.toString()),
-                  Button(
-                      child: const Text("test state"),
-                      onPressed: () {
-                        // final ids = <int>[77063, 77062, 77060];
-
-                        invoiceBloc.add(OnGetInvoiceEvent(
-                            invoiceId: 77050, kind: "SALE", storeId: 1));
-                      }),
-
-                  TextBox(
-                    onChanged: (value) {
-                      double total = invoice.total ?? 0.0;
-                      value = value.isNotEmpty ? value : "0";
-                      final updatedInvoice =
-                          invoice.copyWith(total: total + double.parse(value));
-
-                      invoiceBloc.add(OnEditEvent(
-                        invoiceData: invoiceData,
-                        invoice: updatedInvoice,
-                      ));
-                    },
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      LeftButtons(),
+                    ],
                   ),
                 ],
               ),
-            ],
-          ),
-        );
+              Column(
+                children: [
+                  Row(
+                    children: [
+                      const RightCol(),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const UpRow(),
+                          InvoiceDataGrid(
+                            invoiceItems: invoiceItemsResponses,
+                            appTheme: appTheme,
+                            size: size,
+                          ),
+                        ],
+                      ),
+                      // const Expanded(child: SizedBox()),
+                      // const LeftButtons()
+                    ],
+                  ),
+                  const Expanded(child: SizedBox()),
+                  const GreenRow(),
+                  Container(
+                    width: double.infinity,
+                    height: (4.95 / 100) * size.height,
+                    color: const Color.fromARGB(255, 80, 80, 80),
+                    // padding:  EdgeInsets.all((.1/100)*size.width),
+                    child: const ButtonsRow(),
+                  )
+                ],
+              ),
+            ]),
+          );
+        });
       },
     );
   }

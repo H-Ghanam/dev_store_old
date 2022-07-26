@@ -37,7 +37,8 @@ abstract class ScrollablePage extends Page {
   @override
   Widget build(BuildContext context) {
     if (!scrollable) {
-      return ScaffoldPage.withPadding(
+      return ScaffoldPage(
+        padding: const EdgeInsets.all(0),
         key: PageStorageKey(_pageIndex),
         header: buildHeader(context),
         bottomBar: buildBottomBar(context),

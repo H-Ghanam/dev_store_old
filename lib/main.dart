@@ -96,6 +96,7 @@ class Main extends StatelessWidget {
               ),
             ),
             theme: ThemeData(
+              uncheckedColor: appTheme.color.dark,
               typography:
                   Typography.fromBrightness(color: appTheme.color.darkest),
               fontFamily: "Almarai",

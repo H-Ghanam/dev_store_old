@@ -1,16 +1,22 @@
-import 'package:dev_store/blocs/invoice_bloc/invoice_bloc.dart';
 import 'package:dev_store/theme.dart';
 import 'package:fluent_ui/fluent_ui.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class MyCard extends StatefulWidget {
-  const MyCard({Key? key, this.title, this.image, this.gradient, this.size})
+  MyCard(
+      {Key? key,
+      this.title,
+      this.image,
+      this.gradient,
+      this.size,
+      required this.matchTextDirection})
       : super(key: key);
 
   final String? title;
-  final String? image;
-  final Gradient? gradient;
-  final double? size;
+  String? image;
+  Gradient? gradient;
+  double? size;
+  bool matchTextDirection = false;
 
   @override
   State<MyCard> createState() => _MyCardState();
@@ -21,14 +27,21 @@ class _MyCardState extends State<MyCard> {
   //  Gradient? _gradient = widget.gradient;
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+    Typography typography = FluentTheme.of(context).typography;
+
     final appTheme = context.watch<AppTheme>();
     return Stack(children: [
       MouseRegion(
         cursor: SystemMouseCursors.click,
         child: Container(
           width: widget.size,
-          height: 125,
+          height: (12.5 / 100) * size.height,
           decoration: BoxDecoration(
+              boxShadow: [
+                BoxShadow(
+                    color: appTheme.color, blurRadius: 0.1, spreadRadius: 1)
+              ],
               gradient: widget.gradient,
               borderRadius: BorderRadius.circular(10)),
           child: Column(
@@ -36,12 +49,18 @@ class _MyCardState extends State<MyCard> {
             children: [
               Image.asset(
                 "${widget.image}",
-                width: 70,
+                width: (7 / 100) * size.height,
+                matchTextDirection: widget.matchTextDirection,
               ),
               Text(
                 "${widget.title}",
-                style: const TextStyle(
-                    fontFamily: "Hind3", fontSize: 23, color: Colors.white),
+                softWrap: true,
+                style: TextStyle(
+                    fontFamily: "Hind3",
+                    fontSize: widget.title!.length > 8
+                        ? typography.body!.fontSize
+                        : typography.subtitle!.fontSize,
+                    color: Colors.white),
               ),
             ],
           ),
@@ -61,20 +80,17 @@ class _MyCardState extends State<MyCard> {
         },
         child: GestureDetector(
           onTap: () {
-            // context.read<AppBloc>().add(OnActivePageChangeEvent(index: 0));
-            // context.read<AppBloc>().add(OnActivePageChangeEvent(index: 1));
-            context.read<InvoiceBloc>().add(
-                OnGetInvoiceEvent(invoiceId: 77063, kind: "SALE", storeId: 1));
+            // context.read<AppBloc>().add(OnActivePageChange(index: 0));
+            // context.read<AppBloc>().add(OnActivePageChange(index: 1));
             appTheme.index = 1;
           },
           child: Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
-              color:
-                  const Color.fromARGB(255, 217, 255, 0).withOpacity(_opacity),
+              color: Color.fromARGB(255, 217, 255, 0).withOpacity(_opacity),
             ),
             width: widget.size,
-            height: 125,
+            height: (12.5 / 100) * size.height,
           ),
         ),
       ),

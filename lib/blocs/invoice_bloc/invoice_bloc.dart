@@ -6,6 +6,7 @@ import 'package:dev_store/models/invoice.dart';
 import 'package:dev_store/models/invoice_options.dart';
 import 'package:dev_store/models/money.dart';
 import 'package:dev_store/data/repositories/invoice_repository.dart';
+import 'package:dev_store/theme.dart';
 import 'package:equatable/equatable.dart';
 import 'package:fluent_ui/fluent_ui.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -34,39 +35,56 @@ class InvoiceBloc extends Bloc<InvoiceEvent, InvoiceState> {
         final invoiceData = invoiceResponse.invoiceData;
         final options = invoiceResponse.invoiceData.invoiceOptions;
         final invoice = invoiceData.invoice;
-        var kind = '';
+        var kind = "";
+
         switch (invoice.kind) {
-          case 'ADJUST':
-            kind = 'تسوية';
+          case "ADJUST":
+            kind = "تسوية";
             break;
-          case 'INVENT':
-            kind = '';
+          case "INVENT":
+            kind = "";
             break;
-          case 'OPEN':
-            kind = '';
+          case "OPEN":
+            kind = "";
             break;
-          case 'PURCHASE':
-            kind = 'شراء';
+          case "PURCHASE":
+            kind = "شراء";
             break;
-          case 'RETURNPUR':
-            kind = 'مرتجع شراء';
+          case "RETURNPUR":
+            kind = "مرتجع شراء";
             break;
-          case 'RETURNSALE':
-            kind = 'مرتجع بيع';
+          case "RETURNSALE":
+            kind = "مرتجع بيع";
             break;
-          case 'SALE':
-            kind = 'بيع';
+          case "SALE":
+            kind = "بيع";
             break;
-          case 'SALEQUOTE':
-            kind = 'عرض أسعار';
+          case "SALEQUOTE":
+            kind = "عرض أسعار";
             break;
         }
+
+        String _text = "$kind ";
+
+        if (invoice.id >= 900000) {
+          _text += " |  جديد";
+        } else {
+          _text += " |  ${invoice.id}";
+        }
+
+        if (invoice.accountId != null) {
+          _text += " |  ${invoice.accountId}";
+        } else {
+          _text += "   ";
+        }
+
         late Tab tab;
+
         tab = Tab(
             closeIcon: !invoiceData.isSaved
                 ? FluentIcons.status_circle_sync
                 : FluentIcons.clear,
-            text: Text('$kind | ${invoice.id} | اسم العميل'),
+            text: Text(_text),
             onClosed: () {
               add(OnRemoveTabEvent(tab: tab));
             });
