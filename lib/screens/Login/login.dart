@@ -2,7 +2,6 @@
 
 import 'dart:io';
 
-import 'package:desktop_window/desktop_window.dart';
 import 'package:dev_store/Models/user.dart';
 import 'package:dev_store/Modules/App/bloc/app_bloc.dart';
 import 'package:dev_store/Modules/App/responses/start_app.dart';
@@ -29,9 +28,19 @@ class _LoginState extends State<Login> {
   TextEditingController? _controller;
   FocusNode? txt1;
 
+  void setMiniScreen() async {
+    await windowManager.setSize(const Size(610, 500));
+    await windowManager.center();
+    await windowManager.setTitleBarStyle(
+      TitleBarStyle.hidden,
+      windowButtonVisibility: false,
+    );
+  }
+
   @override
   void initState() {
     super.initState();
+    setMiniScreen();
     txt1 = FocusNode();
     _controller = TextEditingController(text: "");
     txt1!.addListener(() {
@@ -435,6 +444,9 @@ class _LoginState extends State<Login> {
                                               horizontal: 30))),
                                   onPressed: () {
                                     // testWindowFunctions();
+                                    f.Navigator.of(context)
+                                        .pushNamed("/service");
+                                    // f.Navigator.of(context).pop(MaterialPageRoute(builder: (f.BuildContext context)=>Service()));
                                   },
                                   child: const Text(
                                     "خدمة العملاء",
