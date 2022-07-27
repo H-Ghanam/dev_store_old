@@ -24,9 +24,9 @@ class _RightColState extends State<RightCol> {
     return Container(
       width: 135,
       // width: (8.5 / 100) * size.width,
-      height: (71.5 / 100) * size.height,
+      height: size.height-248,
       margin: EdgeInsets.only(
-        left: (0.3 / 100) * size.width,
+        left: 5,
       ),
       padding: const EdgeInsets.symmetric(vertical: 7),
       color:  Colors.grey.withOpacity(0.06),

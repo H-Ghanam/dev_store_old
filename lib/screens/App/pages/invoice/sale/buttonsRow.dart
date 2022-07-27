@@ -19,176 +19,182 @@ class _ButtonsRowState extends State<ButtonsRow> {
 
     return Row(
       children: [
-        SizedBox(width: (0.25/100)*size.width,),
+        const SizedBox(width: 5,),
         Button(
             style: ButtonStyle(
-                padding: ButtonState.all(EdgeInsets.symmetric(
-                    horizontal: (1/100)*size.width, vertical: (0.7/100)*size.height))),
+                padding: ButtonState.all(const EdgeInsets.symmetric(
+                    horizontal: 15, vertical: 6))),
             child: Row(
               children: [
                 Icon(
              m.Icons.done,
                   color: Colors.blue,
-                  size: (1.3/100)*size.width,
+                  size: 22,
                 ),
-                Text(
+                const Text(
                   "  حفظ F9",
-                  style: TextStyle(
-                    fontSize: (0.75/100)*size.width,
-                    // fontFamily: "Hind4",
+                  style: const TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.w400,
+                    fontFamily: "",
                   ),
                 ),
               ],
             ),
             onPressed: () {}),
-        SizedBox(
-          width: (0.25/100)*size.width,
+        const SizedBox(
+          width: 5,
         ),
         Button(
             style: ButtonStyle(
-                padding: ButtonState.all(EdgeInsets.symmetric(
-                    horizontal: (1/100)*size.width, vertical: (0.7/100)*size.height))),
+                padding: ButtonState.all(const EdgeInsets.symmetric(
+                    horizontal: 15, vertical: 6))),
             child: Row(
               children: [
                 Icon(
              m.Icons.add,
                   color: Colors.blue,
-                  size: (1.3/100)*size.width,
+                  size: 22,
                 ),
-                 Text(
+                 const Text(
                   "  جديد F10",
                   style: TextStyle(
-                    fontSize: (0.75/100)*size.width,
-                    // fontFamily: "Hind4",
+                    fontSize: 12,
+                    fontWeight: FontWeight.w400,
+                    fontFamily: "",
                   ),
                 ),
               ],
             ),
             onPressed: () {}),
-        SizedBox(
-          width: (0.25/100)*size.width,
+        const SizedBox(
+          width: 5,
         ),
         Button(
             style: ButtonStyle(
-                padding: ButtonState.all(EdgeInsets.symmetric(
-                    horizontal: (1/100)*size.width, vertical: (0.7/100)*size.height))),
+                padding: ButtonState.all(const EdgeInsets.symmetric(
+                    horizontal: 15, vertical: 6))),
             child: Row(
-              children:[
+              children:const [
                 Icon(
              m.Icons.print,
                   // color: Colors.blue,
-                  size: (1.3/100)*size.width,
+                  size: 22,
                 ),
                 Text(
                   "  طباعة F4",
                   style: TextStyle(
-                    fontSize: (0.75/100)*size.width,
-                    // fontFamily: "Hind4",
+                    fontSize: 12,
+                    fontWeight: FontWeight.w400,
+                    fontFamily: "",
                   ),
                 ),
               ],
             ),
             onPressed: () {}),
-        SizedBox(
-          width: (0.25/100)*size.width,
+        const SizedBox(
+          width: 5,
         ),
         Button(
           
-            child: Image.asset("assets/images/15.png",width: (1.3/100)*size.width,),
+            child: Image.asset("assets/images/15.png",width: 24,),
             onPressed: () {}),
-        SizedBox(
-          width: (0.25/100)*size.width,
+        const SizedBox(
+          width: 5,
         ),
         Button(
             style: ButtonStyle(
                 padding: ButtonState.all(
-                     EdgeInsets.symmetric(horizontal: (0.5/100)*size.width, vertical: (0.65/100)*size.height))),
+                     const EdgeInsets.symmetric(horizontal: 13, vertical: 6.25))),
             child: Icon(
               m.Icons.share,
               color: Colors.blue,
-              size: (1.3/100)*size.width,
+              size: 22,
             ),
             onPressed: () {}),
-        SizedBox(
-          width: (0.25/100)*size.width,
+        const SizedBox(
+          width: 5,
         ),
         Button(
             style: ButtonStyle(
-                padding: ButtonState.all(EdgeInsets.symmetric(
-                    horizontal: (1/100)*size.width, vertical: (0.7/100)*size.height))),
+                padding: ButtonState.all(const EdgeInsets.symmetric(
+                    horizontal: 15, vertical: 6))),
             child: Row(
               children: [
                 Icon(
                   m.Icons.close,
                   color: Colors.red,
-                  size: (1.3/100)*size.width,
+                  size: 22,
                 ),
-                 Text(
+                 const Text(
                   "  حذف الفاتورة",
                   style: TextStyle(
-                    fontSize: (0.75/100)*size.width,
-                    // fontFamily: "Hind4",
+                    fontSize: 12,
+                    fontWeight: FontWeight.w400,
+                    fontFamily: "",
                   ),
                 ),
               ],
             ),
             onPressed: () {}),
-        SizedBox(
-          width: (0.25/100)*size.width,
+        const SizedBox(
+          width: 5,
         ),
         Button(
             style: ButtonStyle(
-                padding: ButtonState.all(EdgeInsets.symmetric(
-                    horizontal: (1/100)*size.width, vertical: (0.7/100)*size.height))),
+                padding: ButtonState.all(const EdgeInsets.symmetric(
+                    horizontal: 15, vertical: 6))),
             child: Row(
-              children:  [
+              children:  const [
                 Icon(
                   m.Icons.local_offer,
-                  size: (1.3/100)*size.width,
+                  size: 22,
                 ),
                 Text(
                   "  تعديل الأسعار",
                   style: TextStyle(
-                    fontSize: (0.75/100)*size.width,
-                    // fontFamily: "Hind4",
+                    fontSize: 12,
+                    fontWeight: FontWeight.w400,
+                    fontFamily: "",
                   ),
                 ),
               ],
             ),
             onPressed: () {}),
-        SizedBox(
-          width: (0.25/100)*size.width,
+        const SizedBox(
+          width: 5,
         ),
         Button(
             style: ButtonStyle(
-                padding: ButtonState.all(EdgeInsets.symmetric(
-                    horizontal: (1/100)*size.width, vertical: (0.7/100)*size.height))),
+                padding: ButtonState.all(const EdgeInsets.symmetric(
+                    horizontal: 15, vertical: 6))),
             child: Row(
-              children:  [
+              children:  const [
                 Icon(
                   m.Icons.qr_code_scanner,
-                  size: (1.3/100)*size.width,
+                  size: 22,
                 ),
                 Text(
                   "  طباعة الباركود",
                   style: TextStyle(
-                    fontSize: (0.75/100)*size.width,
-                    // fontFamily: "Hind4",
+                    fontSize: 12,
+                    fontWeight: FontWeight.w400,
+                    fontFamily: "",
                   ),
                 ),
               ],
             ),
             onPressed: () {}),
-        SizedBox(
-          width: (0.25/100)*size.width,
+        const SizedBox(
+          width: 5,
         ),
         Button(
             style: ButtonStyle(
                 padding: ButtonState.all(
-                     EdgeInsets.symmetric(horizontal: size.width/150, vertical: (0.65/100)*size.height))),
-            child:  Icon(
+                     const EdgeInsets.symmetric(horizontal: 12, vertical: 6.25))),
+            child:  const Icon(
               m.Icons.monetization_on_outlined,
-              size: (1.3/100)*size.width,
+              size: 22,
             ),
             onPressed: () {}),
         const Expanded(
@@ -197,60 +203,62 @@ class _ButtonsRowState extends State<ButtonsRow> {
         Button(
             style: ButtonStyle(
                 padding: ButtonState.all(
-                     EdgeInsets.symmetric(horizontal: (0.5/100)*size.width, vertical: (0.65/100)*size.height))),
-            child:  Icon(
+                     const EdgeInsets.symmetric(horizontal: 13, vertical: 6.25))),
+            child:  const Icon(
               m.Icons.more_horiz,
-              size: (1.3/100)*size.width,
+              size: 22,
             ),
             onPressed: () {}),
-        SizedBox(
-          width: (0.25/100)*size.width,
+        const SizedBox(
+          width: 5,
         ),
         Button(
             style: ButtonStyle(
-                padding: ButtonState.all(EdgeInsets.symmetric(
-                    horizontal: (1/100)*size.width, vertical: (0.7/100)*size.height))),
+                padding: ButtonState.all(const EdgeInsets.symmetric(
+                    horizontal: 15, vertical: 6))),
             child: Row(
-              children:  [
+              children:  const [
                 Icon(
                   m.Icons.settings,
-                  size: (1.3/100)*size.width,
+                  size: 22,
                 ),
                 Text(
                   "  إعدادات",
                   style: TextStyle(
-                    fontSize: (0.75/100)*size.width,
-                    // fontFamily: "Hind4",
+                    fontSize: 12,
+                    fontWeight: FontWeight.w400,
+                    fontFamily: "",
                   ),
                 ),
               ],
             ),
             onPressed: () {}),
-        SizedBox(
-          width: (0.25/100)*size.width,
+        const SizedBox(
+          width: 5,
         ),
         Button(
             style: ButtonStyle(
-                padding: ButtonState.all(EdgeInsets.symmetric(
-                    horizontal: (1/100)*size.width, vertical: (0.7/100)*size.height))),
+                padding: ButtonState.all(const EdgeInsets.symmetric(
+                    horizontal: 15, vertical: 6))),
             child: Row(
-              children:  [
+              children:  const [
                 Icon(
              m.Icons.settings_power_outlined,
                   // color: Colors.blue,
-                  size: (1.3/100)*size.width,
+                  size: 22,
                 ),
                 Text(
                   "  إغلاق",
                   style: TextStyle(
-                    fontSize: (0.75/100)*size.width,
-                    // fontFamily: "Hind4",
+                    fontSize: 12,
+                    fontWeight: FontWeight.w400,
+                    fontFamily: "",
                   ),
                 ),
               ],
             ),
             onPressed: () {}),
-            SizedBox(width: (0.25/100)*size.width,),
+            const SizedBox(width: 5,),
       ],
     );
   }

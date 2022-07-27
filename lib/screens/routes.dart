@@ -6,6 +6,6 @@ import 'package:fluent_ui/fluent_ui.dart';
 Map<String, Widget Function(BuildContext context)> routes = {
   '/login': (context) => const Login(),
   '/app': (context) => const App(),
-  '/filePickerDemo': (context) => FilePickerDemo(),
+  // '/filePickerDemo': (context) => FilePickerDemo(),
 
 };

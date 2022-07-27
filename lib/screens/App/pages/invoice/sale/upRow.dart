@@ -17,9 +17,10 @@ class UpRow extends StatefulWidget {
 }
 
 class _UpRowState extends State<UpRow> {
+  bool _visible = false;
   final GlobalKey<m.ScaffoldState> _scaffoldKey = GlobalKey<m.ScaffoldState>();
   final _scaffoldMessengerKey = GlobalKey<m.ScaffoldMessengerState>();
-  String? _fileName;
+  String _fileName = "";
   String? _saveAsFileName;
   List<PlatformFile>? _paths;
   String? _directoryPath;
@@ -140,7 +141,7 @@ class _UpRowState extends State<UpRow> {
     setState(() {
       _isLoading = true;
       _directoryPath = null;
-      _fileName = null;
+      _fileName = "";
       _paths = null;
       _saveAsFileName = null;
       _userAborted = false;
@@ -155,13 +156,13 @@ class _UpRowState extends State<UpRow> {
     Typography typography = FluentTheme.of(context).typography;
 
     //-550
-    return Container(
+    return SizedBox(
       // width: (55.5 / 100) * size.width,
       width: size.width - 150,
       // width: size.width/13,
       // height: (13 / 100) * size.height,
       height: 142,
-      decoration: BoxDecoration(border: Border.all()),
+      // decoration: BoxDecoration(border: Border.all()),
       child: Row(
         // mainAxisAlignment: MainAxisAlignment.start,
         children: [
@@ -670,23 +671,41 @@ class _UpRowState extends State<UpRow> {
               ],
             ),
           ),
-    
           Expanded(
             child: GestureDetector(
               onTap: () {
                 _pickFiles();
-                // Navigator.of(context).
-              
                 print(_fileName);
+              },
+              onSecondaryTapUp: (s) {
+                setState(() {
+                  _fileName = "";
+                });
               },
               child: MouseRegion(
                 cursor: SystemMouseCursors.click,
-                child: Text(_fileName.toString()),
-                // child: _fileName==null?Text("data"):
-                // Image.asset(
-                //   "assets/images/$_fileName",
-                //   fit: BoxFit.contain,
-                // ),
+                onEnter: (s) {
+                  setState(() {
+                    _visible = true;
+                  });
+                },
+                onExit: (s) {
+                  setState(() {
+                    _visible = false;
+                  });
+                },
+                child: _fileName == ""
+                    ? Center(
+                        child: Visibility(
+                            visible: _visible,
+                            child: const Text(
+                              "أضف لوجو شركتك هنا",
+                              style: TextStyle(fontSize: 11),
+                            )))
+                    : Image.asset(
+                        "assets/images/${_paths!.map((e) => e.name).toList()[0]}",
+                        fit: BoxFit.contain,
+                      ),
               ),
             ),
           ),

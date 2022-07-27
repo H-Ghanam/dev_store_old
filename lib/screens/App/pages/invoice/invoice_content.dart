@@ -77,14 +77,17 @@ class InvoiceContent extends StatelessWidget {
               //   ],
               // ),
               Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+                // mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  const SizedBox(height: 141,),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       LeftButtons(),
+                      const SizedBox(width: 5,)
                     ],
                   ),
+                  
                 ],
               ),
               Column(
@@ -115,7 +118,7 @@ class InvoiceContent extends StatelessWidget {
                   const GreenRow(),
                   Container(
                     width: double.infinity,
-                    height: (4.95 / 100) * size.height,
+                    height: 48,
                     color: const Color.fromARGB(255, 80, 80, 80),
                     // padding:  EdgeInsets.all((.1/100)*size.width),
                     child: const ButtonsRow(),

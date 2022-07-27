@@ -14,107 +14,107 @@ class _LeftButtonsState extends State<LeftButtons> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    Brightness brightness = FluentTheme.of(context).brightness;
-    Typography typography = FluentTheme.of(context).typography;
+    // Brightness brightness = FluentTheme.of(context).brightness;
+    // Typography typography = FluentTheme.of(context).typography;
     return Column(
       children: [
         Button(
             style: ButtonStyle(
                 padding: ButtonState.all(
-                     EdgeInsets.symmetric(horizontal: (0.25/100)*size.width, vertical: (0.7/100)*size.height))),
+                     const EdgeInsets.symmetric(horizontal: 7, vertical: 12))),
             child: Column(
               children:   [
-                Icon(
+                const Icon(
                   m.Icons.shopping_basket,
-                  size: (1.1/100)*size.width,
+                  size: 19,
                 ),
-                Text(
+                const Text(
                   "الكمية f5",
-                  style: TextStyle(fontSize: (0.7/100)*size.width),
+                  style: TextStyle(fontSize: 13,fontFamily: ""),
                 )
               ],
             ),
             onPressed: () {}),
-          SizedBox(
-          height: (0.25/100)*size.height,
+          const SizedBox(
+          height: 5,
         ),
         Button(
             style: ButtonStyle(
                 padding: ButtonState.all(
-                      EdgeInsets.symmetric(horizontal: (0.05/100)*size.width, vertical: (0.7/100)*size.height))),
+                      const EdgeInsets.symmetric(horizontal: 6, vertical: 12))),
             child: Column(
               children:   [
-                Icon(
+                const Icon(
                   m.Icons.local_offer,
-                  size: (1.1/100)*size.width,
+                  size: 19,
                 ),
-                Text(
+                const Text(
                   "السعر F6",
-                  style: TextStyle(fontSize: (0.7/100)*size.width),
+                  style: const TextStyle(fontSize: 13,fontFamily: ""),
                 )
               ],
             ),
             onPressed: () {}),
-          SizedBox(
-          height: (0.25/100)*size.height,
+          const SizedBox(
+          height: 5,
         ),
         Button(
             style: ButtonStyle(
                 padding: ButtonState.all(
-                     EdgeInsets.symmetric(horizontal: (0.25/100)*size.width, vertical: (0.5/100)*size.width))),
+                     const EdgeInsets.symmetric(horizontal: 6, vertical: 12))),
             child: Column(
               children: [
-                Text("%"),
-                Text(
+                const Text("%"),
+                const Text(
                   "المزيد F7",
-                  style: TextStyle(fontSize: (0.7/100)*size.width),
+                  style: TextStyle(fontSize: 13,fontFamily: ""),
                 )
               ],
             ),
             onPressed: () {}),
-          SizedBox(
-          height: (0.25/100)*size.height,
+          const SizedBox(
+          height: 5,
         ),
         Button(
             style: ButtonStyle(
                 padding: ButtonState.all(
-                      EdgeInsets.symmetric(horizontal: (0.4/100)*size.width, vertical: (0.5/100)*size.width))),
+                      const EdgeInsets.symmetric(horizontal: 8, vertical: 11))),
             child: Column(
               children: [
                 Container(
-             width: (0.8/100)*size.width,
-                  height: (0.25/100)*size.height,
+             width: 18,
+                  height: 6,
                   color: Colors.red,
                 ),
-                  SizedBox(
-                  height: (0.7/100)*size.width,
+                  const SizedBox(
+                  height: 12,
                 ),
-                  Text(
+                  const Text(
                   "حذف F8",
-                  style:  TextStyle(fontSize: (0.7 /100)*size.width),
+                  style:  const TextStyle(fontSize: 13,fontFamily: ""),
                 )
               ],
             ),
             onPressed: () {}),
-          SizedBox(
-          height: (0.25/100)*size.height,
+          const SizedBox(
+          height: 5,
         ),
         Row(
           children: [
             Button(
                 style: ButtonStyle(
-                    padding: ButtonState.all( EdgeInsets.symmetric(
-                        horizontal: (0.15/100)*size.width, vertical: (0.7/100)*size.height))),
-                child: Icon(m.Icons.keyboard_arrow_up,size: (1.1/100)*size.width,),
+                    padding: ButtonState.all( const EdgeInsets.symmetric(
+                        horizontal: 0, vertical: 0))),
+                child: const Icon(m.Icons.keyboard_arrow_up,size: 27,),
                 onPressed: () {}),
-             SizedBox(
-              width: (0.05/100)*size.width,
+             const SizedBox(
+              width: 5.5,
             ),
             Button(
                 style: ButtonStyle(
-                    padding: ButtonState.all( EdgeInsets.symmetric(
-                        horizontal: (0.15/100)*size.width, vertical: (0.7/100)*size.height))),
-                child:  Icon(m.Icons.keyboard_arrow_down,size: (1.1/100)*size.width,),
+                    padding: ButtonState.all( const EdgeInsets.symmetric(
+                        horizontal: 0, vertical: 0))),
+                child:  const Icon(m.Icons.keyboard_arrow_down,size: 27,),
                 onPressed: () {}),
           ],
         ),

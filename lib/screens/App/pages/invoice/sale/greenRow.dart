@@ -24,67 +24,72 @@ class _GreenRowState extends State<GreenRow> {
 
     return Container(
       width: double.infinity,
-      height: (7.8 / 100) * size.height,
+      height: 68,
       color: appTheme.color,
+      padding: EdgeInsets.all(5),
       child: Row(
         children: [
           Container(
-            margin: EdgeInsets.all((0.25 / 100) * size.width),
-            padding: EdgeInsets.all((0.25 / 100) * size.width),
-            width: (7 / 100) * size.width,
+            margin: const EdgeInsets.only(left: 4),
+            padding: const EdgeInsets.all(5),
+            width: 108,
             // height: 50,
             color: appTheme.color.lightest,
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
+                    const Text(
                       "سعر البيع",
                       style: TextStyle(
-                          fontSize: (0.7 / 100) * size.width,
-                          // fontFamily: "Hind4",
+                          fontSize: 12,
+                          fontWeight: FontWeight.w700,
+                          fontFamily: "",
                           color: Colors.black),
                     ),
                     Container(
                         color: Colors.white,
-                        child: Icon(
+                        child: const Icon(
                           FluentIcons.pinned_solid,
-                          size: (1 / 100) * size.width,
+                          size: 18,
                           color: Colors.black,
                         ))
                   ],
                 ),
                 DropDownButton(
-                  verticalOffset: -(7.5 / 100) * size.width,
+                  verticalOffset: -115,
                   items: [
                     MenuFlyoutItem(
-                      text: Text(
+                      text: const Text(
                         "سعر التجزئة",
-                        style: TextStyle(
-                          fontFamily: "Hind4",
-                          fontSize: (0.95 / 100) * size.width,
+                        style:  TextStyle(
+                          fontFamily: "",
+                          fontWeight: FontWeight.w700,
+                          fontSize: 12,
                         ),
                       ),
                       onPressed: () {},
                     ),
                     MenuFlyoutItem(
-                      text: Text(
+                      text: const Text(
                         "سعر الجملة",
                         style: TextStyle(
-                          fontFamily: "Hind4",
-                          fontSize: (0.95 / 100) * size.width,
+                          fontFamily: "",
+                          fontWeight: FontWeight.w700,
+                          fontSize: 12,
                         ),
                       ),
                       onPressed: () {},
                     ),
                     MenuFlyoutItem(
-                      text: Text(
+                      text: const Text(
                         "متوسط سعر الشراء",
                         style: TextStyle(
-                          fontFamily: "Hind4",
-                          fontSize: (0.95 / 100) * size.width,
+                          fontFamily: "",
+                          fontWeight: FontWeight.w700,
+                          fontSize: 12,
                         ),
                       ),
                       onPressed: () {},
@@ -92,23 +97,24 @@ class _GreenRowState extends State<GreenRow> {
                   ],
                   title: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
+                    children: const [
                       Text(
                         "سعر التجزئة",
                         style: TextStyle(
-                          fontFamily: "Hind4",
-                          fontSize: (0.95 / 100) * size.width,
+                          fontFamily: "",
+                          fontWeight: FontWeight.w700,
+                          fontSize: 12,
                         ),
                       ),
                       SizedBox(
-                        width: (0.3 / 100) * size.width,
+                        width: 10,
                       )
                     ],
                   ),
                   buttonStyle: ButtonStyle(
-                    padding: ButtonState.all(EdgeInsets.symmetric(
-                        vertical: (0.2 / 100) * size.height,
-                        horizontal: (0.1 / 100) * size.width)),
+                    padding: ButtonState.all(const EdgeInsets.symmetric(
+                        vertical: 2,
+                        horizontal: 2)),
                     // backgroundColor: ButtonState.all(
                     //     const Color.fromARGB(255, 252, 251, 251)
                     //     ),
@@ -120,9 +126,9 @@ class _GreenRowState extends State<GreenRow> {
             ),
           ),
           Container(
-            margin: EdgeInsets.all((0.25 / 100) * size.width),
-            padding: EdgeInsets.all((0.25 / 100) * size.width),
-            width: (14.5 / 100) * size.width,
+            margin: const EdgeInsets.only(left: 4),
+            padding: const EdgeInsets.all(5),
+            width: 260,
             // height: 50,
             color: appTheme.color.lightest,
             child: Column(
@@ -133,61 +139,63 @@ class _GreenRowState extends State<GreenRow> {
                   children: [
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
+                      children: const [
                         Text(
                           "إضافة",
                           style: TextStyle(
-                              fontSize: (0.7 / 100) * size.width,
-                              // fontFamily: "Hind4",
+                              fontSize: 12,
+                              fontWeight: FontWeight.w700,
+                              fontFamily: "",
                               color: Colors.black),
                         ),
                         SizedBox(
-                          height: (1.8 / 100) * size.height,
+                          height: 8,
                         ),
                         SizedBox(
-                            width: (2.5 / 100) * size.width,
-                            height: (2.5 / 100) * size.height,
+                            width: 40,
+                            height: 23,
                             child: Form(child: TextBox()))
                       ],
                     ),
                     Column(
                       children: [
-                        SizedBox(
-                          height: (3 / 100) * size.height,
+                        const SizedBox(
+                          height: 24,
                         ),
                         Row(
-                          children: [
+                          children: const [
                             Text(
                               "%  ",
                               style: TextStyle(
                                   color: Colors.black,
-                                  fontSize: (0.9 / 100) * size.width),
+                                  fontSize: 12),
                             ),
                             SizedBox(
-                                width: (4 / 100) * size.width,
-                                height: (2.5 / 100) * size.height,
-                                child: const Form(child: TextBox())),
+                                width: 76,
+                                height: 23,
+                                child: Form(child: TextBox())),
                           ],
                         )
                       ],
                     ),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
+                      children: const [
                         Text(
                           "نوع الإضافة",
                           style: TextStyle(
-                              fontSize: (0.7 / 100) * size.width,
-                              // fontFamily: "Hind4",
+                              fontSize: 12,
+                              fontWeight: FontWeight.w700,
+                              fontFamily: "",
                               color: Colors.black),
                         ),
                         SizedBox(
-                          height: (1.8 / 100) * size.height,
+                          height: 8,
                         ),
                         SizedBox(
-                            width: (6 / 100) * size.width,
-                            height: (2.5 / 100) * size.height,
-                            child: const Form(child: TextBox()))
+                            width: 110,
+                            height: 23,
+                            child: Form(child: TextBox()))
                       ],
                     ),
                   ],
@@ -196,9 +204,9 @@ class _GreenRowState extends State<GreenRow> {
             ),
           ),
           Container(
-            margin: EdgeInsets.all((0.25 / 100) * size.width),
-            padding: EdgeInsets.all((0.25 / 100) * size.width),
-            width: (13 / 100) * size.width,
+            // margin: const EdgeInsets.only(left: 4),
+            padding: const EdgeInsets.all(4),
+            width: 210,
             // height: 50,
             color: appTheme.color.lightest,
             child: Column(
@@ -209,37 +217,38 @@ class _GreenRowState extends State<GreenRow> {
                   children: [
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
+                      children: const [
                         Text(
                           "خصم",
                           style: TextStyle(
-                              fontSize: (0.7 / 100) * size.width,
-                              // fontFamily: "Hind4",
+                              fontSize: 12,
+                              fontWeight: FontWeight.w700,
+                              fontFamily: "",
                               color: Colors.black),
                         ),
                         SizedBox(
-                          height: (1.8 / 100) * size.height,
+                          height: 8,
                         ),
                         SizedBox(
-                            width: (2.5 / 100) * size.width,
-                            height: (2.5 / 100) * size.height,
-                            child: const Form(child: TextBox()))
+                            width: 40,
+                            height: 23,
+                            child: Form(child: TextBox()))
                       ],
                     ),
                     Column(
                       children: [
-                        SizedBox(
-                          height: (3 / 100) * size.height,
+                        const SizedBox(
+                          height: 24,
                         ),
                         Row(
-                          children: [
+                          children: const [
                             Text("%  ",
                                 style: TextStyle(
                                     color: Colors.black,
-                                    fontSize: (1 / 100) * size.width)),
+                                    fontSize: 12)),
                             SizedBox(
-                                width: (4 / 100) * size.width,
-                                height: (2.5 / 100) * size.height,
+                                width: 80,
+                                height: 23,
                                 child: Form(child: TextBox())),
                           ],
                         )
@@ -247,14 +256,15 @@ class _GreenRowState extends State<GreenRow> {
                     ),
                     Button(
                         style: ButtonStyle(
-                            padding: ButtonState.all(EdgeInsets.symmetric(
-                                vertical: (2.2 / 100) * size.height,
-                                horizontal: (0.25 / 100) * size.width))),
-                        child: Text(
+                            padding: ButtonState.all(const EdgeInsets.symmetric(
+                                vertical: 16,
+                                horizontal: 0))),
+                        child: const Text(
                           "خصم الفكة",
                           style: TextStyle(
-                            fontSize: (0.68 / 100) * size.width,
-                            // fontFamily: "Hind4",
+                            fontSize: 12,
+                            fontWeight: FontWeight.w700,
+                            fontFamily: "",
                           ),
                         ),
                         onPressed: () {})

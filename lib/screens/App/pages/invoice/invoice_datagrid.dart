@@ -241,8 +241,8 @@ class _InvoiceDataGridState extends State<InvoiceDataGrid> {
     return SizedBox(
       // width: (75 / 100) * size.width,
       // width: size.width-365,
-      width: size.width-200,
-      height: size.height-400,
+      width: size.width-216,
+      height: size.height-390,
       // height: (55.7 / 100) * size.height,
       child: Scaffold(
         body: PlutoGrid(
@@ -273,18 +273,20 @@ class _InvoiceDataGridState extends State<InvoiceDataGrid> {
                   : Colors.white,
               activatedColor: appTheme.color.lightest,
               enableCellBorderVertical: true,
-              rowHeight: (3 / 100) * size.height,
-              columnHeight: (4 / 100) * size.height,
+              rowHeight:30,
+              columnHeight: 27,
               checkedColor: appTheme.color,
               oddRowColor: Colors.grey[20],
               cellTextStyle: TextStyle(
                   color: Colors.grey[200],
-                  fontSize: (1.70 / 100) * size.height,
-                  fontFamily: "Almarai"),
-              columnTextStyle: TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w400,
+                  fontFamily: ""),
+              columnTextStyle: const TextStyle(
                   color: Colors.white,
-                  fontSize: (1.9 / 100) * size.height,
-                  fontFamily: "Almarai"),
+                  fontSize: 14,
+                  fontWeight: FontWeight.w700,
+                  fontFamily: ""),
             ),
           ),
         ),
