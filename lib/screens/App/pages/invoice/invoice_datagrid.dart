@@ -239,8 +239,11 @@ class _InvoiceDataGridState extends State<InvoiceDataGrid> {
     Size size = MediaQuery.of(context).size;
     final appTheme = context.watch<AppTheme>();
     return SizedBox(
-      width: (75 / 100) * size.width,
-      height: (55.7 / 100) * size.height,
+      // width: (75 / 100) * size.width,
+      // width: size.width-365,
+      width: size.width-200,
+      height: size.height-400,
+      // height: (55.7 / 100) * size.height,
       child: Scaffold(
         body: PlutoGrid(
           rows: rows,

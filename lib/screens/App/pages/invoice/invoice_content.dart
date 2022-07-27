@@ -57,25 +57,25 @@ class InvoiceContent extends StatelessWidget {
             decoration: BoxDecoration(
                 border: Border.all(width: (0.01 / 100) * size.width)),
             child: Stack(children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Container(
-                      // height: (13.2 / 100) * size.height,
-                      height: 142,
-                      width: (13.5 / 100) * size.width,
-                      decoration: BoxDecoration(
-                          border: Border(
-                              right:
-                                  BorderSide(width: (0.01 / 100) * size.width),
-                              bottom: BorderSide(
-                                  width: (0.01 / 100) * size.width))),
-                      child: Image.asset(
-                        "assets/images/6.png",
-                        fit: BoxFit.contain,
-                      )),
-                ],
-              ),
+              // Row(
+              //   mainAxisAlignment: MainAxisAlignment.end,
+              //   children: [
+              //     Container(
+              //         // height: (13.2 / 100) * size.height,
+              //         height: 142,
+              //         width: (13.5 / 100) * size.width,
+              //         decoration: BoxDecoration(
+              //             border: Border(
+              //                 right:
+              //                     BorderSide(width: (0.01 / 100) * size.width),
+              //                 bottom: BorderSide(
+              //                     width: (0.01 / 100) * size.width))),
+              //         child: Image.asset(
+              //           "assets/images/6.png",
+              //           fit: BoxFit.contain,
+              //         )),
+              //   ],
+              // ),
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -89,10 +89,12 @@ class InvoiceContent extends StatelessWidget {
               ),
               Column(
                 children: [
-                  Row(crossAxisAlignment: CrossAxisAlignment.start,mainAxisAlignment: MainAxisAlignment.start,
+                  Row(crossAxisAlignment: CrossAxisAlignment.start,mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      const RightCol(),
-                      Column(crossAxisAlignment: CrossAxisAlignment.start,
+                      Row(
+                        children: [
+                          const RightCol(),
+                            Column(crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           const UpRow(),
                           InvoiceDataGrid(
@@ -102,8 +104,11 @@ class InvoiceContent extends StatelessWidget {
                           ),
                         ],
                       ),
+                        ],
+                      ),
+                    
                       // const Expanded(child: SizedBox()),
-                      // const LeftButtons()
+                      // LeftButtons()
                     ],
                   ),
                   const Expanded(child: SizedBox()),

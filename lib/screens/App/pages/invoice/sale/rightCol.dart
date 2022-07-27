@@ -24,7 +24,7 @@ class _RightColState extends State<RightCol> {
     return Container(
       width: 135,
       // width: (8.5 / 100) * size.width,
-      height: (68.7 / 100) * size.height,
+      height: (71.5 / 100) * size.height,
       margin: EdgeInsets.only(
         left: (0.3 / 100) * size.width,
       ),

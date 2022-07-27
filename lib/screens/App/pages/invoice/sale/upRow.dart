@@ -5,6 +5,9 @@ import 'package:flutter/material.dart' as m;
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../theme.dart';
+import 'package:file_picker/file_picker.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/services.dart';
 
 class UpRow extends StatefulWidget {
   const UpRow({Key? key}) : super(key: key);
@@ -14,6 +17,136 @@ class UpRow extends StatefulWidget {
 }
 
 class _UpRowState extends State<UpRow> {
+  final GlobalKey<m.ScaffoldState> _scaffoldKey = GlobalKey<m.ScaffoldState>();
+  final _scaffoldMessengerKey = GlobalKey<m.ScaffoldMessengerState>();
+  String? _fileName;
+  String? _saveAsFileName;
+  List<PlatformFile>? _paths;
+  String? _directoryPath;
+  String? _extension;
+  bool _isLoading = false;
+  bool _userAborted = false;
+  bool _multiPick = false;
+  FileType _pickingType = FileType.any;
+  TextEditingController _controller = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    _controller.addListener(() => _extension = _controller.text);
+  }
+
+  void _pickFiles() async {
+    _resetState();
+    try {
+      _directoryPath = null;
+      _paths = (await FilePicker.platform.pickFiles(
+        type: _pickingType,
+        allowMultiple: _multiPick,
+        onFileLoading: (FilePickerStatus status) => print(status),
+        allowedExtensions: (_extension?.isNotEmpty ?? false)
+            ? _extension?.replaceAll(' ', '').split(',')
+            : null,
+      ))
+          ?.files;
+    } on PlatformException catch (e) {
+      _logException('Unsupported operation' + e.toString());
+    } catch (e) {
+      _logException(e.toString());
+    }
+    if (!mounted) return;
+    setState(() {
+      _isLoading = false;
+      _fileName =
+          _paths != null ? _paths!.map((e) => e.name).toString() : '...';
+      _userAborted = _paths == null;
+    });
+  }
+
+  void _clearCachedFiles() async {
+    _resetState();
+    try {
+      bool? result = await FilePicker.platform.clearTemporaryFiles();
+      m.ScaffoldMessenger.of(context).showSnackBar(
+        m.SnackBar(
+          backgroundColor: result! ? Colors.green : Colors.red,
+          content: Text((result
+              ? 'Temporary files removed with success.'
+              : 'Failed to clean temporary files')),
+        ),
+      );
+    } on PlatformException catch (e) {
+      _logException('Unsupported operation' + e.toString());
+    } catch (e) {
+      _logException(e.toString());
+    } finally {
+      setState(() => _isLoading = false);
+    }
+  }
+
+  void _selectFolder() async {
+    _resetState();
+    try {
+      String? path = await FilePicker.platform.getDirectoryPath();
+      setState(() {
+        _directoryPath = path;
+        _userAborted = path == null;
+      });
+    } on PlatformException catch (e) {
+      _logException('Unsupported operation' + e.toString());
+    } catch (e) {
+      _logException(e.toString());
+    } finally {
+      setState(() => _isLoading = false);
+    }
+  }
+
+  Future<void> _saveFile() async {
+    _resetState();
+    try {
+      String? fileName = await FilePicker.platform.saveFile(
+        allowedExtensions: (_extension?.isNotEmpty ?? false)
+            ? _extension?.replaceAll(' ', '').split(',')
+            : null,
+        type: _pickingType,
+      );
+      setState(() {
+        _saveAsFileName = fileName;
+        _userAborted = fileName == null;
+      });
+    } on PlatformException catch (e) {
+      _logException('Unsupported operation' + e.toString());
+    } catch (e) {
+      _logException(e.toString());
+    } finally {
+      setState(() => _isLoading = false);
+    }
+  }
+
+  void _logException(String message) {
+    print(message);
+    _scaffoldMessengerKey.currentState?.hideCurrentSnackBar();
+    _scaffoldMessengerKey.currentState?.showSnackBar(
+      m.SnackBar(
+        content: Text(message),
+      ),
+    );
+  }
+
+  void _resetState() {
+    if (!mounted) {
+      return;
+    }
+    setState(() {
+      _isLoading = true;
+      _directoryPath = null;
+      _fileName = null;
+      _paths = null;
+      _saveAsFileName = null;
+      _userAborted = false;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -22,13 +155,13 @@ class _UpRowState extends State<UpRow> {
     Typography typography = FluentTheme.of(context).typography;
 
     //-550
-    return SizedBox(
+    return Container(
       // width: (55.5 / 100) * size.width,
-      width: size.width - 195,
+      width: size.width - 150,
       // width: size.width/13,
       // height: (13 / 100) * size.height,
       height: 142,
-      // decoration: BoxDecoration(border: Border.all()),
+      decoration: BoxDecoration(border: Border.all()),
       child: Row(
         // mainAxisAlignment: MainAxisAlignment.start,
         children: [
@@ -122,7 +255,7 @@ class _UpRowState extends State<UpRow> {
                 height: 5,
               ),
               Container(
-                  width: 1+400,
+                  width: 1 + 400,
                   // height: (4 / 100) * size.height,
                   height: 43,
                   padding: const EdgeInsets.all(0.7),
@@ -153,11 +286,11 @@ class _UpRowState extends State<UpRow> {
                       width: 157,
                       // height: (2.5 / 100) * size.height,
                       height: 25,
-                        // padding: const EdgeInsets.all(0.7),
+                      // padding: const EdgeInsets.all(0.7),
                       decoration: BoxDecoration(
                           border:
                               Border.all(color: Colors.grey.withOpacity(0.8))),
-                      child:const  Form(child:TextBox())),
+                      child: const Form(child: TextBox())),
                   const SizedBox(
                     // width: (0.2 / 100) * size.width,
                     width: 5,
@@ -278,7 +411,7 @@ class _UpRowState extends State<UpRow> {
                 children: [
                   Container(
                       // width: (4.5 / 100) * size.width,
-                      width: 1+85,
+                      width: 1 + 85,
                       // height: (4 / 100) * size.height,
                       height: 43,
                       padding: const EdgeInsets.all(0.7),
@@ -296,7 +429,7 @@ class _UpRowState extends State<UpRow> {
                   // ignore: prefer_const_constructors
                   Container(
                       // width: (6 / 100) * size.width,
-                      width: 1+120,
+                      width: 1 + 120,
                       // height: (4 / 100) * size.height,
                       height: 43,
                       padding: const EdgeInsets.all(0.7),
@@ -537,15 +670,26 @@ class _UpRowState extends State<UpRow> {
               ],
             ),
           ),
-          const Expanded(child: SizedBox()),
-          // Container(
-          //     height: 130,
-          //     width: 120,
-          //     decoration: BoxDecoration(border: Border.all()),
-          //     child: Image.asset(
-          //       "assets/images/1.gif",
-          //       fit: BoxFit.fill,
-          //     )),
+    
+          Expanded(
+            child: GestureDetector(
+              onTap: () {
+                _pickFiles();
+                // Navigator.of(context).
+              
+                print(_fileName);
+              },
+              child: MouseRegion(
+                cursor: SystemMouseCursors.click,
+                child: Text(_fileName.toString()),
+                // child: _fileName==null?Text("data"):
+                // Image.asset(
+                //   "assets/images/$_fileName",
+                //   fit: BoxFit.contain,
+                // ),
+              ),
+            ),
+          ),
         ],
       ),
     );

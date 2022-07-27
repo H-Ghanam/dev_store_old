@@ -112,6 +112,8 @@ class _AppState extends State<App> with WindowListener {
   @override
   Widget build(BuildContext context) {
     final appTheme = context.watch<AppTheme>();
+    Size size = MediaQuery.of(context).size;
+
     return NavigationView(
       key: viewKey,
       appBar: NavigationAppBar(
@@ -202,13 +204,14 @@ class _AppState extends State<App> with WindowListener {
           resetSearch();
           setIndex(i);
         },
-        size: const NavigationPaneSize(
-          openMinWidth: 170.0,
-          openMaxWidth: 200.0,
-        ),
+        size:NavigationPaneSize(openWidth:(10.5 / 100) * size.width ),
+        //  const NavigationPaneSize(
+        //   openMinWidth: 170.0,
+        //   openMaxWidth: 200.0,
+        // ),
         header: Container(
           height: kOneLineTileHeight,
-          padding: const EdgeInsets.symmetric(horizontal: 10.0),
+          padding: const EdgeInsets.symmetric(horizontal: 6.0),
           child: appTheme.displayMode == PaneDisplayMode.top
               ? Image.asset("assets/images/6.png")
               : Row(

@@ -1,4 +1,0 @@
-USE mysql;
-CREATE USER 'admin'@'localhost' IDENTIFIED BY '7401840';
-GRANT ALL PRIVILEGES ON *.* TO 'admin'@'localhost';
-FLUSH PRIVILEGES;
