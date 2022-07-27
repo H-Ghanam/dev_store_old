@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:dev_store/blocs/app_bloc/app_bloc.dart';
 import 'package:dev_store/main.dart';
 import 'package:dev_store/screens/app/app_settings_page.dart';
@@ -11,6 +13,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
 import 'package:window_manager/window_manager.dart';
+
+import '../widgets/header.dart';
 
 class App extends StatefulWidget {
   const App({Key? key}) : super(key: key);
@@ -40,13 +44,17 @@ class _AppState extends State<App> with WindowListener {
   String get searchValue => searchController.text;
 
   final List<NavigationPaneItem> originalItems = [
+    PaneItemSeparator(),
+
     PaneItem(
       icon: const Icon(FluentIcons.home_solid),
       title: const Text('الرئيسية'),
+      
     ),
-    PaneItemSeparator(),
+    // PaneItemSeparator(),
     // PaneItemHeader(header: const Text('فواتير')),
     PaneItem(
+      
       tileColor: ButtonState.resolveWith((states) {
         return Colors.green.dark;
       }),
@@ -58,6 +66,7 @@ class _AppState extends State<App> with WindowListener {
       ),
       title: const Text('فواتير'),
     ),
+    
     // PaneItem(
     //   infoBadge: InfoBadge(color: Colors.red.darkest, source: const Text("3")),
     //   tileColor: ButtonState.resolveWith((states) {
@@ -69,6 +78,7 @@ class _AppState extends State<App> with WindowListener {
     // ),
     // PaneItemSeparator(),
   ];
+  
   late List<NavigationPaneItem> items = originalItems;
 
   final content = <Page>[
@@ -204,26 +214,33 @@ class _AppState extends State<App> with WindowListener {
           resetSearch();
           setIndex(i);
         },
-        size:NavigationPaneSize(openWidth:(10.5 / 100) * size.width ),
+        // size:NavigationPaneSize(topHeight: 35),
         //  const NavigationPaneSize(
         //   openMinWidth: 170.0,
         //   openMaxWidth: 200.0,
         // ),
-        header: Container(
-          height: kOneLineTileHeight,
-          padding: const EdgeInsets.symmetric(horizontal: 6.0),
-          child: appTheme.displayMode == PaneDisplayMode.top
-              ? Image.asset("assets/images/6.png")
-              : Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    const Text("WINGS"),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    Image.asset("assets/images/6.png"),
-                  ],
-                ),
+        header: Row(
+          children: [
+
+            // Container(
+            //   height: kOneLineTileHeight,
+            //   padding: const EdgeInsets.symmetric(horizontal: 6.0),
+            //   child: appTheme.displayMode == PaneDisplayMode.top
+            //       ? Image.asset("assets/images/6.png")
+            //       : Row(
+            //           mainAxisAlignment: MainAxisAlignment.end,
+            //           children: [
+            //             const Text("WINGS"),
+            //             const SizedBox(
+            //               width: 10,
+            //             ),
+            //             Image.asset("assets/images/6.png"),
+            //           ],
+            //         ),
+            // ),
+            Visibility(visible:index==1?true: false,child: Header()),
+
+          ],
         ),
         displayMode: appTheme.displayMode,
         indicator: () {
@@ -236,12 +253,16 @@ class _AppState extends State<App> with WindowListener {
           }
         }(),
         items: items,
-        autoSuggestBox: TextBox(
-          key: key,
-          controller: searchController,
-          placeholder: '  البحث في الصفحات',
-          focusNode: searchFocusNode,
+        autoSuggestBox: SizedBox(
+          width: 100,
+          child: TextBox(
+              key: key,
+              controller: searchController,
+              placeholder: '  البحث في الصفحات',
+              focusNode: searchFocusNode,
+              ),
         ),
+       
         autoSuggestBoxReplacement: const Icon(FluentIcons.search),
         footerItems: [
           PaneItemSeparator(),

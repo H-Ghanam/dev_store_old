@@ -6,13 +6,14 @@ import 'package:dev_store/models/invoice.dart';
 import 'package:dev_store/models/invoice_options.dart';
 import 'package:dev_store/models/item.dart';
 import 'package:dev_store/models/money.dart';
+import 'package:dev_store/screens/App/pages/invoice/sale/upRow.dart';
 import 'package:dev_store/screens/app/pages/invoice/invoice_datagrid.dart';
 import 'package:dev_store/screens/app/pages/invoice/sale/buttonsRow.dart';
 import 'package:dev_store/screens/app/pages/invoice/sale/greenRow.dart';
 import 'package:dev_store/screens/app/pages/invoice/sale/leftButtons.dart';
 import 'package:dev_store/screens/app/pages/invoice/sale/myGrid.dart';
 import 'package:dev_store/screens/app/pages/invoice/sale/rightCol.dart';
-import 'package:dev_store/screens/app/pages/invoice/sale/upRow.dart';
+// import 'package:dev_store/screens/app/pages/invoice/sale/upRow.dart';
 import 'package:dev_store/theme.dart';
 import 'package:fluent_ui/fluent_ui.dart';
 import 'package:flutter/material.dart';
@@ -79,37 +80,44 @@ class InvoiceContent extends StatelessWidget {
               Column(
                 // mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const SizedBox(height: 141,),
+                  const SizedBox(
+                    height: 141,
+                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       LeftButtons(),
-                      const SizedBox(width: 5,)
+                      const SizedBox(
+                        width: 5,
+                      )
                     ],
                   ),
-                  
                 ],
               ),
+
               Column(
                 children: [
-                  Row(crossAxisAlignment: CrossAxisAlignment.start,mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Row(
                         children: [
                           const RightCol(),
-                            Column(crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const UpRow(),
-                          InvoiceDataGrid(
-                            invoiceItems: invoiceItemsResponses,
-                            appTheme: appTheme,
-                            size: size,
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const UpRow(),
+                              InvoiceDataGrid(
+                                invoiceItems: invoiceItemsResponses,
+                                appTheme: appTheme,
+                                size: size,
+                              ),
+                            ],
                           ),
                         ],
                       ),
-                        ],
-                      ),
-                    
+
                       // const Expanded(child: SizedBox()),
                       // LeftButtons()
                     ],
@@ -124,6 +132,24 @@ class InvoiceContent extends StatelessWidget {
                     child: const ButtonsRow(),
                   )
                 ],
+              ),
+              Visibility(
+                visible: false,
+                child: Column(
+                  children: [
+                    const SizedBox(height: 75,),
+                    Row(
+                      children: [
+                        const SizedBox(width: 140,),
+                        InvoiceDataGrid(
+                          invoiceItems: invoiceItemsResponses,
+                          appTheme: appTheme,
+                          size: MediaQuery.of(context).size,
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ]),
           );

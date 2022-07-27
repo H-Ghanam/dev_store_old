@@ -1,6 +1,8 @@
 // ignore_for_file: file_names
 
+import 'package:dev_store/blocs/invoice_bloc/invoice_bloc.dart';
 import 'package:fluent_ui/fluent_ui.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart' as m;
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -35,6 +37,14 @@ class _UpRowState extends State<UpRow> {
   void initState() {
     super.initState();
     _controller.addListener(() => _extension = _controller.text);
+    txt1 = FocusNode();
+  txt1!.addListener(() {
+      // if(txt1!.hasFocus)_controller!.clear();
+      if (txt1!.hasFocus) {
+        _controller.selection = TextSelection(
+            baseOffset: 0, extentOffset: _controller.text.length);
+      }
+    });
   }
 
   void _pickFiles() async {
@@ -148,6 +158,21 @@ class _UpRowState extends State<UpRow> {
     });
   }
 
+  /////////////////////
+  // search
+  FocusNode? txt1;
+
+  String searchText = "";
+  // bool searchGrid=false;
+  GlobalKey<FormState> formstate = GlobalKey<FormState>();
+  save() {
+    var formdata = formstate.currentState;
+    if (formdata!.validate()) {
+      formdata.save();
+    }
+    print(searchText);
+  }
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -256,15 +281,37 @@ class _UpRowState extends State<UpRow> {
                 height: 5,
               ),
               Container(
-                  width: 1 + 400,
+                  width: 401,
                   // height: (4 / 100) * size.height,
                   height: 43,
                   padding: const EdgeInsets.all(0.7),
                   decoration: BoxDecoration(
                       border: Border.all(color: Colors.grey.withOpacity(0.8))),
                   child: Form(
+                    key: formstate,
+                    
                     child: TextBox(
-                        decoration: BoxDecoration(color: appTheme.color)),
+                      focusNode: txt1,
+                      onChanged: (val) {
+                        setState(() {
+                          searchText = val;
+                          save();
+                          // searchText==""?searchGrid=false:searchGrid=true;
+                        });
+                      },
+                      padding: EdgeInsets.zero,
+                      decoration: BoxDecoration(
+                          color: searchText == ""
+                              ? appTheme.color
+                              : Colors.orange.dark
+                                  .withGreen(1)
+                                  .withOpacity(0.85)),
+                      // ignore: prefer_const_constructors
+                      style: TextStyle(
+                        fontSize: 25,
+                        color: Colors.white,
+                      ),
+                    ),
                   )),
               const SizedBox(
                 // height: (0.25 / 100) * size.height,

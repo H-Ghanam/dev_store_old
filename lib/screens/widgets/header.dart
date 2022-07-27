@@ -21,7 +21,7 @@ class _HeaderState extends State<Header> {
     Typography typography = FluentTheme.of(context).typography;
 
     return Container(
-      margin: EdgeInsets.all((0.3 / 100) * size.width),
+      // margin: EdgeInsets.all((0.3 / 100) * size.width),
       // decoration: BoxDecoration(boxShadow:[BoxShadow(color: appTheme.color,blurRadius: 0.1,spreadRadius: 1)],),
       child: Row(
         textDirection: TextDirection.rtl,
@@ -40,7 +40,7 @@ class _HeaderState extends State<Header> {
                   ),
                   child: Text(
                     "بيع",
-                    style: TextStyle(fontSize: typography.caption!.fontSize),
+                    style: TextStyle(fontSize: typography.caption!.fontSize!-1),
                   )),
               SizedBox(
                 width: (0.4 / 100) * size.width,
@@ -60,7 +60,7 @@ class _HeaderState extends State<Header> {
                   ),
                   child: Text("مرتجع بيع",
                       style:
-                          TextStyle(fontSize: typography.caption!.fontSize))),
+                          TextStyle(fontSize: typography.caption!.fontSize!-1))),
             ],
           ),
 
@@ -81,7 +81,7 @@ class _HeaderState extends State<Header> {
                   ),
                   child: Text("شراء",
                       style:
-                          TextStyle(fontSize: typography.caption!.fontSize))),
+                          TextStyle(fontSize: typography.caption!.fontSize!-1))),
               SizedBox(
                 width: (0.4 / 100) * size.width,
                 child: Container(
@@ -100,7 +100,7 @@ class _HeaderState extends State<Header> {
                   ),
                   child: Text("مرتجع شراء",
                       style:
-                          TextStyle(fontSize: typography.caption!.fontSize))),
+                          TextStyle(fontSize: typography.caption!.fontSize!-1))),
             ],
           ),
           SizedBox(
@@ -120,7 +120,7 @@ class _HeaderState extends State<Header> {
                   ),
                   child: Text("قبض",
                       style:
-                          TextStyle(fontSize: typography.caption!.fontSize))),
+                          TextStyle(fontSize: typography.caption!.fontSize!-1))),
               SizedBox(
                 width: (0.4 / 100) * size.width,
                 child: Container(
@@ -139,7 +139,7 @@ class _HeaderState extends State<Header> {
                   ),
                   child: Text("صرف",
                       style:
-                          TextStyle(fontSize: typography.caption!.fontSize))),
+                          TextStyle(fontSize: typography.caption!.fontSize!-1))),
             ],
           ),
           SizedBox(
@@ -156,7 +156,7 @@ class _HeaderState extends State<Header> {
                 backgroundColor: ButtonState.all(Colors.yellow.darkest),
               ),
               child: Text("عرض أسعار",
-                  style: TextStyle(fontSize: typography.caption!.fontSize))),
+                  style: TextStyle(fontSize: typography.caption!.fontSize!-1))),
 
           SizedBox(
             width: (1 / 100) * size.width,
@@ -176,7 +176,7 @@ class _HeaderState extends State<Header> {
                   ),
                   child: Text("جرد مخزن",
                       style:
-                          TextStyle(fontSize: typography.caption!.fontSize))),
+                          TextStyle(fontSize: typography.caption!.fontSize!-1))),
               SizedBox(
                 width: (0.4 / 100) * size.width,
                 child: Container(
@@ -196,7 +196,7 @@ class _HeaderState extends State<Header> {
                   ),
                   child: Text("تحويل لمخزن",
                       style:
-                          TextStyle(fontSize: typography.caption!.fontSize))),
+                          TextStyle(fontSize: typography.caption!.fontSize!-1))),
               SizedBox(
                 width: (0.4 / 100) * size.width,
                 child: Container(
@@ -216,7 +216,7 @@ class _HeaderState extends State<Header> {
                   ),
                   child: Text("تسوية مخزن",
                       style:
-                          TextStyle(fontSize: typography.caption!.fontSize))),
+                          TextStyle(fontSize: typography.caption!.fontSize!-1))),
             ],
           ),
         ],
