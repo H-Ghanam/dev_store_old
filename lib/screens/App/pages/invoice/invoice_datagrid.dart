@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:dev_store/data/api/invoice_items_response.dart';
 import 'package:dev_store/screens/app/pages/invoice/invoice_items_data_source.dart';
+import 'package:dev_store/screens/app/pages/invoice/sale/upRow.dart';
 import 'package:dev_store/theme.dart';
 import 'package:fluent_ui/fluent_ui.dart' hide ButtonStyle;
 import 'package:flutter/material.dart'
@@ -240,9 +241,13 @@ class _InvoiceDataGridState extends State<InvoiceDataGrid> {
     final appTheme = context.watch<AppTheme>();
     return SizedBox(
       width: (75 / 100) * size.width,
-      height: (55.7 / 100) * size.height,
+      height: (68 / 100) * size.height,
       child: Scaffold(
         body: PlutoGrid(
+          createHeader: (stateManager) => UpRow(stateManager: stateManager),
+          // createFooter: ((stateManager) {
+          //   return PlutoPagination(stateManager);
+          // }),
           rows: rows,
           columns: columns,
           onChanged: (PlutoGridOnChangedEvent event) {

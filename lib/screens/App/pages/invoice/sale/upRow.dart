@@ -1,30 +1,85 @@
 // ignore_for_file: file_names
 
+import 'package:dev_store/blocs/invoice_bloc/invoice_bloc.dart';
+import 'package:dev_store/theme.dart';
 import 'package:fluent_ui/fluent_ui.dart';
 import 'package:flutter/material.dart' as m;
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../../../../theme.dart';
+import 'package:pluto_grid/pluto_grid.dart';
 
 class UpRow extends StatefulWidget {
-  const UpRow({Key? key}) : super(key: key);
+  const UpRow({Key? key, required this.stateManager}) : super(key: key);
+
+  final PlutoGridStateManager stateManager;
 
   @override
   State<UpRow> createState() => _UpRowState();
 }
 
 class _UpRowState extends State<UpRow> {
+  PlutoGridSelectingMode gridSelectingMode = PlutoGridSelectingMode.row;
+  TextEditingController itemController = TextEditingController(text: "");
+  TextEditingController qtyController = TextEditingController(text: "");
+  TextEditingController priceController = TextEditingController(text: "");
+  double total = 0.0;
+  @override
+  void initState() {
+    super.initState();
+
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      // widget.stateManager.setSelectingMode(gridSelectingMode);
+
+      widget.stateManager.addListener(() {
+        Iterable<MapEntry<String, PlutoCell>> rowCells =
+            widget.stateManager.currentRow!.cells.entries;
+        itemController.text = rowCells
+            .firstWhere((element) => element.key == "اسم الصنف")
+            .value
+            .value
+            .toString();
+        qtyController.text = rowCells
+            .firstWhere((element) => element.key == "الكمية")
+            .value
+            .value
+            .toString();
+
+        priceController.text = rowCells
+            .firstWhere((element) => element.key == "السعر")
+            .value
+            .value
+            .toString();
+
+        // Todo ....
+        double _total = 0.0;
+        for (var element in widget.stateManager.rows) {
+          if (element.cells["النهائي"]!.value != null) {
+            _total += double.parse(element.cells["النهائي"]!.value.toString());
+          }
+        }
+
+        total = _total;
+      });
+    });
+  }
+
+  @override
+  void dispose() {
+    widget.stateManager.removeListener(() {});
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    InvoiceBloc invoiceBloc = BlocProvider.of<InvoiceBloc>(context);
     final appTheme = context.watch<AppTheme>();
     Brightness brightness = FluentTheme.of(context).brightness;
     Typography typography = FluentTheme.of(context).typography;
 
     //-550
     return SizedBox(
-      width: (55.5 / 100) * size.width,
-      // width: size.width/13,
+      // width: (55.5 / 100) * size.width,
+      // // width: size.width/13,
       height: (13 / 100) * size.height,
       // decoration: BoxDecoration(border: Border.all()),
       child: Row(
@@ -104,7 +159,10 @@ class _UpRowState extends State<UpRow> {
               SizedBox(
                   width: (27.8 / 100) * size.width,
                   height: (4 / 100) * size.height,
-                  child: const Form(child: TextBox())),
+                  child: Form(
+                      child: TextBox(
+                    controller: itemController,
+                  ))),
               SizedBox(
                 height: (0.25 / 100) * size.height,
               ),
@@ -219,14 +277,20 @@ class _UpRowState extends State<UpRow> {
                   SizedBox(
                       width: (4.5 / 100) * size.width,
                       height: (4 / 100) * size.height,
-                      child: const Form(child: TextBox())),
+                      child: Form(
+                          child: TextBox(
+                        controller: qtyController,
+                      ))),
                   SizedBox(
                     width: (0.25 / 100) * size.width,
                   ),
                   SizedBox(
                       width: (6 / 100) * size.width,
                       height: (4 / 100) * size.height,
-                      child: const Form(child: TextBox())),
+                      child: Form(
+                          child: TextBox(
+                        controller: priceController,
+                      ))),
                 ],
               ),
               SizedBox(
@@ -329,7 +393,7 @@ class _UpRowState extends State<UpRow> {
           // ),
           Container(
             height: (12 / 100) * size.height,
-            width: (11.5 / 100) * size.width,
+            width: (15 / 100) * size.width,
             color: appTheme.color,
             child: Column(
               children: [
@@ -366,7 +430,7 @@ class _UpRowState extends State<UpRow> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     SizedBox(
-                      width: (5 / 100) * size.width,
+                      width: (7 / 100) * size.width,
                       height: (3 / 100) * size.height,
                       child: Directionality(
                         textDirection: TextDirection.ltr,
@@ -397,7 +461,7 @@ class _UpRowState extends State<UpRow> {
                     // width: size.width/15,
                     alignment: Alignment.center,
                     child: Text(
-                      "0",
+                      total.toString(),
                       style: TextStyle(
                         fontSize: (2 / 100) * size.width,
                         color: brightness.isDark ? Colors.white : Colors.black,
