@@ -22,16 +22,18 @@ class _RightColState extends State<RightCol> {
     Typography typography = FluentTheme.of(context).typography;
 
     return Container(
-      width: (6.5 / 100) * size.width,
+      width: 135,
+      // width: (8.5 / 100) * size.width,
       height: (68.7 / 100) * size.height,
       margin: EdgeInsets.only(
         left: (0.3 / 100) * size.width,
       ),
-      // color: const Color.fromARGB(255, 233, 233, 233),
+      padding: const EdgeInsets.symmetric(vertical: 7),
+      color:  Colors.grey.withOpacity(0.06),
       child: Column(
         children: [
           SizedBox(
-            height: (0.4 / 100) * size.height,
+            height: (0.0 / 100) * size.height,
           ),
           Container(
             decoration: BoxDecoration(
@@ -47,24 +49,29 @@ class _RightColState extends State<RightCol> {
                       appTheme.color,
                       appTheme.color.lightest,
                     ])),
-            width: (6.5 / 100) * size.width,
-            height: (11.5 / 100) * size.height,
+                    width: 122,
+            // width: (7.5/ 100) * size.width,
+            height: 115,
+            // height: (13 / 100) * size.height,
             child: Column(
               children: [
                 Stack(children: [
                   Center(
                       child: Image.asset(
                     "assets/images/6.png",
-                    width: (5 / 100) * size.width,
+                    width: 80,
+                    // width: (5 / 100) * size.width,
                   )),
                   Container(
                     alignment: Alignment.center,
-                    margin: EdgeInsets.only(top: (8.3 / 100) * size.height),
-                    child: Text(
+                    margin: const EdgeInsets.only(top: 78),
+                    // margin: EdgeInsets.only(top: (8.9 / 100) * size.height),
+                    child:const Text(
                       "Wings",
                       style: TextStyle(
                           // color: const Color.fromARGB(255, 255, 255, 255),
-                          fontSize: typography.body!.fontSize!,
+                          fontSize: 26,
+                          // fontSize: (1.6 / 100) * size.width,
                           fontWeight: FontWeight.bold,
                           color: Colors.white,
                           fontFamily: "En"),
@@ -74,12 +81,15 @@ class _RightColState extends State<RightCol> {
               ],
             ),
           ),
-          SizedBox(
-            height: (0.4 / 100) * size.height,
+          const SizedBox(
+            // height: (0.8 / 100) * size.height,
+            height: 8,
           ),
           Container(
-            width: (6.5 / 100) * size.width,
-            height: (4 / 100) * size.height,
+            // width: (7.5/ 100) * size.width,
+            width: 122,
+            // height: (6.4 / 100) * size.height,
+            height: 55,
             alignment: Alignment.center,
             decoration: BoxDecoration(
               boxShadow: [
@@ -88,72 +98,93 @@ class _RightColState extends State<RightCol> {
               ],
               color: appTheme.color.light,
             ),
-            child: Text(
+            child: const Text(
               "بيع",
-              style: TextStyle(
-                  fontSize: typography.body!.fontSize, color: Colors.white),
+              style: TextStyle(fontFamily: "",
+                  // fontSize: (1.2 / 100) * size.width,
+                  fontSize: 19,
+                  
+                   color: Colors.white),
             ),
           ),
-          SizedBox(
-            height: (0.4 / 100) * size.height,
+          const SizedBox(
+            // height: (0.8 / 100) * size.height,
+            height: 8,
           ),
-          SizedBox(
-              width: (6.5 / 100) * size.width,
-              height: (3.5 / 100) * size.height,
-              child: const ToolsRow()),
-          SizedBox(
-            height: (0.4 / 100) * size.height,
-          ),
-          Container(
-            width: (6.5 / 100) * size.width,
-            height: (10.5 / 100) * size.height,
-            color: Colors.yellow.darker,
-            alignment: Alignment.center,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Icon(
-                  FluentIcons.skype_check,
-                  size: (4 / 100) * size.width,
-                ),
-                Text(
-                  "حفظ | جديد",
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: (0.8 / 100) * size.width,
-                  ),
-                ),
-                Text(
-                  "F12",
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: (0.8 / 100) * size.width,
-                  ),
-                ),
-              ],
-            ),
-          ),
-          SizedBox(
-            height: (0.4 / 100) * size.height,
+          const SizedBox(
+            width: 122,
+              // width: (7.5/ 100) * size.width,
+              // height: (3.6 / 100) * size.height,
+              height: 31,
+              child: ToolsRow()),
+          const SizedBox(
+            // height: (0.8 / 100) * size.height,
+            height: 8,
           ),
           Container(
-            width: (6.5 / 100) * size.width,
-            height: (10.5 / 100) * size.height,
-            color: const Color.fromARGB(255, 202, 202, 202),
+            // width: (7.5/ 100) * size.width,
+            width: 122,
+            // height: (12.3 / 100) * size.height,
+            height: 112,
+            color: Colors.yellow.darker.withOpacity(0.9),
             alignment: Alignment.center,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Icon(
+                  FluentIcons.skype_check,
+                  // size: (4.5 / 100) * size.width,
+                  size: 75,
+                  color: Colors.blue.light,
+                ),
+                const Text(
+                  "حفظ | جديد",
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontFamily: "",
+                    // fontSize: (0.75 / 100) * size.width,
+                    fontSize: 12.5
+                  ),
+                ),
+                const Text(
+                  "F12",
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontFamily: "",
+                    // fontSize: (0.75 / 100) * size.width,
+                    fontSize: 12.5
+                  ),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(
+            // height: (0.8 / 100) * size.height,
+            height: 8,
+          ),
+          Container(
+            // width: (7.5/ 100) * size.width,
+            width: 122,
+            // height: (12.3 / 100) * size.height,
+            height: 112,
+            color:  Colors.grey.withOpacity(0.07),
+            alignment: Alignment.center,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: const[
+                Icon(
                   m.Icons.price_change,
-                  size: (3 / 100) * size.width,
+                  // size: (3 / 100) * size.width,
+                  size: 40,
                   color: Colors.black,
                 ),
-                Text(
+                 Text(
                   "سداد  f11",
                   style: TextStyle(
                     color: Colors.black,
-                    fontSize: (0.8 / 100) * size.width,
+                    fontFamily: "",
+                    // fontSize: (0.75 / 100) * size.width,
+                    fontSize: 12.5
                   ),
                 ),
               ],
@@ -164,14 +195,17 @@ class _RightColState extends State<RightCol> {
           ),
           Row(
             children: [
-              Icon(
+             const Icon(
                 m.Icons.print,
-                size: (1.5 / 100) * size.width,
+                // size: (1.5 / 100) * size.width,
+                size: 22,
                 color: Colors.black,
               ),
               SizedBox(
-                width: (3 / 100) * size.width,
-                height: (3 / 100) * size.height,
+                // width: (3 / 100) * size.width,
+                width: 40,
+                // height: (3 / 100) * size.height,
+                height: 25,
                 child: ToggleSwitch(
                   checked: false,
                   onChanged: (e) {},

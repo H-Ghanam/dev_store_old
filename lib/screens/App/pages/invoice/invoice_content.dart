@@ -61,7 +61,8 @@ class InvoiceContent extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Container(
-                      height: (13.2 / 100) * size.height,
+                      // height: (13.2 / 100) * size.height,
+                      height: 142,
                       width: (13.5 / 100) * size.width,
                       decoration: BoxDecoration(
                           border: Border(
@@ -88,11 +89,10 @@ class InvoiceContent extends StatelessWidget {
               ),
               Column(
                 children: [
-                  Row(
+                  Row(crossAxisAlignment: CrossAxisAlignment.start,mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       const RightCol(),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                      Column(crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           const UpRow(),
                           InvoiceDataGrid(
