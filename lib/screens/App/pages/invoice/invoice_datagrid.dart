@@ -16,16 +16,26 @@ import 'package:pluto_grid/pluto_grid.dart';
 import 'package:provider/provider.dart';
 
 class InvoiceDataGrid extends StatefulWidget {
-  const InvoiceDataGrid(
+   InvoiceDataGrid(
       {Key? key,
       required this.invoiceItems,
       required this.appTheme,
-      required this.size})
+      required this.size,
+      required this.width,
+      required this.height,
+      required this.i
+
+      })
       : super(key: key);
 
   final List<InvoiceItemsResponse> invoiceItems;
   final AppTheme appTheme;
   final Size size;
+  double width;
+  double height;
+  double i;
+
+
 
   @override
   State<InvoiceDataGrid> createState() => _InvoiceDataGridState();
@@ -91,7 +101,7 @@ class _InvoiceDataGridState extends State<InvoiceDataGrid> {
                         const Text('Input some text, and Press Create Button.'),
                         TextField(
                           controller: textController,
-                          autofocus: true,
+                          autofocus: false,
                         ),
                         const SizedBox(height: 15),
                         Center(
@@ -174,7 +184,7 @@ class _InvoiceDataGridState extends State<InvoiceDataGrid> {
                         const Text('Input some text, and Press Update Button.'),
                         TextField(
                           controller: textController,
-                          autofocus: true,
+                          autofocus: false,
                         ),
                         const SizedBox(height: 20),
                         ...row!.cells.entries
@@ -238,12 +248,15 @@ class _InvoiceDataGridState extends State<InvoiceDataGrid> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     final appTheme = context.watch<AppTheme>();
-    return SizedBox(
+    return Container(
       // width: (75 / 100) * size.width,
       // width: size.width-365,
-      width: size.width-216,
-      height: size.height-390,
+      //216
+      //390
+      width: size.width-widget.width,
+      height: size.height-widget.height,
       // height: (55.7 / 100) * size.height,
+      decoration: BoxDecoration(border: Border.all(color: Colors.yellow,width: widget.i)),
       child: Scaffold(
         body: PlutoGrid(
           rows: rows,
@@ -252,6 +265,7 @@ class _InvoiceDataGridState extends State<InvoiceDataGrid> {
             print(event);
           },
           onLoaded: (PlutoGridOnLoadedEvent event) {
+            
             stateManager = event.stateManager;
 
             removeKeyboardListener =
@@ -259,12 +273,13 @@ class _InvoiceDataGridState extends State<InvoiceDataGrid> {
 
             stateManager.setSelectingMode(PlutoGridSelectingMode.none);
           },
+          
           onSelected: (PlutoGridOnSelectedEvent event) {
             if (event.row != null) {
               openDetail(event.row);
             }
           },
-          mode: PlutoGridMode.select,
+          mode: PlutoGridMode.normal,
           configuration: PlutoGridConfiguration(
             localeText: const PlutoGridLocaleText.arabic(),
             style: PlutoGridStyleConfig(

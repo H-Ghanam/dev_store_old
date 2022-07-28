@@ -1,4 +1,5 @@
 import 'package:dev_store/blocs/invoice_bloc/invoice_bloc.dart';
+import 'package:dev_store/cubit/showGrid_cubit.dart';
 import 'package:dev_store/data/api/invoice_items_response.dart';
 import 'package:dev_store/data/api/invoice_response.dart';
 import 'package:dev_store/models/category.dart';
@@ -6,12 +7,13 @@ import 'package:dev_store/models/invoice.dart';
 import 'package:dev_store/models/invoice_options.dart';
 import 'package:dev_store/models/item.dart';
 import 'package:dev_store/models/money.dart';
+import 'package:dev_store/screens/App/pages/invoice/invoice_datagrid.dart';
 import 'package:dev_store/screens/App/pages/invoice/sale/upRow.dart';
-import 'package:dev_store/screens/app/pages/invoice/invoice_datagrid.dart';
+// import 'package:dev_store/screens/app/pages/invoice/invoice_datagrid.dart';
 import 'package:dev_store/screens/app/pages/invoice/sale/buttonsRow.dart';
 import 'package:dev_store/screens/app/pages/invoice/sale/greenRow.dart';
 import 'package:dev_store/screens/app/pages/invoice/sale/leftButtons.dart';
-import 'package:dev_store/screens/app/pages/invoice/sale/myGrid.dart';
+// import 'package:dev_store/screens/app/pages/invoice/sale/myGrid.dart';
 import 'package:dev_store/screens/app/pages/invoice/sale/rightCol.dart';
 // import 'package:dev_store/screens/app/pages/invoice/sale/upRow.dart';
 import 'package:dev_store/theme.dart';
@@ -108,11 +110,20 @@ class InvoiceContent extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               const UpRow(),
+                              // InvoiceDataGrid(
+                                // invoiceItems: invoiceItemsResponses,
+                                // appTheme: appTheme,
+                                // size: size,
+
+                              // ),
                               InvoiceDataGrid(
-                                invoiceItems: invoiceItemsResponses,
+                                   invoiceItems: invoiceItemsResponses,
                                 appTheme: appTheme,
                                 size: size,
-                              ),
+                                 width: 216,
+                                 height: 390,
+                                i: 0,
+                                 )
                             ],
                           ),
                         ],
@@ -133,23 +144,34 @@ class InvoiceContent extends StatelessWidget {
                   )
                 ],
               ),
-              Visibility(
-                visible: false,
-                child: Column(
-                  children: [
-                    const SizedBox(height: 75,),
-                    Row(
+              BlocBuilder<ShowGridCubit, ShowGridState>(
+                builder: (context, state) {
+                  return Visibility(
+                    visible: BlocProvider.of<ShowGridCubit>(context).visibility,
+                    child: Column(
                       children: [
-                        const SizedBox(width: 140,),
-                        InvoiceDataGrid(
-                          invoiceItems: invoiceItemsResponses,
-                          appTheme: appTheme,
-                          size: MediaQuery.of(context).size,
+                        const SizedBox(
+                          height: 75,
+                        ),
+                        Row(
+                          children: [
+                            const SizedBox(
+                              width: 143,
+                            ),
+                            InvoiceDataGrid(
+                              invoiceItems: invoiceItemsResponses,
+                              appTheme: appTheme,
+                              size: MediaQuery.of(context).size,
+                              width: 145,
+                              height: 320,
+                              i: 3,
+                            ),
+                          ],
                         ),
                       ],
                     ),
-                  ],
-                ),
+                  );
+                },
               ),
             ]),
           );

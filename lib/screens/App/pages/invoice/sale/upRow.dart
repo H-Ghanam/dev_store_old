@@ -1,6 +1,7 @@
 // ignore_for_file: file_names
 
 import 'package:dev_store/blocs/invoice_bloc/invoice_bloc.dart';
+import 'package:dev_store/cubit/showGrid_cubit.dart';
 import 'package:fluent_ui/fluent_ui.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart' as m;
@@ -38,11 +39,11 @@ class _UpRowState extends State<UpRow> {
     super.initState();
     _controller.addListener(() => _extension = _controller.text);
     txt1 = FocusNode();
-  txt1!.addListener(() {
+    txt1!.addListener(() {
       // if(txt1!.hasFocus)_controller!.clear();
       if (txt1!.hasFocus) {
-        _controller.selection = TextSelection(
-            baseOffset: 0, extentOffset: _controller.text.length);
+        _controller.selection =
+            TextSelection(baseOffset: 0, extentOffset: _controller.text.length);
       }
     });
   }
@@ -289,10 +290,14 @@ class _UpRowState extends State<UpRow> {
                       border: Border.all(color: Colors.grey.withOpacity(0.8))),
                   child: Form(
                     key: formstate,
-                    
                     child: TextBox(
                       focusNode: txt1,
                       onChanged: (val) {
+                        val != ""
+                            ? BlocProvider.of<ShowGridCubit>(context).Showgrid()
+                            : BlocProvider.of<ShowGridCubit>(context)
+                                .Hidegrid();
+                        // FocusScope.of(context).requestFocus(txt1);
                         setState(() {
                           searchText = val;
                           save();
@@ -600,20 +605,28 @@ class _UpRowState extends State<UpRow> {
                 // height: (0.25 / 100) * size.height,
                 height: 5,
               ),
-              Button(
-                  style: ButtonStyle(
-                      padding: ButtonState.all(const EdgeInsets.symmetric(
-                          // horizontal: (1 / 100) * size.width,
-                          horizontal: 18,
-                          // vertical: (0.3 / 100) * size.height
-                          vertical: 4))),
-                  child: Icon(
-                    FluentIcons.skype_check,
-                    // size: (1.8 / 100) * size.width,
-                    size: 32,
-                    color: Colors.green.lightest,
-                  ),
-                  onPressed: () {}),
+              BlocProvider(
+                create: (context) => ShowGridCubit(),
+                child: Button(
+                    style: ButtonStyle(
+                        padding: ButtonState.all(const EdgeInsets.symmetric(
+                            // horizontal: (1 / 100) * size.width,
+                            horizontal: 18,
+                            // vertical: (0.3 / 100) * size.height
+                            vertical: 4))),
+                    child: Icon(
+                      FluentIcons.skype_check,
+                      // size: (1.8 / 100) * size.width,
+                      size: 32,
+                      color: Colors.green.lightest,
+                    ),
+                    onPressed: () {
+                      BlocProvider.of<ShowGridCubit>(context).visibility ==
+                              false
+                          ? BlocProvider.of<ShowGridCubit>(context).Showgrid()
+                          : BlocProvider.of<ShowGridCubit>(context).Hidegrid();
+                    }),
+              )
             ],
           ),
           const SizedBox(
