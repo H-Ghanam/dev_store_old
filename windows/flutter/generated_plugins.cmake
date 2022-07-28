@@ -7,6 +7,7 @@ list(APPEND FLUTTER_PLUGIN_LIST
   desktop_window
   flutter_acrylic
   network_info_plus_windows
+  platform_device_id_windows
   screen_retriever
   system_theme
   url_launcher_windows
