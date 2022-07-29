@@ -1,7 +1,7 @@
 import 'package:dev_store/blocs/app_bloc/app_bloc.dart';
 import 'package:dev_store/blocs/invoice_bloc/invoice_bloc.dart';
 import 'package:dev_store/data/repositories/invoice_repository.dart';
-import 'package:dev_store/screens/routes.dart';
+import 'package:dev_store/routes.dart';
 import 'package:dev_store/theme.dart';
 import 'package:fluent_ui/fluent_ui.dart';
 import 'package:flutter/foundation.dart';
